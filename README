@@ -1,1 +1,5 @@
 A Flask app serving the homepage of the modENCODE project
+
+Requirements:
+- Flask 0.7+
+- (optional) CherryPy

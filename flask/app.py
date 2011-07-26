@@ -5,20 +5,13 @@
 from flask import Flask
 
 # imports
-import libs.utils as utils
+import config
 
-def create_app(database):
+def create_app():
     # create our little application :)
     app = Flask(__name__)
-    app.debug = True
-    app.config.from_object(__name__)
-    app.secret_key = 'jr/$^_^"%6{>=!1:Chx(bvK2h%SN?H@/1?X4K`J4=@fJ=1MvYs"k4h;-ty2vq'
-
-    # db import
-    from libs.db import init_connection
-
-    # db setup
-    init_connection(database)
+    app.config.from_object(config)
+    app.secret_key = config.SECRET_KEY
 
     # presenters
     from presenters.home import home
@@ -26,13 +19,8 @@ def create_app(database):
     # register modules
     app.register_blueprint(home)
 
-    # template filters
-    @app.template_filter('test_format')
-    def test_format(input):
-        return input[::-1]
-
     return app
 
 if __name__ == '__main__':
-    app = create_app(database='mydatabase')
-    app.run(port=5006)
+    app = create_app()
+    app.run(port=config.FLASK_PORT)

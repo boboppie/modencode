@@ -6,7 +6,7 @@ from flask import Blueprint, render_template, request, redirect
 from flask.helpers import url_for
 
 # models
-from models.users import Users
+from models.modmine import Modmine
 
 home = Blueprint('home', __name__)
 
