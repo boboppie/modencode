@@ -3,34 +3,40 @@
 <head>
     <meta charset="utf-8">
 
-	<title>Flask Skeleton</title>
+	<title>modENCODE</title>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.6.2.min.js') }}"></script>
 </head>
 <body>
     <header>
-        <div id="title">Flask Skeleton</div>
-        {% block nav %}{% endblock %}
+        <div id="top">
+            <div class="wrap">
+                <div id="title">
+                    <p>modENCODE</p>
+                </div>
+                <p class="sub">The National Human Genome Research Institute MODel organism ENCyclopedia Of DNA Elements</p>
+
+                <div class="div"></div>
+
+                <div id="search">
+                    <input type="text" class="text">
+                    <input type="submit" class="button" value="">
+                </div>
+            </div>
+        </div>
+        <nav>
+            {% block nav %}{% endblock %}
+        </nav>
     </header>
     <section>
         <article>
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if error or messages %}
-                <ul class="messages">
-                    {% if error %}
-                    <li class="error">{{ error }}</li>
-                    {% endif %}
-
-                    {% for category, message in messages %}
-                    <li class="{{ category }}">{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            {% endwith %}
-
             {% block body %}{% endblock %}
+            
+            <div class="clear"></div>
         </article>
-        <footer>Powered by Flask</footer>
     </section>
 </body>
 </html>
