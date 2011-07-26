@@ -7,9 +7,12 @@ import json
 
 class Modmine():
 
-    def update_data(self):
+    def get_data(self):
         """
         Fetch available data from modmine
         """
+
+        # TODO: replace with an actual call to modmine
+
         r = fetch('http://localhost:%i/modmine/gimme/fake/data' % config.FLASK_PORT)
-        data = json.loads(r)
+        return json.loads(r)

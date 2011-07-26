@@ -9,6 +9,8 @@ def slugify(value):
     return re.sub('[-\s]+', '-', value)
 
 def fetch(url):
+    # TODO: check the result status
+
     import urllib2
     
     request = urllib2.Request(url)
@@ -17,3 +19,20 @@ def fetch(url):
     result = r.read()
     r.close()
     return result
+
+def write_template(template, name):
+    # TODO: move to Template model
+
+    import os
+
+    with open(os.getcwd() + '/static/html/%s.html' % name, 'w') as f:
+        f.write(template)
+
+def read_template(name):
+    # TODO: move to Template model
+
+    import os
+    
+    with open(os.getcwd() + '/static/html/%s.html' % name, 'r') as f:
+        html = f.read()
+    return html
