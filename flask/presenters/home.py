@@ -25,6 +25,8 @@ def index(update=False):
         m = Modmine()
         data = m.get_data()
 
+        # TODO: how shall we do "genus" italics?
+
         # TODO: write stamp of last update to the template
 
         html = render_template('home/index.html', **locals())
@@ -37,4 +39,4 @@ def update():
     """
     fetch updates from modmine
     """
-    index(update=True)
+    return index(update=True)

@@ -12,44 +12,43 @@
 {% block body %}
 <aside>
     <ul>
-        <li class="active"><span class="genus">Drosophila</span> Genome</li>
-        <li><span class="genus">C. Elegans</span> Features</li>
-        <li>Fly Network Graphs</li>
-        <li>Gene Ontology Terms</li>
+        {% for tab in data.tabs %}
+            <li target="#tab-{{ loop.index }}.tab" id="tab-link-{{ loop.index }}"
+            {% if loop.first %}class="active"{% endif %}>{{ tab.title }}</li>
+        {% endfor %}
     </ul>
+    <script type="text/javascript">
+        $("aside ul li").click(function() {
+            $("aside ul li.active").removeClass('active');
+            $("#content div.tab:visible").hide();
+            $($(this).attr('target')).show();
+            $(this).addClass('active');
+        });
+    </script>
 </aside>
 
 <div id="content">
-    <div class="title-box">
-        <div class="black-box">
-            <h2><span class="genus">Drosophila</span> Genome</h2>
-            <p>Lorem ipsum dolor sit amet, consecteur adipiscing elit. Viva mus pulvinar volutpat turpis, eget vene
-                natis elit co modo ut. Maecenas tortor justo.</p>
+    {% for tab in data.tabs %}
+        <div class="tab" id="tab-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
+            <div class="title-box">
+                <div class="black-box">
+                    <h2>{{ tab.title }}</h2>
+                    <p>{{ tab.description }}</p>
 
+                </div>
+            </div>
+
+            {% for box in tab.boxes %}
+                <div class="yellow-box">
+                    <h3>{{ box.title }}</h3>
+                    <ul>
+                        {% for link in box.links %}
+                            <li><a href="{{ link.href }}">{{ link.text }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
         </div>
-    </div>
-
-    <div class="yellow-box">
-        <h3><span class="genus">Drosophila Melanogaster</span></h3>
-        <ul>
-            <li><a href="index.html#">Lorem ipsum dolor sit amet, consecteur</a></li>
-            <li><a href="index.html#">Adipiscing elit viva</a></li>
-            <li><a href="index.html#">Mus pulvinar colutpat turpis eget</a></li>
-            <li><a href="index.html#">Natis elit co modo ut</a></li>
-            <li><a href="index.html#">Maecenas tortot justo</a></li>
-        </ul>
-    </div>
-
-    <div class="yellow-box">
-        <h3><span class="genus">Caenorhabditis Elegans</span></h3>
-
-        <ul>
-            <li><a href="index.html#">Lorem ipsum dolor sit amet, consecteur</a></li>
-            <li><a href="index.html#">Adipiscing elit viva</a></li>
-            <li><a href="index.html#">Mus pulvinar colutpat turpis eget</a></li>
-            <li><a href="index.html#">Natis elit co modo ut</a></li>
-            <li><a href="index.html#">Maecenas tortot justo</a></li>
-        </ul>
-    </div>
+    {% endfor %}
 </div>
 {% endblock %}

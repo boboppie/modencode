@@ -1,40 +1,39 @@
 #!/usr/bin/python
 # -*- coding: utf -*-
 
+# TODO: remove this when done
+
 data = {
     'tabs': [
-            {
-            'title': '<g>Drosophila</g> Genome',
+        {
+            'title': 'Drosophila Genome',
+            'description': 'Lorem ipsum dolor sit amet, consecteur adipiscing elit. Viva mus pulvinar volutpat turpis,'
+                'eget venenatis elit co modo ut. Maecenas tortor justo',
             'boxes': [
-                    {
-                    'title': '<g>Drosophila Melanogaster</g>',
+                {
+                    'title': 'Drosophila Melanogaster',
                     'links': [
-                            {
-                            'text': 'Lorem ipsum dolor sit amet, consecteur',
-                            'href': '#',
-                            },
-                            {
-                            'text': 'Adipiscing elit viva',
-                            'href': '#',
-                            }
+                            { 'text': 'Lorem ipsum dolor sit amet, consecteur', 'href': '#'},
+                            { 'text': 'Adipiscing elit viva', 'href': '#' }
+                    ]
+                },
+                {
+                    'title': 'Organismus Officinus',
+                    'links': [
+                            { 'text': 'Lorem ipsum dolor sit amet, consecteur', 'href': '#'},
+                            { 'text': 'Adipiscing elit viva', 'href': '#' }
                     ]
                 }
             ]
         },
-            {
-            'title': '<g>C. Elegans</g> Features',
+        {
+            'title': 'C. Elegans Features',
             'boxes': [
-                    {
-                    'title': '<g>Caenorhabditis Elegans</g>',
+                {
+                    'title': 'Caenorhabditis Elegans',
                     'links': [
-                            {
-                            'text': 'Natis elit co modo ut',
-                            'href': '#',
-                            },
-                            {
-                            'text': 'Maecenas tortot justo',
-                            'href': '#',
-                            }
+                            { 'text': 'Natis elit co modo ut', 'href': '#' },
+                            { 'text': 'Maecenas tortot justo', 'href': '#' }
                     ]
                 }
             ]
