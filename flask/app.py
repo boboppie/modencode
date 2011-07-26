@@ -7,7 +7,11 @@ from flask import Flask
 # imports
 import config
 
+app = None
+
 def create_app():
+    global app
+
     # create our little application :)
     app = Flask(__name__)
     app.config.from_object(config)

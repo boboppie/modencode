@@ -12,4 +12,17 @@ home = Blueprint('home', __name__)
 
 @home.route('/')
 def index():
+    """
+    serve home page
+    """
     return render_template('home/index.html', **locals())
+
+@home.route('/update')
+def update():
+    """
+    fetch updates from modmine
+    """
+    m = Modmine()
+    m.update_data()
+
+    return "Done"
