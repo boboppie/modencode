@@ -2,4 +2,9 @@
 # -*- coding: utf -*-
 
 class Modmine():
-    pass
+
+    def update_data(self):
+        """
+        Fetch available data from modmine
+        """
+        
