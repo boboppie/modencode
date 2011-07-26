@@ -12,10 +12,10 @@
 {% block body %}
 <aside>
     <ul>
-        {% for tab in data.tabs %}
+        {%- for tab in data.tabs -%}
             <li target="#tab-{{ loop.index }}.tab" id="tab-link-{{ loop.index }}"
             {% if loop.first %}class="active"{% endif %}>{{ tab.title }}</li>
-        {% endfor %}
+        {%- endfor -%}
     </ul>
     <script type="text/javascript">
         $("aside ul li").click(function() {
@@ -28,7 +28,7 @@
 </aside>
 
 <div id="content">
-    {% for tab in data.tabs %}
+    {%- for tab in data.tabs -%}
         <div class="tab" id="tab-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
             <div class="title-box">
                 <div class="black-box">
@@ -38,17 +38,17 @@
                 </div>
             </div>
 
-            {% for box in tab.boxes %}
+            {%- for box in tab.boxes -%}
                 <div class="yellow-box">
                     <h3>{{ box.title }}</h3>
                     <ul>
-                        {% for link in box.links %}
+                        {%- for link in box.links -%}
                             <li><a href="{{ link.href }}">{{ link.text }}</a></li>
-                        {% endfor %}
+                        {%- endfor -%}
                     </ul>
                 </div>
-            {% endfor %}
+            {%- endfor -%}
         </div>
-    {% endfor %}
+    {%- endfor -%}
 </div>
 {% endblock %}
