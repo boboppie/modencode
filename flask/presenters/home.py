@@ -15,11 +15,9 @@ def index(update=False):
     """
     serve home page
     """
-    t = Templates()
+    t = Templates('index')
 
-    # TODO: force update on missing static html
-
-    if update:
+    if update or not t.exists():
         # fetch data
         m = Modmine()
         data = m.get_data()
@@ -29,9 +27,9 @@ def index(update=False):
         # TODO: write stamp of last update to the template
 
         html = render_template('home/index.html', **locals())
-        t.write(html, 'index')
+        t.write(html)
 
-    return t.read('index')
+    return t.read()
 
 @home.route('/update')
 def update():
