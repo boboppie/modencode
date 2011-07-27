@@ -54,3 +54,5 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content div.yellow-box ul li { font-size:8px; line-height:25px; }
 #content div.yellow-box ul li a { color:#70706D; border-bottom:1px solid #E0E1D3; padding-bottom:1px; font-size:13px;
     text-decoration:none; }
+
+footer { margin:0 auto; margin-top:6px; width:1000px; text-align:center; color:#70706D; font-size:13px; }

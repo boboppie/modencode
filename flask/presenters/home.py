@@ -4,6 +4,9 @@
 # framework
 from flask import Blueprint, render_template, request, redirect
 
+# imports
+from libs import utils
+
 # models
 from models.modmine import Modmine
 from models.templates import Templates
@@ -24,7 +27,7 @@ def index(update=False):
 
         # TODO: how shall we do "genus" italics?
 
-        # TODO: write stamp of last update to the template
+        time = utils.current_time()
 
         html = render_template('home/index.html', **locals())
         t.write(html)

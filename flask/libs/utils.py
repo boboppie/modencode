@@ -19,3 +19,12 @@ def fetch(url):
     result = r.read()
     r.close()
     return result
+
+def current_time():
+    """
+    generate a timestamp for now
+    """
+
+    import time
+    
+    return time.strftime("%d %B %H:%M")
