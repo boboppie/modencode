@@ -3,12 +3,10 @@
 
 # framework
 from flask import Blueprint, render_template, request, redirect
-from flask.helpers import url_for
-
-from libs.utils import write_template, read_template
 
 # models
 from models.modmine import Modmine
+from models.templates import Templates
 
 home = Blueprint('home', __name__)
 
@@ -17,6 +15,7 @@ def index(update=False):
     """
     serve home page
     """
+    t = Templates()
 
     # TODO: force update on missing static html
 
@@ -30,9 +29,9 @@ def index(update=False):
         # TODO: write stamp of last update to the template
 
         html = render_template('home/index.html', **locals())
-        write_template(html, 'index')
+        t.write(html, 'index')
 
-    return read_template('index')
+    return t.read('index')
 
 @home.route('/update')
 def update():

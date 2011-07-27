@@ -19,20 +19,3 @@ def fetch(url):
     result = r.read()
     r.close()
     return result
-
-def write_template(template, name):
-    # TODO: move to Template model
-
-    import os
-
-    with open(os.getcwd() + '/static/html/%s.html' % name, 'w') as f:
-        f.write(template)
-
-def read_template(name):
-    # TODO: move to Template model
-
-    import os
-    
-    with open(os.getcwd() + '/static/html/%s.html' % name, 'r') as f:
-        html = f.read()
-    return html
