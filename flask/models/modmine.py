@@ -13,6 +13,5 @@ class Modmine():
         """
 
         # TODO: replace with an actual call to modmine
-
         r = fetch('http://localhost:%i/modmine/gimme/fake/data' % config.FLASK_PORT)
         return json.loads(r)

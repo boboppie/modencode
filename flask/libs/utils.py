@@ -9,8 +9,6 @@ def slugify(value):
     return re.sub('[-\s]+', '-', value)
 
 def fetch(url):
-    # TODO: check the result status
-
     import urllib2
     
     request = urllib2.Request(url)
