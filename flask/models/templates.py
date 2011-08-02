@@ -3,7 +3,7 @@
 
 import os
 
-class Templates():
+class Templates:
 
     def __init__(self, name):
         self.path = os.getcwd() + '/static/html/%s.html' % name

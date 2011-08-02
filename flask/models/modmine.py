@@ -5,13 +5,16 @@ import config
 from libs.utils import fetch
 import json
 
-class Modmine():
+class Modmine:
+
+    ''' init value of metadata_cache is null '''
+    metadata_cache = None
 
     def get_data(self):
-        """
-        Fetch available data from modmine
-        """
-
         # TODO: replace with an actual call to modmine
-        r = fetch('http://localhost:%i/modmine/gimme/fake/data' % config.FLASK_PORT)
-        return json.loads(r)
+        if not Modmine.metadata_cache:
+            Modmine.metadata_cache = fetch('http://localhost:%i/modmine/gimme/fake/data' % config.FLASK_PORT)
+        else:
+            pass
+
+        return json.loads(Modmine.metadata_cache)
