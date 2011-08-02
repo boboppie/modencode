@@ -19,7 +19,7 @@ while True:
         break  
       
     if input_port:
-        cfg['FLASK_PORT'] =  int(input_port.strip())
+        cfg['FLASK_PORT'] =  int(input_port.strip()) # Better to use Regex to contraint this
         break
 
 cfg['SECRET_KEY'] = ''.join([random.choice('./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') for i in range(30)])
