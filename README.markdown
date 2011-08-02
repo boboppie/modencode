@@ -3,7 +3,7 @@ This is Fengyuan's fork from Radek's original project @ git://github.com/radekst
 A Flask app serving the homepage of the modENCODE project
 
 ## Requirements:
-- Flask 0.7+
+- Flask
 - CherryPy
 
 ## Installation:
