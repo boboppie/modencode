@@ -6,7 +6,7 @@ from flask import Flask
 
 # imports
 import config
-import libs.filters
+import cherrypy
 
 app = None
 
