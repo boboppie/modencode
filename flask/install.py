@@ -12,8 +12,14 @@ cfg = {
 
 # flask app port
 while True:
-    cfg['FLASK_PORT'] = int(raw_input('Flask app port (usually 5000) ').strip())
-    if cfg['FLASK_PORT']:
+    input_port = raw_input('Flask app port (default 5000) ')
+    
+    if not input_port:
+        cfg['FLASK_PORT'] = 5000
+        break  
+      
+    if input_port:
+        cfg['FLASK_PORT'] =  int(input_port.strip())
         break
 
 cfg['SECRET_KEY'] = ''.join([random.choice('./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') for i in range(30)])
