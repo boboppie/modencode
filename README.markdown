@@ -1,3 +1,5 @@
+This is Fengyuan's fork from Radek's original project @ git://github.com/radekstepan/modencode.git
+
 A Flask app serving the homepage of the modENCODE project
 
 ## Requirements:
