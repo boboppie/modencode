@@ -5,11 +5,10 @@
 
 	<title>modENCODE</title>
 
-    <link rel="stylesheet" type="text/css" href="static/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
-    <script type="text/javascript" src="static/js/jquery-1.6.2.min.js"></script>
-
+    <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
 </head>
 <body>
     <header>
@@ -29,62 +28,63 @@
             </div>
         </div>
         <nav>
-            <ul>
-                <li><a href="index.html#">About modENCODE</a></li>
-                <li><a href="index.html#">Project Mission</a></li>
-                <li><a href="index.html#">Contact Us</a></li>
-                <li><a href="index.html#">Team Members</a></li>
-                <li class="last"><a href="index.html#">Latest News</a></li>
-            </ul>
+            
+<ul>
+    <li><a href="index.html#">About modENCODE</a></li>
+    <li><a href="index.html#">Project Mission</a></li>
+    <li><a href="index.html#">Contact Us</a></li>
+    <li><a href="index.html#">Team Members</a></li>
+    <li class="last"><a href="index.html#">Latest News</a></li>
+</ul>
+
         </nav>
     </header>
     <section>
         <article>
-            <aside>
-                <ul>
-                    <li class="active"><span class="genus">Drosophila</span> Genome</li>
-                    <li><span class="genus">C. Elegans</span> Features</li>
-                    <li>Fly Network Graphs</li>
-                    <li>Gene Ontology Terms</li>
-                </ul>
-            </aside>
+            
+<aside>
+    <ul><li target="#tab-1.tab" id="tab-link-1"
+            class="active">Drosophila Genome</li><li target="#tab-2.tab" id="tab-link-2"
+            >C. Elegans Features</li></ul>
+    <script type="text/javascript">
+        $("aside ul li").click(function() {
+            $("aside ul li.active").removeClass('active');
+            $("#content div.tab:visible").hide();
+            $($(this).attr('target')).show();
+            $(this).addClass('active');
+        });
+    </script>
+</aside>
 
-            <div id="content">
-                <div class="title-box">
-                    <div class="black-box">
-                        <h2><span class="genus">Drosophila</span> Genome</h2>
-                        <p>Lorem ipsum dolor sit amet, consecteur adipiscing elit. Viva mus pulvinar volutpat turpis, eget vene
-                            natis elit co modo ut. Maecenas tortor justo.</p>
+<div id="content"><div class="tab" id="tab-1" >
+            <div class="title-box">
+                <div class="black-box">
+                    <h2>Drosophila Genome</h2>
+                    <p>Lorem ipsum dolor sit amet, consecteur adipiscing elit. Viva mus pulvinar volutpat turpis,eget venenatis elit co modo ut. Maecenas tortor justo</p>
 
-                    </div>
                 </div>
+            </div><div class="yellow-box">
+                    <h3>Drosophila Melanogaster</h3>
+                    <ul><li><a href="#">Lorem ipsum dolor sit amet, consecteur</a></li><li><a href="#">Adipiscing elit viva</a></li></ul>
+                </div><div class="yellow-box">
+                    <h3>Organismus Officinus</h3>
+                    <ul><li><a href="#">Lorem ipsum dolor sit amet, consecteur</a></li><li><a href="#">Adipiscing elit viva</a></li></ul>
+                </div></div><div class="tab" id="tab-2" style="display:none;">
+            <div class="title-box">
+                <div class="black-box">
+                    <h2>C. Elegans Features</h2>
+                    <p></p>
 
-                <div class="yellow-box">
-                    <h3><span class="genus">Drosophila Melanogaster</span></h3>
-                    <ul>
-                        <li><a href="index.html#">Lorem ipsum dolor sit amet, consecteur</a></li>
-                        <li><a href="index.html#">Adipiscing elit viva</a></li>
-                        <li><a href="index.html#">Mus pulvinar colutpat turpis eget</a></li>
-                        <li><a href="index.html#">Natis elit co modo ut</a></li>
-                        <li><a href="index.html#">Maecenas tortot justo</a></li>
-                    </ul>
                 </div>
+            </div><div class="yellow-box">
+                    <h3>Caenorhabditis Elegans</h3>
+                    <ul><li><a href="#">Natis elit co modo ut</a></li><li><a href="#">Maecenas tortot justo</a></li></ul>
+                </div></div></div>
 
-                <div class="yellow-box">
-                    <h3><span class="genus">Caenorhabditis Elegans</span></h3>
-
-                    <ul>
-                        <li><a href="index.html#">Lorem ipsum dolor sit amet, consecteur</a></li>
-                        <li><a href="index.html#">Adipiscing elit viva</a></li>
-                        <li><a href="index.html#">Mus pulvinar colutpat turpis eget</a></li>
-                        <li><a href="index.html#">Natis elit co modo ut</a></li>
-                        <li><a href="index.html#">Maecenas tortot justo</a></li>
-                    </ul>
-                </div>
-            </div>
-
+            
             <div class="clear"></div>
         </article>
     </section>
+    <footer>Last updated: 03 August 11:04</footer>
 </body>
 </html>

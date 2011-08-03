@@ -2,7 +2,7 @@
 # -*- coding: utf -*-
 
 # framework
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, jsonify
 
 # imports
 from libs import utils
@@ -18,22 +18,27 @@ def index(update=False):
     """
     serve home page
     """
-    t = Templates('index')
+    t = Templates('index') # call Templates.__init__, 'index' is the name of html under templates/home
 
-    # If request is from "/update" or "index.html" does not exist 
-    if update or not t.exists():
+    if t.exists():
         # fetch data
         m = Modmine()
-        data = m.get_data()
+        fly_catexp_data = m.get_fly_catexp_data()
+        worm_catexp_data = m.get_worm_catexp_data()
 
         # TODO: how shall we do "genus" italics?
 
         time = utils.current_time()
 
+        # **locals(): the variables (time, etc.) that should be available in the context of the template
         html = render_template('home/index.html', **locals())
         t.write(html)
 
-    return t.read()
+        if update:
+            pass
+        return t.read()
+    else:
+        return "index.html template does not exsit..."
 
 @home.route('/update')
 def update():

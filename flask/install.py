@@ -14,11 +14,11 @@ cfg = {
 # flask app port
 while True:
     input_port = raw_input('Flask app port (default 5000) ')
-    
+
     if not input_port:
         cfg['FLASK_PORT'] = 5000
-        break  
-      
+        break
+
     if input_port:
         cfg['FLASK_PORT'] =  int(input_port.strip()) # Better to use Regex to contraint this
         break

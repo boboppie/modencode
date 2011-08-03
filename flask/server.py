@@ -16,10 +16,10 @@ server = wsgiserver.CherryPyWSGIServer(('0.0.0.0', config.FLASK_PORT), d)
 '''
 better to print a message after server starts, not here?
 '''
-print "modENCODE is running on: http://localhost:%s" % config.FLASK_PORT, "...\n"
+print "Start running modENCODE on: http://localhost:%s" % config.FLASK_PORT, "..."
 
 if __name__ == '__main__':
     try:
-        server.start()        
+        server.start()
     except KeyboardInterrupt:
         server.stop()
