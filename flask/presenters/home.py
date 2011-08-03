@@ -20,6 +20,7 @@ def index(update=False):
     """
     t = Templates('index')
 
+    # If request is from "/update" or "index.html" does not exist 
     if update or not t.exists():
         # fetch data
         m = Modmine()
