@@ -23,7 +23,7 @@ def index(update=False):
     if t.exists():
         # fetch data
         m = Modmine()
-        catexp_data = m.get_catexp_data()
+        catexp_data = m.get_catexp_data(update)
 
         # TODO: how shall we do "genus" italics?
 
@@ -33,8 +33,6 @@ def index(update=False):
         html = render_template('home/index.html', **locals())
         t.write(html)
 
-        if update:
-            pass
         return t.read()
     else:
         return "index.html template does not exsit..."

@@ -12,11 +12,14 @@ class Modmine:
     #init value of metadata_cache is null
     metadata_catexp = None
 
-    def get_catexp_data(self):
+    def get_catexp_data(self, update=False):
 
-        if not Modmine.metadata_catexp:
+        if update:
             Modmine.metadata_catexp = fetch(Modmine.catexp_url)
         else:
-            pass
+            if not Modmine.metadata_catexp:
+                Modmine.metadata_catexp = fetch(Modmine.catexp_url)
+            else:
+                pass
 
         return json.loads(Modmine.metadata_catexp)
