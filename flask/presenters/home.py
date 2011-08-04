@@ -23,8 +23,7 @@ def index(update=False):
     if t.exists():
         # fetch data
         m = Modmine()
-        fly_catexp_data = m.get_fly_catexp_data()
-        worm_catexp_data = m.get_worm_catexp_data()
+        catexp_data = m.get_catexp_data()
 
         # TODO: how shall we do "genus" italics?
 
