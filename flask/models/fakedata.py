@@ -5,9 +5,13 @@
 
 data = {
     "categories":
-        {   "Chromatin structure":
-            {
-                "D. melanogaster":
+    [
+        {   "name": "Chromatin structure",
+            "organisms":
+            [
+                {
+                "organism": "D. melanogaster",
+                "experiments":
                     [
                         {
                             "experiment_title":"Genome-wide Chromatin Profiling",
@@ -15,7 +19,10 @@ data = {
                             "pi":"Steven Henikoff"
                         }
                     ],
-                "C. elegans":
+                },
+                {
+                "organism": "C. elegans",
+                "experiments":
                     [
                         {
                             "experiment_title":"Nucleosome mapping",
@@ -23,10 +30,16 @@ data = {
                             "pi": "Jason Lieb"
                         }
                     ]
-            },
-            "Copy Number Variation":
-            {
-                "D. melanogaster":
+                }
+            ]
+        },
+        {
+            "name": "Copy Number Variation",
+            "organisms":
+            [
+                {
+                "organism": "D. melanogaster",
+                "experiments":
                     [
                         {
                             "experiment_title":"CGH drosophila cell lines",
@@ -39,6 +52,8 @@ data = {
                             "pi": "David MacAlpine"
                         }
                     ]
-            }
+                }
+            ]
         }
+    ]
 }

@@ -10,40 +10,43 @@
 {% endblock %}
 
 {% block body %}
-        
-{%- for organism in data.organisms -%}
-    <div id="organism-{{ loop.index}}" class="organism" {% if not loop.first %}style="display:none;"{% endif %}>
-        <div class="switcher">{{ organism.org_name }}</div>
-        <div class="content">
-            <aside class="categories">
-                <ul>
-                    {%- for category in organism.experiments -%}
-                        <li id="tab-link-{{ loop.index }}"
-                        {% if loop.first %}class="active"{% endif %}>{{ category.category_title }}</li>
-                    {%- endfor -%}
-                </ul>
-            </aside>
 
-            <div class="experiments">
-                {%- for category in organism.experiments -%}
-                    <div class="tab" id="tab-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
-                        <ul>
-                            {%- for experiment in category.experiment -%}
-                                <li>{{ experiment.experiment_title }}</li>
-                            {%- endfor -%}
-                        </ul>
-                    </div>
+<aside>
+    <ul>
+    {%- for category in data.categories -%}
+        <li target="category-{{ loop.index }}"
+        {% if loop.first %}class="active"{% endif %}>{{ category.name }}</li>
+    {%- endfor -%}
+    </ul>
+</aside>
+
+<div id="content">
+    {%- for category in data.categories -%}
+    <div class="category" id="category-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
+        <ul>
+        {%- for organism in category.organisms -%}
+            <li target="organism-{{ loop.index }}">{{ organism.organism }}</li>
+        {%- endfor -%}
+        </ul>
+
+        {%- for organism in category.organisms -%}
+        <div class="organism" id="organism-{{ loop.index }}">
+            <ul>
+                {%- for experiment in organism.experiments -%}
+                <li>{{ experiment.experiment_title }}</li>
                 {%- endfor -%}
-            </div>
+            </ul>
         </div>
+        {%- endfor -%}
     </div>
-{%- endfor -%}
+    {%- endfor -%}
+</div>
 
 <script type="text/javascript">
     $("aside ul li").click(function() {
         $("aside ul li.active").removeClass('active');
-        $("#content div.tab:visible").hide();
-        $($(this).attr('target')).show();
+        $("#content div.category:visible").hide();
+        $("#" + $(this).attr('target')).show();
         $(this).addClass('active');
     });
 </script>
