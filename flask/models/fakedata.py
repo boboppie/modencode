@@ -4,39 +4,61 @@
 # TODO: remove this when done
 
 data = {
-    'tabs': [
-        {
-            'title': 'Drosophila Genome',
-            'description': 'Lorem ipsum dolor sit amet, consecteur adipiscing elit. Viva mus pulvinar volutpat turpis,'
-                'eget venenatis elit co modo ut. Maecenas tortor justo',
-            'boxes': [
-                {
-                    'title': 'Drosophila Melanogaster',
-                    'links': [
-                            { 'text': 'Lorem ipsum dolor sit amet, consecteur', 'href': '#'},
-                            { 'text': 'Adipiscing elit viva', 'href': '#' }
-                    ]
-                },
-                {
-                    'title': 'Organismus Officinus',
-                    'links': [
-                            { 'text': 'Lorem ipsum dolor sit amet, consecteur', 'href': '#'},
-                            { 'text': 'Adipiscing elit viva', 'href': '#' }
-                    ]
-                }
-            ]
-        },
-        {
-            'title': 'C. Elegans Features',
-            'boxes': [
-                {
-                    'title': 'Caenorhabditis Elegans',
-                    'links': [
-                            { 'text': 'Natis elit co modo ut', 'href': '#' },
-                            { 'text': 'Maecenas tortot justo', 'href': '#' }
-                    ]
-                }
-            ]
-        }
-    ]
+    { "organism":
+        [
+            { "category":
+                [
+                    { "category_title":"Chromatin structure",
+                      "experiment":
+                        [
+                            { "experiment_title":"Genome-wide Chromatin Profiling",
+                              "labs": ["Kamran Ahmad", "Steven Henikoff"],
+                              "pi":"Steven Henikoff"}
+                        ]
+                    },
+                    { "category_title":"Copy Number Variation",
+                      "experiment":
+                        [
+                            { "experiment_title":"CGH drosophila cell lines",
+                              "labs": ["David MacAlpine"],
+                              "pi" : "David MacAlpine"
+                            },
+                            { "experiment_title":"CNV in Drosophila cell lines",
+                              "labs": ["David MacAlpine"],
+                              "pi": "David MacAlpine"
+                            }
+                        ]
+                    }
+                ],
+                "org_name":"D. melanogaster"
+            },
+            { "category":
+                [
+                    { "category_title":"Chromatin structure",
+                      "experiment":
+                        [
+                            { "experiment_title":"Nucleosome mapping",
+                              "labs": ["Jason Lieb"],
+                              "pi": "Jason Lieb"
+                            }
+                        ]
+                    },
+                    { "category_title":"Gene Structure",
+                      "experiment":
+                        [
+                            { "experiment_title":"Encyclopedia of C. elegans 3'UTRs and their regulatory elements",
+                              "labs": ["Fabio Piano", "John Kim"],
+                              "pi" : "Fabio Piano"
+                            },
+                            { "experiment_title":"SL Acceptor Site Confirmation in C. elegans",
+                              "labs": ["Phil Green"],
+                              "pi": "Robert Waterston"
+                            }
+                        ]
+                    }
+                ],
+                "org_name":"C. elegans"
+            }
+        ]
+    }
 }
