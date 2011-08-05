@@ -55,4 +55,10 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content div.yellow-box ul li a { color:#70706D; border-bottom:1px solid #E0E1D3; padding-bottom:1px; font-size:13px;
     text-decoration:none; }
 
+#content div.category ul.switcher li { display:inline; padding:10px; background:pink; cursor:pointer; margin-right:10px; }
+#content div.category ul.switcher li.active { background:red; }
+
+#content div.category ul.experiments { margin-top:20px; }
+#content div.category ul.experiments li { border-top:1px solid #000; }
+
 footer { margin:0 auto; margin-top:6px; width:1000px; text-align:center; color:#70706D; font-size:13px; }

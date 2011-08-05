@@ -23,15 +23,15 @@
 <div id="content">
     {%- for category in data.categories -%}
     <div class="category" id="category-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
-        <ul>
+        <ul class="switcher">
         {%- for organism in category.organisms -%}
-            <li target="organism-{{ loop.index }}">{{ organism.organism }}</li>
+            <li class="organism-{{ loop.index }}{% if loop.first %} active{% endif %}">{{ organism.organism }}</li>
         {%- endfor -%}
         </ul>
 
         {%- for organism in category.organisms -%}
-        <div class="organism" id="organism-{{ loop.index }}">
-            <ul>
+        <div class="organism" id="organism-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
+            <ul class="experiments">
                 {%- for experiment in organism.experiments -%}
                 <li>{{ experiment.experiment_title }}</li>
                 {%- endfor -%}
@@ -48,6 +48,17 @@
         $("#content div.category:visible").hide();
         $("#" + $(this).attr('target')).show();
         $(this).addClass('active');
+
+        if ($("#" + $(this).attr('target') + " ul.switcher li.active").length < 1) {
+            $("#" + $(this).attr('target') + " ul.switcher li:first").addClass('active');
+        }
+    });
+
+    $("#content ul.switcher li").click(function() {
+        $("#content ul li.active").removeClass('active');
+        $("#content div.organism:visible").hide();
+        $("#content #" + $(this).attr('class')).show();
+        $("#content ul li." + $(this).attr('class')).addClass('active');
     });
 </script>
 
