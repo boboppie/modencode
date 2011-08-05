@@ -11,7 +11,5 @@ class Modmine():
         """
         Fetch available data from modmine
         """
-
-        # TODO: replace with an actual call to modmine
-        r = fetch('http://localhost:%i/modmine/gimme/fake/data' % config.FLASK_PORT)
+        r = fetch('http://intermine.modencode.org/modminetest/service/query/metadatacache/catexp')
         return json.loads(r)

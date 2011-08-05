@@ -33,7 +33,13 @@
         <div class="organism" id="organism-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
             <ul class="experiments">
                 {%- for experiment in organism.experiments -%}
-                <li>{{ experiment.experiment_title }}</li>
+                <li>
+                    <p class="title">{{ experiment.experiment_title }}</p>
+                    <p class="pi">Pi: {{ experiment.pi }}</p>
+                    <p class="labs">Labs:
+                        {%- for lab in experiment.labs -%}{{ lab }}{% if not loop.last %}, {% endif %}{%- endfor -%}
+                    </p>
+                </li>
                 {%- endfor -%}
             </ul>
         </div>
