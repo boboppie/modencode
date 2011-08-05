@@ -6,7 +6,6 @@ from flask import Flask
 
 # imports
 import config
-import libs.filters
 
 app = None
 

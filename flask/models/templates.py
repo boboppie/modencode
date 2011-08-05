@@ -6,7 +6,8 @@ import os
 class Templates():
 
     def __init__(self, name):
-        self.path = os.getcwd() + '/static/html/%s.html' % name
+        self.dir = os.getcwd() + '/static/html/'
+        self.path = self.dir + '%s.html' % name
 
     def exists(self):
         """
@@ -18,6 +19,9 @@ class Templates():
         """
         write html into a template file
         """
+        if not os.path.isdir(self.dir):
+            os.makedirs(self.dir)
+
         with open(self.path, 'w') as f:
             f.write(template)
 
