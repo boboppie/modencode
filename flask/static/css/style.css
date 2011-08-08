@@ -30,15 +30,15 @@ header nav ul li a:hover { color:#FFF; background:#167C94; text-shadow:0 0 0; }
 
 article { width:1000px; margin:0 auto; margin-top:45px; border:1px solid #D7D5C8; background:#FFF; }
 
-aside { border-right:1px solid #DDD; width:200px; min-height:400px; float:left; }
-aside ul { font-size:14px; cursor:pointer; }
-aside ul li { background:url('../img/sidebar-option.png') repeat-x top left; width:186px; height:50px;
+aside { border-right:1px solid #DDD; width:280px; min-height:400px; float:left; }
+aside ul { font-size:14px; cursor:pointer; margin-top:16px; }
+aside ul li { background:url('../img/sidebar-option.png') repeat-x top left; width:266px; height:50px;
     line-height:50px; padding-left:14px; }
-aside ul li.active { background:url('../img/sidebar-option-active.png') no-repeat top left; height:62px; width:233px;
+aside ul li.active { background:url('../img/sidebar-option-active.png') no-repeat top left; height:62px; width:285px;
     color:#FFF; padding-left:25px; font-weight:bold; text-shadow:1px 1px 1px #A5692F; line-height:56px;
-    position:relative; left:-12px; bottom:-11px; }
+    position:relative; left:-12px; bottom:-11px; margin-top:-16px; }
 
-#content { float:left; padding:14px 0px 14px 40px; width:745px; }
+#content { float:left; padding:14px 0px 14px 40px; width:665px; }
 #content div.title-box { background:url('../img/yellow-box-title-bg.jpg') no-repeat top left; width:715px; height:101px;
     padding:10px; margin-bottom:20px; }
 #content div.title-box div.black-box { background:url("../img/yellow-box-title-black-bg.png") repeat top left;
@@ -54,5 +54,11 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content div.yellow-box ul li { font-size:8px; line-height:25px; }
 #content div.yellow-box ul li a { color:#70706D; border-bottom:1px solid #E0E1D3; padding-bottom:1px; font-size:13px;
     text-decoration:none; }
+
+#content div.category ul.switcher li { display:inline; padding:10px; background:pink; cursor:pointer; margin-right:10px; }
+#content div.category ul.switcher li.active { background:red; }
+
+#content div.category ul.experiments { margin-top:20px; }
+#content div.category ul.experiments li { border-top:1px solid #000; }
 
 footer { margin:0 auto; margin-top:6px; width:1000px; text-align:center; color:#70706D; font-size:13px; }
