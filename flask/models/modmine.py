@@ -7,7 +7,7 @@ import json
 
 class Modmine:
 
-    catexp_url = config.DATASOURCE_ROOT + 'service/query/metadatacache?datatype=metadatacach_catexp'
+    catexp_url = config.DATASOURCE_ROOT + 'service/query/metadatacache/catexp'
 
     #init value of metadata_cache is null
     metadata_catexp = None
