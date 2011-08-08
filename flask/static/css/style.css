@@ -31,12 +31,12 @@ header nav ul li a:hover { color:#FFF; background:#167C94; text-shadow:0 0 0; }
 article { width:1000px; margin:0 auto; margin-top:45px; border:1px solid #D7D5C8; background:#FFF; }
 
 aside { border-right:1px solid #DDD; width:280px; min-height:400px; float:left; }
-aside ul { font-size:14px; cursor:pointer; }
+aside ul { font-size:14px; cursor:pointer; margin-top:16px; }
 aside ul li { background:url('../img/sidebar-option.png') repeat-x top left; width:266px; height:50px;
     line-height:50px; padding-left:14px; }
 aside ul li.active { background:url('../img/sidebar-option-active.png') no-repeat top left; height:62px; width:285px;
     color:#FFF; padding-left:25px; font-weight:bold; text-shadow:1px 1px 1px #A5692F; line-height:56px;
-    position:relative; left:-12px; bottom:-11px; }
+    position:relative; left:-12px; bottom:-11px; margin-top:-16px; }
 
 #content { float:left; padding:14px 0px 14px 40px; width:665px; }
 #content div.title-box { background:url('../img/yellow-box-title-bg.jpg') no-repeat top left; width:715px; height:101px;
