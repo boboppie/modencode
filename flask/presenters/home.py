@@ -27,6 +27,7 @@ def index(update=False):
         m = Modmine()
         catexp_data = m.get_catexp_data(update)
         modmine_path = config.DATASOURCE_ROOT + m.get_webapp_path(update)
+        gbrowse_base = m.get_gbrowse_base(update)
 
         # TODO: how shall we do "genus" italics?
 
