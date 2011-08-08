@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf -*-
 
+import config
+
 # framework
 from flask import Blueprint, render_template, request, redirect, jsonify
 
@@ -24,6 +26,7 @@ def index(update=False):
         # fetch data
         m = Modmine()
         catexp_data = m.get_catexp_data(update)
+        modmine_path = config.DATASOURCE_ROOT + m.get_webapp_path(update)
 
         # TODO: how shall we do "genus" italics?
 
