@@ -1,34 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-
-	<title>modENCODE</title>
-
-    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-
-    <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
-</head>
-<body>
-    <header>
-        <div id="top">
-            <div class="wrap">
-                <div id="title">
-                    <p>modENCODE</p>
-                </div>
-                <p class="sub">The National Human Genome Research Institute MODel organism ENCyclopedia Of DNA Elements</p>
-
-                <div class="div"></div>
-
-                <div id="search">
-                    <input type="text" class="text">
-                    <input type="submit" class="button" value="">
-                </div>
-            </div>
-        </div>
-        <nav>
-            
+{% extends "layout.html" %}
+{% block nav %}
 <ul>
     <li><a href="index.html#">About modENCODE</a></li>
     <li><a href="index.html#">Project Mission</a></li>
@@ -36,316 +7,71 @@
     <li><a href="index.html#">Team Members</a></li>
     <li class="last"><a href="index.html#">Latest News</a></li>
 </ul>
+{% endblock %}
 
-        </nav>
-    </header>
-    <section>
-        <article>
-            
+{% block body %}
 
 <aside>
-    <ul><li target="category-1"
-        class="active">Chromatin structure</li><li target="category-2"
-        >Copy Number Variation</li><li target="category-3"
-        >Gene Structure</li><li target="category-4"
-        >Histone modification and replacement</li><li target="category-5"
-        >Metadata only</li><li target="category-6"
-        >Other chromatin binding sites</li><li target="category-7"
-        >RNA expression profiling</li><li target="category-8"
-        >Replication</li><li target="category-9"
-        >TF binding sites</li></ul>
+    <ul>
+    {%- for category in catexp_data.categories -%}
+        <li target="category-{{ loop.index }}"
+        {% if loop.first %}class="active"{% endif %}>{{ category.category }}</li>
+    {%- endfor -%}
+    </ul>
 </aside>
 
-<div id="content"><div class="category" id="category-1" >
-        <ul class="switcher"><li target="organism-1" class="active"">D. melanogaster</li><li target="organism-2" ">C. elegans</li></ul><div class="organism" id="organism-1" >
-            <ul class="experiments"><li>
-                    <p class="title">Genome-wide Chromatin Profiling</p>
-                    <p class="pi">Pi: Steven Henikoff</p>
-                    <p class="labs">Labs:Kamran Ahmad, Steven Henikoff</p>
-                </li></ul>
-        </div><div class="organism" id="organism-2" style="display:none;">
-            <ul class="experiments"><li>
-                    <p class="title">Nucleosome mapping</p>
-                    <p class="pi">Pi: Jason Lieb</p>
-                    <p class="labs">Labs:Jason Lieb</p>
-                </li><li>
-                    <p class="title">Genome wide chromatin profiling in C. elegans</p>
-                    <p class="pi">Pi: Steven Henikoff</p>
-                    <p class="labs">Labs:Steven Henikoff</p>
-                </li></ul>
-        </div></div><div class="category" id="category-2" style="display:none;">
-        <ul class="switcher"><li target="organism-1" class="active"">D. melanogaster</li><li target="organism-2" ">C. elegans</li></ul><div class="organism" id="organism-1" >
-            <ul class="experiments"><li>
-                    <p class="title">CGH drosophila cell lines</p>
-                    <p class="pi">Pi: David MacAlpine</p>
-                    <p class="labs">Labs:David MacAlpine</p>
-                </li><li>
-                    <p class="title">CNV in Drosophila cell lines</p>
-                    <p class="pi">Pi: David MacAlpine</p>
-                    <p class="labs">Labs:David MacAlpine</p>
-                </li><li>
-                    <p class="title">Differential Replication of Polytene Chromosomes</p>
-                    <p class="pi">Pi: David MacAlpine</p>
-                    <p class="labs">Labs:Terry Orr-Weaver</p>
-                </li></ul>
-        </div><div class="organism" id="organism-2" style="display:none;">
-            <ul class="experiments"></ul>
-        </div></div><div class="category" id="category-3" style="display:none;">
-        <ul class="switcher"><li target="organism-1" class="active"">D. melanogaster</li><li target="organism-2" ">C. elegans</li></ul><div class="organism" id="organism-1" >
-            <ul class="experiments"><li>
-                    <p class="title">RT-PCR</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Michael Brent</p>
-                </li><li>
-                    <p class="title">Analysis of TSS using stranded RACE products</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Sue Celniker</p>
-                </li><li>
-                    <p class="title">5&#39; RACE</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Sue Celniker</p>
-                </li><li>
-                    <p class="title">Confirmation of Drosophila transcripts by full-length cDNA screening</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Sue Celniker</p>
-                </li><li>
-                    <p class="title">Annotation of Drosophila splice junctions by RNA-seq</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Brenton Graveley</p>
-                </li><li>
-                    <p class="title">Cap Analysis of Gene Expression</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Sue Celniker</p>
-                </li><li>
-                    <p class="title">Drosophila Cell Line and Developmental Stage Gene and Exon Scores</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Peter Cherbas</p>
-                </li><li>
-                    <p class="title">Gene Model Prediction</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Michael Brent</p>
-                </li></ul>
-        </div><div class="organism" id="organism-2" style="display:none;">
-            <ul class="experiments"><li>
-                    <p class="title">Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements</p>
-                    <p class="pi">Pi: Fabio Piano</p>
-                    <p class="labs">Labs:Fabio Piano, John Kim</p>
-                </li><li>
-                    <p class="title">SL Acceptor Site Confirmation in C. elegans</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:Phil Green</p>
-                </li><li>
-                    <p class="title">Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:Robert Waterston</p>
-                </li><li>
-                    <p class="title">Intron Confirmation in C. elegans</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:Phil Green</p>
-                </li><li>
-                    <p class="title">Mass spectrometric validation of short ORFs</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:Michael MacCoss</p>
-                </li><li>
-                    <p class="title">Identification of small RNAs in C. elegans</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:Frank Slack</p>
-                </li><li>
-                    <p class="title">Transcription Start Site Confirmation in C. elegans</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:Phil Green</p>
-                </li></ul>
-        </div></div><div class="category" id="category-4" style="display:none;">
-        <ul class="switcher"><li target="organism-1" class="active"">D. melanogaster</li><li target="organism-2" ">C. elegans</li></ul><div class="organism" id="organism-1" >
-            <ul class="experiments"><li>
-                    <p class="title">HMM Prediction of D. melanogaster Chromatin States</p>
-                    <p class="pi">Pi: Gary Karpen</p>
-                    <p class="labs">Labs:Gary Karpen</p>
-                </li><li>
-                    <p class="title">Genomic Distributions of Histone Modifications</p>
-                    <p class="pi">Pi: Gary Karpen</p>
-                    <p class="labs">Labs:Gary Karpen, Mitzi Kuroda, Sarah Elgin, Vincent Pirrotta</p>
-                </li><li>
-                    <p class="title">Chromatin Binding Site Mapping of Modified Histone Proteins in D. melanogaster</p>
-                    <p class="pi">Pi: Kevin White</p>
-                    <p class="labs">Labs:Kevin White</p>
-                </li></ul>
-        </div><div class="organism" id="organism-2" style="display:none;">
-            <ul class="experiments"><li>
-                    <p class="title">Chromatin ChIP-chip of Modified Histones in C. elegans</p>
-                    <p class="pi">Pi: Jason Lieb</p>
-                    <p class="labs">Labs:Jason Lieb, Julie Ahringer, Susan Strome</p>
-                </li></ul>
-        </div></div><div class="category" id="category-5" style="display:none;">
-        <ul class="switcher"><li target="organism-1" class="active"">D. melanogaster</li><li target="organism-2" ">C. elegans</li></ul><div class="organism" id="organism-1" >
-            <ul class="experiments"><li>
-                    <p class="title">RNA made in Bloomington</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Peter Cherbas, Tom Gingeras</p>
-                </li></ul>
-        </div><div class="organism" id="organism-2" style="display:none;">
-            <ul class="experiments"></ul>
-        </div></div><div class="category" id="category-6" style="display:none;">
-        <ul class="switcher"><li target="organism-1" class="active"">D. melanogaster</li><li target="organism-2" ">C. elegans</li></ul><div class="organism" id="organism-1" >
-            <ul class="experiments"><li>
-                    <p class="title">Genomic Distributions of non-Histone Chromosomal Proteins in D. melanogaster</p>
-                    <p class="pi">Pi: Gary Karpen</p>
-                    <p class="labs">Labs:Gary Karpen, Mitzi Kuroda, Sarah Elgin, Vincent Pirrotta</p>
-                </li><li>
-                    <p class="title">Chromatin Binding Site Mapping of non-Histone Chromosomal Proteins in D. melanogaster</p>
-                    <p class="pi">Pi: Kevin White</p>
-                    <p class="labs">Labs:Kevin White</p>
-                </li><li>
-                    <p class="title">Classification of D. melanogaster Insulator Binding Sequences</p>
-                    <p class="pi">Pi: Kevin White</p>
-                    <p class="labs">Labs:Kevin White</p>
-                </li></ul>
-        </div><div class="organism" id="organism-2" style="display:none;">
-            <ul class="experiments"><li>
-                    <p class="title">Chromatin ChIP-chip</p>
-                    <p class="pi">Pi: Jason Lieb</p>
-                    <p class="labs">Labs:Arshad Desai, Jason Lieb, Julie Ahringer, Susan Strome</p>
-                </li><li>
-                    <p class="title">Chromatin ChIP-chip of non-Histone Chromosomal Proteins in C. elegans</p>
-                    <p class="pi">Pi: Jason Lieb</p>
-                    <p class="labs">Labs:Jason Lieb</p>
-                </li></ul>
-        </div></div><div class="category" id="category-7" style="display:none;">
-        <ul class="switcher"><li target="organism-1" class="active"">D. melanogaster</li><li target="organism-2" ">C. elegans</li></ul><div class="organism" id="organism-1" >
-            <ul class="experiments"><li>
-                    <p class="title">Transcriptional Profiling of additional Drosophila species with RNA-Seq</p>
-                    <p class="pi">Pi: Brian Oliver</p>
-                    <p class="labs">Labs:Brian Oliver</p>
-                </li><li>
-                    <p class="title">Transcriptional profiling of Drosophila cell lines</p>
-                    <p class="pi">Pi: Steven Henikoff</p>
-                    <p class="labs">Labs:Kamran Ahmad</p>
-                </li><li>
-                    <p class="title">RNA-seq support of the ChIP data</p>
-                    <p class="pi">Pi: Kevin White</p>
-                    <p class="labs">Labs:Kevin White</p>
-                </li><li>
-                    <p class="title">Small RNA identification</p>
-                    <p class="pi">Pi: Eric Lai</p>
-                    <p class="labs">Labs:Eric Lai, Gregory Hannon</p>
-                </li><li>
-                    <p class="title">Short read sequencing of fly mRNA</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Michael Brent</p>
-                </li><li>
-                    <p class="title">Transcriptional Profiling of D. melanogaster cell lines using Illumina poly(A)%2B RNA-Seq</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Brenton Graveley</p>
-                </li><li>
-                    <p class="title">Paired End RNA-Seq of Drosophila Cell Lines</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Brenton Graveley</p>
-                </li><li>
-                    <p class="title">Developmental Time Course Transcriptional Profiling of D. melanogaster Embryo Using SOLiD Stranded Total RNA-Seq</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Sue Celniker</p>
-                </li><li>
-                    <p class="title">Tissue-specific Transcriptional Profiling of D. melanogaster using Illumina poly(A)%2B RNA-Seq</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Brenton Graveley</p>
-                </li><li>
-                    <p class="title">Identification of transcribed sequences with expression profile maps</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Tom Gingeras</p>
-                </li><li>
-                    <p class="title">Stranded Cell Line Transcriptional Profiling Using Illumina poly%28A%29%2B RNA-seq</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Sue Celniker</p>
-                </li><li>
-                    <p class="title">Capped and uncapped short RNAs</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Tom Gingeras</p>
-                </li><li>
-                    <p class="title">C-tailed RNA-Seq of Drosophila Cell lines and stages</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Tom Gingeras</p>
-                </li><li>
-                    <p class="title">Developmental Stage Timecourse Transcriptional Profiling with RNA-Seq</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Brenton Graveley, Sue Celniker</p>
-                </li><li>
-                    <p class="title">RNAi of RNA splicing factors in D. melanogaster</p>
-                    <p class="pi">Pi: Sue Celniker</p>
-                    <p class="labs">Labs:Brenton Graveley</p>
-                </li></ul>
-        </div><div class="organism" id="organism-2" style="display:none;">
-            <ul class="experiments"><li>
-                    <p class="title">Assaying RNA Expression in C. elegans</p>
-                    <p class="pi">Pi: Jason Lieb</p>
-                    <p class="labs">Labs:Jason Lieb</p>
-                </li><li>
-                    <p class="title">Transcriptional profiling of C. elegans N2 embryos</p>
-                    <p class="pi">Pi: Steven Henikoff</p>
-                    <p class="labs">Labs:Kamran Ahmad</p>
-                </li><li>
-                    <p class="title">Small RNA expression in C. elegans embryos</p>
-                    <p class="pi">Pi: Fabio Piano</p>
-                    <p class="labs">Labs:Nikolaus Rajewsky</p>
-                </li><li>
-                    <p class="title">Identification of tissue and stage-specific transcribed sequences with expression profile maps</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:David Miller, Valerie Reinke</p>
-                </li><li>
-                    <p class="title">Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:Robert Waterston</p>
-                </li><li>
-                    <p class="title">Changes in expression of small RNAs under stress conditions in C. elegans</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:Frank Slack</p>
-                </li><li>
-                    <p class="title">Identification of transcribed sequences under pathogenic bacterial growth conditions with expression profile maps</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:Valerie Reinke</p>
-                </li><li>
-                    <p class="title">Changes in expression of small RNAs during aging in C. elegans</p>
-                    <p class="pi">Pi: Robert Waterston</p>
-                    <p class="labs">Labs:Frank Slack</p>
-                </li></ul>
-        </div></div><div class="category" id="category-8" style="display:none;">
-        <ul class="switcher"><li target="organism-1" class="active"">D. melanogaster</li><li target="organism-2" ">C. elegans</li></ul><div class="organism" id="organism-1" >
-            <ul class="experiments"><li>
-                    <p class="title">Replication Timing Characterization</p>
-                    <p class="pi">Pi: David MacAlpine</p>
-                    <p class="labs">Labs:David MacAlpine</p>
-                </li><li>
-                    <p class="title">MacAlpine Early Origin of Replication Identification</p>
-                    <p class="pi">Pi: David MacAlpine</p>
-                    <p class="labs">Labs:David MacAlpine</p>
-                </li><li>
-                    <p class="title">Genome-wide localization of essential replication initiators</p>
-                    <p class="pi">Pi: David MacAlpine</p>
-                    <p class="labs">Labs:David MacAlpine, Terry Orr-Weaver</p>
-                </li><li>
-                    <p class="title">Genome-wide localization of essential replication initiators by ChIP-chip</p>
-                    <p class="pi">Pi: David MacAlpine</p>
-                    <p class="labs">Labs:David MacAlpine, Terry Orr-Weaver</p>
-                </li></ul>
-        </div><div class="organism" id="organism-2" style="display:none;">
-            <ul class="experiments"></ul>
-        </div></div><div class="category" id="category-9" style="display:none;">
-        <ul class="switcher"><li target="organism-1" class="active"">D. melanogaster</li><li target="organism-2" ">C. elegans</li></ul><div class="organism" id="organism-1" >
-            <ul class="experiments"><li>
-                    <p class="title">Chromatin Binding Site Mapping</p>
-                    <p class="pi">Pi: Kevin White</p>
-                    <p class="labs">Labs:Kevin White</p>
-                </li><li>
-                    <p class="title">Chromatin Binding Site Mapping of Transcription Factors in D. melanogaster by ChIP-seq</p>
-                    <p class="pi">Pi: Kevin White</p>
-                    <p class="labs">Labs:Kevin White</p>
-                </li></ul>
-        </div><div class="organism" id="organism-2" style="display:none;">
-            <ul class="experiments"><li>
-                    <p class="title">ChIP-Seq Identification of C. elegans TF Binding Sites</p>
-                    <p class="pi">Pi: Michael Snyder</p>
-                    <p class="labs">Labs:Gerstein, Michael Snyder</p>
-                </li></ul>
-        </div></div></div>
+<div id="content">
+    {%- for category in catexp_data.categories -%}
+    <div class="category" id="category-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
+        <ul class="switcher">
+        {%- for organism in category.organisms -%}
+            <li target="organism-{{ loop.index }}" {% if loop.first %}class="active"{% endif %}">{{ organism.organism }}</li>
+        {%- endfor -%}
+        </ul>
+
+        {%- for organism in category.organisms -%}
+        <div class="organism" id="organism-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
+            <ul class="experiments">
+                {%- for experiment in organism.experiments -%}
+                <li>
+                    <p class="title">
+                        <a href="{{modmine_path}}experiment.do?experiment={{experiment.experiment_name}}" target="_blank">
+                            {{ experiment.experiment_name}}
+                        </a>
+                    </p>
+                    <p class="">Project: {{experiment.project_name}}</p>
+                    <p class="pi">Pi: {{experiment.pi}}</p>
+                    <p class="labs">Labs:
+                        {%- for lab in experiment.labs -%}{{ lab }}{% if not loop.last %}, {% endif %}{%- endfor -%}
+                    </p>
+                    <p>Submissions: {{experiment.submission_count}}</p>
+                    <p>Experimental factors :
+                        {%- for factor in experiment.factor_types -%}{{ factor }}{% if not loop.last %}, {% endif %}{%- endfor -%}
+                    </p>
+                    {% if experiment.features|count > 0 %}
+                        <p>Features:
+                            {%- for feature in experiment.features -%}
+                                <a href="{{modmine_path}}features.do?type=experiment&action=results&experiment={{experiment.experiment_name}}&feature={{feature.feature_type}}" target="_blank">
+                                    {{feature.feature_type}}: {{feature.feature_counts}}
+                                </a>
+                            {% if not loop.last %}, {% endif %}{%- endfor -%}
+                        </p>
+                    {% endif %}
+                    {% if experiment.gbrowse_tracks|count > 0 %}
+                        <p>GBrowse Tracks:
+                            <a href="{{gbrowse_base}}{{experiment.gbrowse_tracks.track_link}}" target="_blank">
+                                {{experiment.gbrowse_tracks.track_counts}}
+                            </a>
+                        </p>
+                    {% endif %}
+                </li>
+                {%- endfor -%}
+            </ul>
+        </div>
+        {%- endfor -%}
+    </div>
+    {%- endfor -%}
+</div>
 
 <script type="text/javascript">
     $("aside ul li").click(function() {
@@ -370,11 +96,4 @@
     });
 </script>
 
-
-            
-            <div class="clear"></div>
-        </article>
-    </section>
-    <footer>Last updated: 08 August 12:39</footer>
-</body>
-</html>
+{% endblock %}
