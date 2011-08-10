@@ -29,6 +29,9 @@ def index(update=False):
 
         time = utils.current_time()
 
+        modmine_path = "http://intermine.modencode.org/modminetest/"
+        gbrowse_base = "http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/"
+
         html = render_template('home/index.html', **locals())
         t.write(html)
 

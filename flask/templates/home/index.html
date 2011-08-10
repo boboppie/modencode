@@ -34,11 +34,36 @@
             <ul class="experiments">
                 {%- for experiment in organism.experiments -%}
                 <li>
-                    <p class="title">{{ experiment.experiment_title }}</p>
-                    <p class="pi">Pi: {{ experiment.pi }}</p>
+                    <p class="title">
+                        <a href="{{modmine_path}}experiment.do?experiment={{experiment.experiment_name}}" target="_blank">
+                            {{ experiment.experiment_name}}
+                        </a>
+                    </p>
+                    <p class="">Project: {{experiment.project_name}}</p>
+                    <p class="pi">Pi: {{experiment.pi}}</p>
                     <p class="labs">Labs:
                         {%- for lab in experiment.labs -%}{{ lab }}{% if not loop.last %}, {% endif %}{%- endfor -%}
                     </p>
+                    <p>Submissions: {{experiment.submission_count}}</p>
+                    <p>Experimental factors :
+                        {%- for factor in experiment.factor_types -%}{{ factor }}{% if not loop.last %}, {% endif %}{%- endfor -%}
+                    </p>
+                    {% if experiment.features|count > 0 %}
+                        <p>Features:
+                            {%- for feature in experiment.features -%}
+                                <a href="{{modmine_path}}features.do?type=experiment&action=results&experiment={{experiment.experiment_name}}&feature={{feature.feature_type}}" target="_blank">
+                                    {{feature.feature_type}}: {{feature.feature_counts}}
+                                </a>
+                            {% if not loop.last %}, {% endif %}{%- endfor -%}
+                        </p>
+                    {% endif %}
+                    {% if experiment.gbrowse_tracks|count > 0 %}
+                        <p>GBrowse Tracks:
+                            <a href="{{gbrowse_base}}{{experiment.gbrowse_tracks.track_link}}" target="_blank">
+                                {{experiment.gbrowse_tracks.track_counts}}
+                            </a>
+                        </p>
+                    {% endif %}
                 </li>
                 {%- endfor -%}
             </ul>
