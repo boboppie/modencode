@@ -26,7 +26,8 @@
         <ul class="switcher">
         {% set organisms = category.organisms|empty_organisms_filter %}
         {%- for organism in organisms -%}
-            <li target="organism-{{ loop.index }}" {% if loop.first %}class="active"{% endif %}>{{ organism.organism }}</li>
+            <li class="{{ organism.organism|slugify }}{% if loop.first %} active{% endif %}"
+                target="organism-{{ loop.index }}">{{ organism.organism }}</li>
         {%- endfor -%}
         </ul>
         <div class="separator"></div>
