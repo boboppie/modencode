@@ -62,10 +62,12 @@
                             {%- for lab in experiment.labs -%}{{ lab }}{% if not loop.last %}, {% endif %}{%- endfor -%}
                         </div>
                         <div class="submissions"><span>Submissions:</span> {{ experiment.submission_count }}</div>
+                        {% if experiment.factor_types|count > 0 %}
                         <div class="factors"><span>Experimental factors:</span>&nbsp;
                             {%- for factor in experiment.factor_types -%}{{ factor }}{% if not loop.last %}, {% endif %}{%- endfor -%}
                         </div>
-                        {% if experiment.features|count > 0 %}
+                        {% endif %}
+                        {% if experiment.features %}
                         <div class="features"><span>Features:</span>&nbsp;
                             {%- for feature in experiment.features -%}
                                 <a href="{{ modmine_path }}features.do?type=experiment&action=results&experiment=
