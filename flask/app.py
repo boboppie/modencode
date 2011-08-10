@@ -25,6 +25,29 @@ def create_app():
     app.register_blueprint(home)
     app.register_blueprint(modmine)
 
+    # template filters
+    @app.template_filter('pi_filter')
+    def pi_filter(list_of_experiments):
+        """
+        Give a unique list of pis for a category organism
+        """
+        pis = []
+        for exp in list_of_experiments:
+            if exp['pi'] not in pis:
+                pis.append(exp['pi'])
+        return pis
+
+    @app.template_filter('empty_organisms_filter')
+    def empty_organisms_filter(list_of_organism_experiments):
+        """
+        Make sure that empty experiments do not get processed
+        """
+        organisms = []
+        for organism in list_of_organism_experiments:
+            if len(organism['experiments']) > 0:
+                organisms.append(organism)
+        return organisms
+
     return app
 
 if __name__ == '__main__':
