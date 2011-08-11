@@ -1,5 +1,34 @@
-{% extends "layout.html" %}
-{% block nav %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+	<title>modENCODE</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+    <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
+</head>
+<body>
+    <header>
+        <div id="top">
+            <div class="wrap">
+                <div id="title">
+                    <p>modENCODE</p>
+                </div>
+                <p class="sub">The National Human Genome Research Institute MODel organism ENCyclopedia Of DNA Elements</p>
+
+                <div class="div"></div>
+
+                <div id="search">
+                    <input type="text" class="text">
+                    <input type="submit" class="button" value="">
+                </div>
+            </div>
+        </div>
+        <nav>
+            
 <ul>
     <li><a href="index.html#">About modENCODE</a></li>
     <li><a href="index.html#">Project Mission</a></li>
@@ -7,92 +36,1579 @@
     <li><a href="index.html#">Team Members</a></li>
     <li class="last"><a href="index.html#">Latest News</a></li>
 </ul>
-{% endblock %}
 
-{% block body %}
+        </nav>
+    </header>
+    <section>
+        <article>
+            
 
 <aside>
-    <ul>
-    {%- for category in data.categories -%}
-        <li target="category-{{ loop.index }}"
-        {% if loop.first %}class="active"{% endif %}>{{ category.category }}</li>
-    {%- endfor -%}
-    </ul>
+    <ul><li target="category-1"
+        class="active">Chromatin structure</li><li target="category-2"
+        >Copy Number Variation</li><li target="category-3"
+        >Gene Structure</li><li target="category-4"
+        >Histone modification and replacement</li><li target="category-5"
+        >Metadata only</li><li target="category-6"
+        >Other chromatin binding sites</li><li target="category-7"
+        >RNA expression profiling</li><li target="category-8"
+        >Replication</li><li target="category-9"
+        >TF binding sites</li></ul>
 </aside>
 
-<div id="content">
-    {%- for category in data.categories -%}
-    <div class="category" id="category-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
+<div id="content"><div class="category" id="category-1" >
         <ul class="switcher">
-        {% set organisms = category.organisms|empty_organisms_filter %}
-        {%- for organism in organisms -%}
-            <li class="{{ organism.organism|slugify }}{% if loop.first %} active{% endif %}"
-                target="organism-{{ loop.index }}"><span>{{ organism.organism }}</span></li>
-        {%- endfor -%}
-        </ul>
-        <div class="separator"></div>
+        <li class="d-melanogaster active"
+                target="organism-1"><span>D. melanogaster</span></li><li class="c-elegans"
+                target="organism-2"><span>C. elegans</span></li></ul>
+        <div class="separator"></div><div class="organism" id="organism-1" >
+            
+            
 
-        {%- for organism in organisms -%}
-        <div class="organism" id="organism-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
-            {% set pis = organism.experiments|pi_filter %}
-            {% if pis|count > 1 %}
+            <ul class="experiments"><li>
+                    <div class="project">Histone Variants</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Genome-wide+Chromatin+Profiling" target="_blank">
+                            Genome-wide Chromatin Profiling
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Steven Henikoff"><span>Pi:</span> Steven Henikoff</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Kamran Ahmad, Steven Henikoff</div>
+                        <div class="submissions"><span>Submissions:</span> 32</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, biochemical fraction, cell line, extraction time, sodium chloride concentration</div>
+                        
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=Henikoff_Salt_Ext_WIG/600mM_pellet-Henikoff_Salt_Ext_WIG/150mM_fraction-HenikoffNUCL/Nucleosome_Density_S2-Henikoff_Salt_Ext_WIG/150mM_fraction_Emb_1-3hr-Henikoff_Salt_Ext_WIG/600mM_fraction_Emb_1-3hr-Henikoff_Salt_Ext_WIG/600mM_pellet_Emb_1-3hr-Henikoff_Salt_Ext_WIG/150mM_fraction_Emb_4-6hr-Henikoff_Salt_Ext_WIG/600mM_fraction_Emb_4-6hr-Henikoff_Salt_Ext_WIG/600mM_Pellet_Emb_4-6hr-Henikoff_Salt_Ext_WIG/80mM_fraction_wing_disc-Henikoff_Salt_Ext_WIG/150mM_fraction_wing_disc-Henikoff_Salt_Ext_WIG/600mM_fraction_wing_disc-Henikoff_Salt_Ext_WIG/600mM_pellet_wing_disc-Henikoff_Salt_Ext_WIG/80mM_fraction_S2-Henikoff_Salt_Ext_WIG/80mM_fraction_H2A-Henikoff_Salt_Ext_WIG/80mM_fraction_H2Av-Henikoff_Salt_Ext_WIG/80mM_fraction_H3.3-Henikoff_Salt_Ext_WIG/80-150mM_fraction_H2Av-Henikoff_Salt_Ext_WIG/80-150mM_fraction_S2-Henikoff_Salt_Ext_WIG/80-600mM_fraction_H3.3-Henikoff_Salt_Ext_WIG/80-600mM_fraction_H2Av-Henikoff_Salt_Ext_WIG/150-600mM_fraction_H2Av-Henikoff_Salt_Ext_WIG/150-600mM_fraction_H3.3-Henikoff_Salt_Ext_WIG/150-600mM_fraction_S2-HenikoffNUCL/Mononucleosomes_H3.3-HenikoffNUCL/Mononucleosomes_H2Av" target="_blank">
+                                26
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li></ul>
+        </div><div class="organism" id="organism-2" style="display:none;">
+            
+            
             <div class="filter">
                 <span>Filter by Pi:</span>
                 <ul>
                     <li class="selected">Show all</li>
-                    {% for pi in pis %}
-                        <li>{{ pi }}</li>
-                    {% endfor %}
+                    
+                        <li>Jason Lieb</li>
+                    
+                        <li>Steven Henikoff</li>
+                    
                 </ul>
             </div>
-            {% endif %}
+            
 
-            <ul class="experiments">
-                {%- for experiment in organism.experiments -%}
-                <li>
-                    <div class="project">{{experiment.project_name}}</div>
+            <ul class="experiments"><li>
+                    <div class="project">Chromatin Function</div>
                     <h2>
-                        <a href="{{modmine_path}}experiment.do?experiment={{experiment.experiment_name}}" target="_blank">
-                            {{ experiment.experiment_name}}
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Nucleosome+mapping" target="_blank">
+                            Nucleosome mapping
                         </a>
                     </h2>
                     <div class="meta">
-                        <div class="pi" title="{{ experiment.pi }}"><span>Pi:</span> {{ experiment.pi }}</div>
-                        <div class="labs"><span>Labs:</span>&nbsp;
-                            {%- for lab in experiment.labs -%}{{ lab }}{% if not loop.last %}, {% endif %}{%- endfor -%}
-                        </div>
-                        <div class="submissions"><span>Submissions:</span> {{ experiment.submission_count }}</div>
-                        {% if experiment.factor_types|count > 0 %}
-                        <div class="factors"><span>Experimental factors:</span>&nbsp;
-                            {%- for factor in experiment.factor_types -%}{{ factor }}{% if not loop.last %}, {% endif %}{%- endfor -%}
-                        </div>
-                        {% endif %}
-                        {% if experiment.features %}
-                        <div class="features"><span>Features:</span>&nbsp;
-                            {%- for feature in experiment.features -%}
-                                <a href="{{ modmine_path }}features.do?type=experiment&action=results&experiment=
-                                    {{- experiment.experiment_name }}&feature={{ feature.feature_type }}" target="_blank">
-                                    {{- feature.feature_type }}: {{ feature.feature_counts -}}
-                                </a>{% if not loop.last %}, {% endif %}
-                            {%- endfor -%}
-                        </div>
-                        {% endif %}
-                        {% if experiment.gbrowse_tracks|count > 0 %}
+                        <div class="pi" title="Jason Lieb"><span>Pi:</span> Jason Lieb</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Jason Lieb</div>
+                        <div class="submissions"><span>Submissions:</span> 3</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain, temperature</div>
+                        
+                        
+                        
                         <div class="tracks"><span>GBrowse Tracks:</span>
-                            <a href="{{ gbrowse_base }}{{ experiment.gbrowse_tracks.track_link }}" target="_blank">
-                                {{ experiment.gbrowse_tracks.track_counts }}
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+worm/?label=LiebNUCL/MXEMB-LiebNUCL/GermlinelessAdults" target="_blank">
+                                2
                             </a>
                         </div>
-                        {% endif %}
+                        
                     </div>
-                </li>
-                {%- endfor -%}
-            </ul>
-        </div>
-        {%- endfor -%}
-    </div>
-    {%- endfor -%}
-</div>
+                </li><li>
+                    <div class="project">Histone Variants</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Genome+wide+chromatin+profiling+in+C.+elegans" target="_blank">
+                            Genome wide chromatin profiling in C. elegans
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Steven Henikoff"><span>Pi:</span> Steven Henikoff</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Steven Henikoff</div>
+                        <div class="submissions"><span>Submissions:</span> 8</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, biochemical fraction, extraction time, sodium chloride concentration, strain</div>
+                        
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+worm/?label=Henikoff_Salt_Ext_VISTA/80mM_fraction-Henikoff_Salt_Ext_VISTA/600mM_fraction-Henikoff_Salt_Ext_VISTA/600mM_Pellet-Henikoff_Salt_H3_VISTA/80mM_fraction-Henikoff_Salt_H3_VISTA/350mM_fraction-Henikoff_Salt_H3_VISTA/600mM_fraction-HenikoffNUCL/Emb_Mononucleosomes-HenikoffNUCL/Adt_Mononucleosomes" target="_blank">
+                                8
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li></ul>
+        </div></div><div class="category" id="category-2" style="display:none;">
+        <ul class="switcher">
+        <li class="d-melanogaster active"
+                target="organism-1"><span>D. melanogaster</span></li></ul>
+        <div class="separator"></div><div class="organism" id="organism-1" >
+            
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">Origins of Replication</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=CGH+drosophila+cell+lines" target="_blank">
+                            CGH drosophila cell lines
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="David MacAlpine"><span>Pi:</span> David MacAlpine</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;David MacAlpine</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;cell line</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Origins of Replication</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=CNV+in+Drosophila+cell+lines" target="_blank">
+                            CNV in Drosophila cell lines
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="David MacAlpine"><span>Pi:</span> David MacAlpine</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;David MacAlpine</div>
+                        <div class="submissions"><span>Submissions:</span> 4</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;cell line</div>
+                        
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=MacAlpine_CNV/S2-MacAlpine_CNV/Kc167-MacAlpine_CNV/Bg3-MacAlpine_CNV/Cl8" target="_blank">
+                                4
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Origins of Replication</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Differential+Replication+of+Polytene+Chromosomes" target="_blank">
+                            Differential Replication of Polytene Chromosomes
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="David MacAlpine"><span>Pi:</span> David MacAlpine</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Terry Orr-Weaver</div>
+                        <div class="submissions"><span>Submissions:</span> 4</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain, tissue</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Differential Replication of Polytene Chromosomes&feature=CopyNumberVariation"
+                                   target="_blank">CopyNumberVariation: 149</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=MacAlpine_CGH_WIG/Follicle_OregonR_mod-MacAlpine_CGH_WIG/Salivary_Y_cn_bw_sp-MacAlpine_CGH_WIG/Follicle_OregonR-Orr-Weaver-MacAlpine_CGH_WIG/Salivary_OregonR-Orr-Weaver" target="_blank">
+                                4
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li></ul>
+        </div></div><div class="category" id="category-3" style="display:none;">
+        <ul class="switcher">
+        <li class="d-melanogaster active"
+                target="organism-1"><span>D. melanogaster</span></li><li class="c-elegans"
+                target="organism-2"><span>C. elegans</span></li></ul>
+        <div class="separator"></div><div class="organism" id="organism-1" >
+            
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=RT-PCR" target="_blank">
+                            RT-PCR
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Michael Brent</div>
+                        <div class="submissions"><span>Submissions:</span> 5</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=RT-PCR&feature=CDNAMatch"
+                                   target="_blank">CDNAMatch: 2352</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=RT-PCR&feature=MRNA"
+                                   target="_blank">MRNA: 1691</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=RT-PCR&feature=EST"
+                                   target="_blank">EST: 2352</a></div>
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Analysis+of+TSS+using+stranded+RACE+products" target="_blank">
+                            Analysis of TSS using stranded RACE products
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Sue Celniker</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=5%27+RACE" target="_blank">
+                            5&#39; RACE
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Sue Celniker</div>
+                        <div class="submissions"><span>Submissions:</span> 6</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=5&#39; RACE&feature=MRNA"
+                                   target="_blank">MRNA: 686</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=5&#39; RACE&feature=EST"
+                                   target="_blank">EST: 1193078</a></div>
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Confirmation+of+Drosophila+transcripts+by+full-length+cDNA+screening" target="_blank">
+                            Confirmation of Drosophila transcripts by full-length cDNA screening
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Sue Celniker</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;cDNA library</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Confirmation of Drosophila transcripts by full-length cDNA screening&feature=CDNAMatch"
+                                   target="_blank">CDNAMatch: 1495</a></div>
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Annotation+of+Drosophila+splice+junctions+by+RNA-seq" target="_blank">
+                            Annotation of Drosophila splice junctions by RNA-seq
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Brenton Graveley</div>
+                        <div class="submissions"><span>Submissions:</span> 30</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Annotation of Drosophila splice junctions by RNA-seq&feature=ExonRegion"
+                                   target="_blank">ExonRegion: 3005431</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Annotation of Drosophila splice junctions by RNA-seq&feature=Intron"
+                                   target="_blank">Intron: 1745570</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Annotation of Drosophila splice junctions by RNA-seq&feature=TranscriptRegion"
+                                   target="_blank">TranscriptRegion: 1745570</a></div>
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Cap+Analysis+of+Gene+Expression" target="_blank">
+                            Cap Analysis of Gene Expression
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Sue Celniker</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Drosophila+Cell+Line+and+Developmental+Stage+Gene+and+Exon+Scores" target="_blank">
+                            Drosophila Cell Line and Developmental Stage Gene and Exon Scores
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Peter Cherbas</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Gene+Model+Prediction" target="_blank">
+                            Gene Model Prediction
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Michael Brent</div>
+                        <div class="submissions"><span>Submissions:</span> 2</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=Gene"
+                                   target="_blank">Gene: 14654</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=Exon"
+                                   target="_blank">Exon: 368834</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=MRNA"
+                                   target="_blank">MRNA: 43846</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=OverlappingESTSet"
+                                   target="_blank">OverlappingESTSet: 72572</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=ExonRegion"
+                                   target="_blank">ExonRegion: 97494</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=CDS"
+                                   target="_blank">CDS: 219985</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=TranscriptionEndSite"
+                                   target="_blank">TranscriptionEndSite: 10836</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=FivePrimeUTR"
+                                   target="_blank">FivePrimeUTR: 60186</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=StartCodon"
+                                   target="_blank">StartCodon: 39549</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=ThreePrimeUTR"
+                                   target="_blank">ThreePrimeUTR: 40998</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=TSS"
+                                   target="_blank">TSS: 22656</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=StopCodon"
+                                   target="_blank">StopCodon: 39424</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=TranscriptRegion"
+                                   target="_blank">TranscriptRegion: 105560</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Gene Model Prediction&feature=EST"
+                                   target="_blank">EST: 354287</a></div>
+                        
+                        
+                    </div>
+                </li></ul>
+        </div><div class="organism" id="organism-2" style="display:none;">
+            
+            
+            <div class="filter">
+                <span>Filter by Pi:</span>
+                <ul>
+                    <li class="selected">Show all</li>
+                    
+                        <li>Fabio Piano</li>
+                    
+                        <li>Robert Waterston</li>
+                    
+                </ul>
+            </div>
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">The 3&#39; UTRome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Encyclopedia+of+C.+elegans+3%27UTRs+and+their+regulatory+elements" target="_blank">
+                            Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Fabio Piano"><span>Pi:</span> Fabio Piano</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Fabio Piano, John Kim</div>
+                        <div class="submissions"><span>Submissions:</span> 41</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain, temperature, tissue</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=Exon"
+                                   target="_blank">Exon: 21355</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=Gene"
+                                   target="_blank">Gene: 20220</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=MRNA"
+                                   target="_blank">MRNA: 3720</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=PolyASignalSequence"
+                                   target="_blank">PolyASignalSequence: 27135</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=Transcript"
+                                   target="_blank">Transcript: 27417</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=ThreePrimeRACEClone"
+                                   target="_blank">ThreePrimeRACEClone: 2700</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=PolyASite"
+                                   target="_blank">PolyASite: 35382</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=CDS"
+                                   target="_blank">CDS: 23792</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=EST"
+                                   target="_blank">EST: 2694</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=ThreePrimeRST"
+                                   target="_blank">ThreePrimeRST: 2700</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=ThreePrimeUST"
+                                   target="_blank">ThreePrimeUST: 2700</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Encyclopedia of C. elegans 3&#39;UTRs and their regulatory elements&feature=ThreePrimeUTR"
+                                   target="_blank">ThreePrimeUTR: 24055</a></div>
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=SL+Acceptor+Site+Confirmation+in+C.+elegans" target="_blank">
+                            SL Acceptor Site Confirmation in C. elegans
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Phil Green</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, inner forward primer, inner reverse primer, outer forward primer, outer reverse primer, strain</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=SL Acceptor Site Confirmation in C. elegans&feature=SL1AcceptorSite"
+                                   target="_blank">SL1AcceptorSite: 933</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=SL Acceptor Site Confirmation in C. elegans&feature=TranscriptRegion"
+                                   target="_blank">TranscriptRegion: 1453</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=SL Acceptor Site Confirmation in C. elegans&feature=EST"
+                                   target="_blank">EST: 1405</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=SL Acceptor Site Confirmation in C. elegans&feature=SL2AcceptorSite"
+                                   target="_blank">SL2AcceptorSite: 43</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+worm/?label=Waterston_EST_match_all/SL_Acceptor_Site" target="_blank">
+                                1
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Reanalysis+of+comprehensive+set+of+C.+elegans+transcripts+and+expression+for+various+stages+and+conditions" target="_blank">
+                            Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Robert Waterston</div>
+                        <div class="submissions"><span>Submissions:</span> 18</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=TSS"
+                                   target="_blank">TSS: 95411</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=Exon"
+                                   target="_blank">Exon: 1833553</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=OverlappingESTSet"
+                                   target="_blank">OverlappingESTSet: 157570</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=SL1AcceptorSite"
+                                   target="_blank">SL1AcceptorSite: 144581</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=Transcript"
+                                   target="_blank">Transcript: 614816</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=Intron"
+                                   target="_blank">Intron: 1309480</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=PolyASite"
+                                   target="_blank">PolyASite: 123763</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=CDS"
+                                   target="_blank">CDS: 391265</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=TranscriptionEndSite"
+                                   target="_blank">TranscriptionEndSite: 62159</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Reanalysis of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=SL2AcceptorSite"
+                                   target="_blank">SL2AcceptorSite: 43020</a></div>
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Intron+Confirmation+in+C.+elegans" target="_blank">
+                            Intron Confirmation in C. elegans
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Phil Green</div>
+                        <div class="submissions"><span>Submissions:</span> 6</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, inner forward primer, inner reverse primer, outer forward primer, outer reverse primer, reverse primer, strain</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Intron Confirmation in C. elegans&feature=Intron"
+                                   target="_blank">Intron: 10284</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Intron Confirmation in C. elegans&feature=EST"
+                                   target="_blank">EST: 6855</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+worm/?label=Waterston_EST_match_all/IntronsChrII-Waterston_intron_all/IntronsChrII-Waterston_EST_match_all/IntronsChrI-Waterston_EST_match_all/IntronsS4-Waterston_intron_all/IntronsS4-Waterston_EST_match_all/IntronsS1-Waterston_intron_all/IntronsS1-Waterston_EST_match_all/IntronsS2-Waterston_intron_all/IntronsS2-Waterston_EST_match_all/IntronsS3-Waterston_intron_all/IntronsS3" target="_blank">
+                                11
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Mass+spectrometric+validation+of+short+ORFs" target="_blank">
+                            Mass spectrometric validation of short ORFs
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Michael MacCoss</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain, temperature</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Mass spectrometric validation of short ORFs&feature=Intron"
+                                   target="_blank">Intron: 8077</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Mass spectrometric validation of short ORFs&feature=MatureTranscript"
+                                   target="_blank">MatureTranscript: 11189</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Mass spectrometric validation of short ORFs&feature=PolypeptideRegion"
+                                   target="_blank">PolypeptideRegion: 65805</a></div>
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Identification+of+small+RNAs+in+C.+elegans" target="_blank">
+                            Identification of small RNAs in C. elegans
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Frank Slack</div>
+                        <div class="submissions"><span>Submissions:</span> 7</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Transcription+Start+Site+Confirmation+in+C.+elegans" target="_blank">
+                            Transcription Start Site Confirmation in C. elegans
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Phil Green</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, inner forward primer, inner reverse primer, outer forward primer, outer reverse primer, strain</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Transcription Start Site Confirmation in C. elegans&feature=TSS"
+                                   target="_blank">TSS: 1221</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Transcription Start Site Confirmation in C. elegans&feature=TranscriptRegion"
+                                   target="_blank">TranscriptRegion: 3914</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Transcription Start Site Confirmation in C. elegans&feature=EST"
+                                   target="_blank">EST: 1239</a></div>
+                        
+                        
+                    </div>
+                </li></ul>
+        </div></div><div class="category" id="category-4" style="display:none;">
+        <ul class="switcher">
+        <li class="d-melanogaster active"
+                target="organism-1"><span>D. melanogaster</span></li><li class="c-elegans"
+                target="organism-2"><span>C. elegans</span></li></ul>
+        <div class="separator"></div><div class="organism" id="organism-1" >
+            
+            
+            <div class="filter">
+                <span>Filter by Pi:</span>
+                <ul>
+                    <li class="selected">Show all</li>
+                    
+                        <li>Gary Karpen</li>
+                    
+                        <li>Kevin White</li>
+                    
+                </ul>
+            </div>
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">Chromosomal Proteins</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=HMM+Prediction+of+D.+melanogaster+Chromatin+States" target="_blank">
+                            HMM Prediction of D. melanogaster Chromatin States
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Gary Karpen"><span>Pi:</span> Gary Karpen</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Gary Karpen</div>
+                        <div class="submissions"><span>Submissions:</span> 3</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;cell line</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Chromosomal Proteins</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Genomic+Distributions+of+Histone+Modifications" target="_blank">
+                            Genomic Distributions of Histone Modifications
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Gary Karpen"><span>Pi:</span> Gary Karpen</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Gary Karpen, Mitzi Kuroda, Sarah Elgin, Vincent Pirrotta</div>
+                        <div class="submissions"><span>Submissions:</span> 161</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, cell line, strain, tissue</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Genomic Distributions of Histone Modifications&feature=BindingSite"
+                                   target="_blank">BindingSite: 1099260</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=Karpen_HISMODS_S2/H4AcTetra-Karpen_CHROMPROTS_OR/CHRIZ_BR_14_16h_OR_emb-Karpen_HISMODENZ_BG3/Ez_BG3-Karpen_CHROMPROTS_BG3/GAF_BG3-Karpen_HISMODS_OR/H3K18Ac_new_2_4h_OR_emb-Karpen_HISMODS_BG3/H3K4Me1_BG3-Karpen_HISMODS_BG3/H3K4Me2_Millipore_BG3-Karpen_HISMODS_S2/H3K4Me2_Millipore_S2-Karpen_HISMODS_OR/H3K4Me2_14_16h_OR_emb-Karpen_HISMODS_BG3/H3K4Me2_L3nuc-Karpen_HISMODS_S2/H3K79Me1_S2-Karpen_HISMODS_BG3/H3K9AcS10P_new_BG3-Karpen_HISMODS_S2/H3K9AcS0P_1new_S2-Karpen_HISMODS_OR/H3K9Me2_Ab2_new_14_16h_OR_emb-Karpen_HISMODS_OR/H3K9Me2_Ab2_new_2_4h_OR_emb-Karpen_HISMODS_OR/H3K9Me3_new_14_16h_OR_emb-Karpen_HISMODS_OR/H3K9Me3_new_OR_HEADnuc-Karpen_CHROMPROTS_OR/HP1_wa191_2_4h_OR_emb-Karpen_CHROMPROTS_BG3/HP1_wa191_BG3-Karpen_CHROMPROTS_CL8/HP1_wa191_Cl8-Karpen_CHROMPROTS_S2/HP1a_wa184_S2-Karpen_CHROMPROTS_CL8/HP1c_MO_462_Cl8-Karpen_CHROMPROTS_Kc/HP1c_MO_462_Kc-Karpen_HISMODENZ_BG3/Su_var3_7_Q3448_BG3-Karpen_HISMODENZ_S2/Su_var3_7_Q3448_S2-Karpen_HISMODENZ_S2/Su_var3_9_S2-Karpen_CHROMPROTS_S2/mod2_2_VC_S2-Karpen_CHROMPROTS_S2/BEAF-HB.S2-Karpen_CHROMPROTS_BG3/CHRIZ_BR.BG3-Karpen_CHROMPROTS_CL8/CHRIZ_BR.Clone_8-Karpen_CHROMPROTS_Kc/CHRIZ_BR.Kc-Karpen_CHROMPROTS_S2/CHRIZ_BR.S2-Karpen_CHROMPROTS_S2/CHRIZ_WR.S2-Karpen_CHROMPROTS_S2/CP190_VC.S2-Karpen_CHROMPROTS_BG3/CTCF_VC.BG3-Karpen_CHROMPROTS_S2/CTCF_VC.S2-Karpen_HISMODENZ_S2/Ez.S2-Karpen_CHROMPROTS_S2/GAF.S2-Karpen_HISMODS_BG3/H2B.ubiq_NRO3.BG3-Karpen_HISMODS_Kc/H2B.ubiq_NRO3.Kc-Karpen_HISMODS_S2/H2B.ubiq_NRO3.S2-Karpen_HISMODS_BG3/H3K18Ac.BG3-Karpen_HISMODS_S2/H3K18Ac.S2-Karpen_HISMODS_BG3/H3K23Ac.BG3-Karpen_HISMODS_S2/H3K23Ac.S2-Karpen_HISMODS_BG3/H3K27Ac.BG3-Karpen_HISMODS_S2/H3K27Ac_S2-Karpen_HISMODS_BG3/H3K27Me3_Abcam2.BG3-Karpen_HISMODS_S2/H3K27Me3_Abcam2.S2-Karpen_HISMODS_BG3/H3K36Me1.BG3-Karpen_HISMODS_BG3/H3K36Me3.BG3-Karpen_HISMODS_Kc/H3K36Me3.Kc-Karpen_HISMODS_S2/H3K36Me3.S2-Karpen_HISMODS_S2/H3K4Me1.S2-Karpen_HISMODS_S2/H3K4Me3_LP.S2-Karpen_HISMODS_BG3/H3K79Me2.BG3-Karpen_HISMODS_S2/H3K79Me2.S2-Karpen_HISMODS_S2/H3K9Ac.S2-Karpen_HISMODS_BG3/H3K9Me2_Ab2_new.lot.BG3-Karpen_HISMODS_S2/H3K9Me2_Ab2.S2-Karpen_HISMODS_BG3/H3K9Me3_new.lot.BG3-Karpen_HISMODS_S2/H3K9Me3.S2-Karpen_HISMODS_BG3/H4K16Ac_L.BG3-Karpen_HISMODS_CL8/H4K16Ac_L.Clone_8-Karpen_HISMODS_Kc/H4K16Ac_L.Kc-Karpen_HISMODS_S2/H4K16Ac_L.S2-Karpen_HISMODS_S2/H4K16Ac_M.S2-Karpen_HISMODS_S2/H4K5Ac.S2-Karpen_HISMODS_S2/H4K8Ac.S2-Karpen_CHROMPROTS_BG3/MDG4-Karpen_CHROMPROTS_BG3/Pc.BG3-Karpen_CHROMPROTS_S2/Pc.S2-Karpen_CHROMPROTS_CL8/POL_II_ALG.Clone_8-Karpen_CHROMPROTS_Kc/POL_II_ALG.Kc-Karpen_CHROMPROTS_S2/POL_II_ALG.S2-Karpen_CHROMPROTS_S2/Su_Hw-HB.S2-Karpen_CHROMPROTS_S2/Su_Hw-VC.S2-Karpen_HISMODENZ_S2/Trx_C.S2-Karpen_HISMODS_BG3/H3K4Me3.BG3-Karpen_HISMODS_S2/H3K79Me.S2-Karpen_CHROMPROTS_BG3/BEAF-70.BG3-Karpen_CHROMPROTS_S2/BEAF-70.S2-Karpen_HISMODENZ_S2/BRE1_Q2539.S2-Karpen_CHROMPROTS_BG3/CP190-HB.BG3-Karpen_CHROMPROTS_S2/CP190-HB.S2-Karpen_HISMODENZ_S2/dMi_2_Q2626.S2-Karpen_HISMODENZ_BG3/dRING_Q3200.BG3-Karpen_HISMODENZ_S2/dRING_Q3200.S2-Karpen_HISMODS_CL8/H3K18Ac_new.lot.Clone_8-Karpen_HISMODS_OR/H3K36Me3_14_16h_OR_embryo-Karpen_HISMODS_OR/H3K36Me3_2_4h_OR_embryo-Karpen_HISMODS_CL8/H3K9Me2_Ab2_new.lot.Clone_8-Karpen_HISMODS_Kc/H3K9Me2_Ab2_new.lot.Kc-Karpen_HISMODS_CL8/H3K9Me3_new.lot.Clone_8-Karpen_CHROMPROTS_S2/HP1b_Henikoff.S2-Karpen_CHROMPROTS_BG3/HP1c_MO462.BG3-Karpen_CHROMPROTS_S2/HP1c_MO462.S2-Karpen_CHROMPROTS_S2/HP2_Ab2-90.S2-Karpen_HISMODENZ_S2/JIL1_Q3433.S2-Karpen_CHROMPROTS_S2/WDS_Q2691.S2-Karpen_HISMODENZ_S2/NURF301_Q2602.S2-Karpen_HISMODENZ_BG3/PCL_Q3412.BG3-Karpen_CHROMPROTS_Kc/PIWI-Q2569.Kc-Karpen_CHROMPROTS_BG3/POL_II_ALG.BG3-Karpen_CHROMPROTS_BG3/Su_Hw-HB.BG3-Karpen_HISMODENZ_BG3/Su_var.3_9.BG3-Karpen_HISMODS_OR/H3K4Me2_OR_HEADnuc-Karpen_CHROMPROTS_OR/HP1_Dm_L3nuc-Karpen_CHROMPROTS_OR/HP1_OR_HEADnuc-Karpen_HISMODS_BG3/H3K9Me3_new.lot.Dm_L3nuc-Karpen_HISMODS_CL8/H3K9Ac.Clone_8-Karpen_HISMODS_S2/H3K4Me2.Ab.S2-Karpen_HISMODS_OR/H3K4Me3_LP_2_4h_OR_embryo" target="_blank">
+                                114
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Regulatory Elements in Drosophila</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Chromatin+Binding+Site+Mapping+of+Modified+Histone+Proteins+in+D.+melanogaster" target="_blank">
+                            Chromatin Binding Site Mapping of Modified Histone Proteins in D. melanogaster
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Kevin White"><span>Pi:</span> Kevin White</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Kevin White</div>
+                        <div class="submissions"><span>Submissions:</span> 6</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, strain</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Chromatin Binding Site Mapping of Modified Histone Proteins in D. melanogaster&feature=ProteinBindingSite"
+                                   target="_blank">ProteinBindingSite: 15926</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=White_CC_Adult_Male/AdM_H3K27Me3-White_CC_embryo_16_20h/E16_20_H3K9Ac-White_CC_Adult_Female/AdultFemale_H3K9Me3-White_CC_Adult_Female/AdultFemale_H3K9Ac-White_CC_embryo_0_4h/E0_4_H3K27Ac_set2-White_CC_embryo_0_4h/E0_4_H3K9Me3_set2" target="_blank">
+                                6
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li></ul>
+        </div><div class="organism" id="organism-2" style="display:none;">
+            
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">Chromatin Function</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Chromatin+ChIP-chip+of+Modified+Histones+in+C.+elegans" target="_blank">
+                            Chromatin ChIP-chip of Modified Histones in C. elegans
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Jason Lieb"><span>Pi:</span> Jason Lieb</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Jason Lieb, Julie Ahringer, Susan Strome</div>
+                        <div class="submissions"><span>Submissions:</span> 10</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, strain, temperature</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Chromatin ChIP-chip of Modified Histones in C. elegans&feature=BindingSite"
+                                   target="_blank">BindingSite: 57588</a></div>
+                        
+                        
+                    </div>
+                </li></ul>
+        </div></div><div class="category" id="category-5" style="display:none;">
+        <ul class="switcher">
+        <li class="d-melanogaster active"
+                target="organism-1"><span>D. melanogaster</span></li></ul>
+        <div class="separator"></div><div class="organism" id="organism-1" >
+            
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=RNA+made+in+Bloomington" target="_blank">
+                            RNA made in Bloomington
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Peter Cherbas, Tom Gingeras</div>
+                        <div class="submissions"><span>Submissions:</span> 8</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, cell line, strain, tissue</div>
+                        
+                        
+                        
+                    </div>
+                </li></ul>
+        </div></div><div class="category" id="category-6" style="display:none;">
+        <ul class="switcher">
+        <li class="d-melanogaster active"
+                target="organism-1"><span>D. melanogaster</span></li><li class="c-elegans"
+                target="organism-2"><span>C. elegans</span></li></ul>
+        <div class="separator"></div><div class="organism" id="organism-1" >
+            
+            
+            <div class="filter">
+                <span>Filter by Pi:</span>
+                <ul>
+                    <li class="selected">Show all</li>
+                    
+                        <li>Gary Karpen</li>
+                    
+                        <li>Kevin White</li>
+                    
+                </ul>
+            </div>
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">Chromosomal Proteins</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Genomic+Distributions+of+non-Histone+Chromosomal+Proteins+in+D.+melanogaster" target="_blank">
+                            Genomic Distributions of non-Histone Chromosomal Proteins in D. melanogaster
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Gary Karpen"><span>Pi:</span> Gary Karpen</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Gary Karpen, Mitzi Kuroda, Sarah Elgin, Vincent Pirrotta</div>
+                        <div class="submissions"><span>Submissions:</span> 57</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, cell line, strain</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Genomic Distributions of non-Histone Chromosomal Proteins in D. melanogaster&feature=BindingSite"
+                                   target="_blank">BindingSite: 227213</a></div>
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Regulatory Elements in Drosophila</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Chromatin+Binding+Site+Mapping+of+non-Histone+Chromosomal+Proteins+in+D.+melanogaster" target="_blank">
+                            Chromatin Binding Site Mapping of non-Histone Chromosomal Proteins in D. melanogaster
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Kevin White"><span>Pi:</span> Kevin White</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Kevin White</div>
+                        <div class="submissions"><span>Submissions:</span> 13</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, strain</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Chromatin Binding Site Mapping of non-Histone Chromosomal Proteins in D. melanogaster&feature=ProteinBindingSite"
+                                   target="_blank">ProteinBindingSite: 94040</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=White_CC_SG_CHROMISOL/HDAC11_494-White_CC_SG_CHROMISOL/HDAC1_500-White_CC_SG_CHROMISOL/HDAC1_501-White_CC_SG_CHROMISOL/HDAC3_498-White_CC_SG_CHROMISOL/HDAC3_499-White_CC_SG_CHROMISOL/HDAC4a_492-White_CC_SG_CHROMISOL/HDAC4a_493-White_CC_SG_CHROMISOL/HDAC6_496-White_CC_SG_CHROMISOL/HDAC6_497-White_CC_SG_CHROMISOL/HDAC11_495-White_CC_SG_NAJIRE/E8_12_CBP_set2-White_CC_SG_NAJIRE/E12_16_CBP-White_CC_SG_POLII/E12_16_PolII" target="_blank">
+                                13
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Regulatory Elements in Drosophila</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Classification+of+D.+melanogaster+Insulator+Binding+Sequences" target="_blank">
+                            Classification of D. melanogaster Insulator Binding Sequences
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Kevin White"><span>Pi:</span> Kevin White</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Kevin White</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Classification of D. melanogaster Insulator Binding Sequences&feature=InsulatorBindingSite"
+                                   target="_blank">InsulatorBindingSite: 7685</a></div>
+                        
+                        
+                    </div>
+                </li></ul>
+        </div><div class="organism" id="organism-2" style="display:none;">
+            
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">Chromatin Function</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Chromatin+ChIP-chip" target="_blank">
+                            Chromatin ChIP-chip
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Jason Lieb"><span>Pi:</span> Jason Lieb</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Arshad Desai, Jason Lieb, Julie Ahringer, Susan Strome</div>
+                        <div class="submissions"><span>Submissions:</span> 106</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, strain, temperature</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Chromatin ChIP-chip&feature=BindingSite"
+                                   target="_blank">BindingSite: 306823</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+worm/?label=LIEB_WIG_CHIPCHIP_DC/SDC3_N2_MXEMB-LIEB_WIG_CHIPCHIP_POL2/POLII4H8_N2_MXEMB-LIEB_WIG_CHIPCHIP_HIS/AB9050_H3K36ME3_N2_L3-LIEB_WIG_CHIPCHIP_HIS/H3K4ME3_N2_L3-LIEB_WIG_CHIPCHIP_HIS/H3K9ME3_N2_L3-LIEB_WIG_CHIPCHIP_CSP/HCP3_N2_MXEMB-LIEB_WIG_CHIPCHIP_CHR_MES4/MES4_N2_EEMB-LIEB_WIG_CHIPCHIP_CHR_MES4/MES4FLAG_N2_EEMB-LIEB_WIG_CHIPCHIP_COREHIS/H3144_N2_EEMB-LIEB_WIG_CHIPCHIP_COREHIS/H3609253_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/H3K36ME2608457_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/H3K79ME1361912_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/NA_N2_EEMB-LIEB_WIG_CHIPCHIP_DC/IGG_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/H3K9ME32F3_N2_L3-LIEB_WIG_CHIPCHIP_HIS/H3K36ME22C3_N2_L3-LIEB_WIG_CHIPCHIP_HIS/H3K27ME31E7_N2_L3-LIEB_WIG_CHIPCHIP_HIS/H3K36ME313C9_N2_L3-LIEB_WIG_CHIPCHIP_HIS/H3K4ME2_N2_L3-LIEB_WIG_CHIPCHIP_HIS/H3K9ME26D11_N2_L3-LIEB_WIG_CHIPCHIP_COREHIS/H3144_N2_L3-LIEB_WIG_CHIPCHIP_COREHIS/H3144_N2_L3_LM-LIEB_WIG_CHIPCHIP_COREHIS/H3_N2_L3-LIEB_WIG_CHIPCHIP_HIS/H3K9ME3339901_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/H3K79ME2346021_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/H3K79ME3361576_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/H3K9ME26D11_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/AB9048_H3K36ME1206009_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/AB9045_H3K9ME1291918_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/AB8895_H3K4ME1733246_N2_EEMB-LIEB_WIG_CHROMNUC_ENV/SDQ3891_LEM2_N2_MXEMB-LIEB_WIG_CHROMNUC_ENV/SDQ3897_NPP13_N2_MXEMB-LIEB_WIG_CHIPCHIP_HIS/AB8896_H3K9ME1104560_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/AB4729_H3K27AC361571_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/AB9051_H4K20ME1104513_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/LPAR109_H4TETRAAC109_N2_EEMB-LIEB_WIG_CHIPCHIP_COREHIS/MP05858_H4DAM1636076_N2_L3-LIEB_WIG_CHIPCHIP_HIS/AB9045_H3K9ME1291918_N2_L3-LIEB_WIG_CHIPCHIP_HIS/AB4729_H3K27AC361571_N2_L3-LIEB_WIG_CHIPCHIP_HIS/WA30634849_H3K27AC_N2_L3-LIEB_WIG_CHIPCHIP_HIS/AB15823_H4K8AC487128_N2_L3-LIEB_WIG_CHIPCHIP_HIS/AB8895_H3K4ME1733246_N2_L3-LIEB_WIG_CHIPCHIP_HIS/AB9051_H4K20ME1104513_N2_L3-LIEB_WIG_CHIPCHIP_DC/DPY26_N2_MXEMB-LIEB_WIG_CHIPCHIP_DC/MIX1_N2_MXEMB-LIEB_WIG_CHIPCHIP_DC/SDC2_N2_MXEMB-LIEB_WIG_CHIPCHIP_POL2/8WG16_N2_MXEMB-LIEB_WIG_CHIPCHIP_DC/SDC3_N2_MXEMB_A-LIEB_WIG_CHIPCHIP_DC/SDC3_N2_MXEMB_B-LIEB_WIG_CHIPCHIP_DC/DPY27_N2_MXEMB_A-LIEB_WIG_CHIPCHIP_POL2/8WG16_N2_L4-LIEB_WIG_CHIPCHIP_DC/DPY27_N2_L4-LIEB_WIG_CHIPCHIP_DC/DPY28_N2_MXEMB-LIEB_WIG_CHIPCHIP_POL2/8WG16_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/H3K9ME3_N2_EEMB-LIEB_WIG_CHIPCHIP_DC/DPY271dh_MXEMB-LIEB_WIG_CHIPCHIP_DC/DPY27_YPT41_MXEMB-LIEB_WIG_CHIPCHIP_DC/DPY27_YPT47_MXEMB-LIEB_WIG_CHIPCHIP_DC/SDC3_YPT47_MXEMB-LIEB_WIG_CHIPCHIP_HIS/H3K36ME22C3_N2_EEMB-LIEB_WIG_CHIPCHIP_DC/DPY27_N2_MXEMB-LIEB_WIG_CHIPCHIP_HIS/H3K36ME313C9_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/H3K9ME32F3_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/H3K4ME3_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/H3K4ME2_N2_EEMB-LIEB_WIG_CHIPCHIP_HIS/MP07030_H3K4ME2DAM1570816_N2_EEMB" target="_blank">
+                                69
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Chromatin Function</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Chromatin+ChIP-chip+of+non-Histone+Chromosomal+Proteins+in+C.+elegans" target="_blank">
+                            Chromatin ChIP-chip of non-Histone Chromosomal Proteins in C. elegans
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Jason Lieb"><span>Pi:</span> Jason Lieb</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Jason Lieb</div>
+                        <div class="submissions"><span>Submissions:</span> 7</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, strain, temperature</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Chromatin ChIP-chip of non-Histone Chromosomal Proteins in C. elegans&feature=BindingSite"
+                                   target="_blank">BindingSite: 25280</a></div>
+                        
+                        
+                    </div>
+                </li></ul>
+        </div></div><div class="category" id="category-7" style="display:none;">
+        <ul class="switcher">
+        <li class="d-melanogaster active"
+                target="organism-1"><span>D. melanogaster</span></li><li class="c-elegans"
+                target="organism-2"><span>C. elegans</span></li></ul>
+        <div class="separator"></div><div class="organism" id="organism-1" >
+            
+            
+            <div class="filter">
+                <span>Filter by Pi:</span>
+                <ul>
+                    <li class="selected">Show all</li>
+                    
+                        <li>Brian Oliver</li>
+                    
+                        <li>Steven Henikoff</li>
+                    
+                        <li>Kevin White</li>
+                    
+                        <li>Eric Lai</li>
+                    
+                        <li>Sue Celniker</li>
+                    
+                </ul>
+            </div>
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">Comparative Genomics</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Transcriptional+Profiling+of+additional+Drosophila+species+with+RNA-Seq" target="_blank">
+                            Transcriptional Profiling of additional Drosophila species with RNA-Seq
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Brian Oliver"><span>Pi:</span> Brian Oliver</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Brian Oliver</div>
+                        <div class="submissions"><span>Submissions:</span> 19</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain, tissue</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Histone Variants</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Transcriptional+profiling+of+Drosophila+cell+lines" target="_blank">
+                            Transcriptional profiling of Drosophila cell lines
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Steven Henikoff"><span>Pi:</span> Steven Henikoff</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Kamran Ahmad</div>
+                        <div class="submissions"><span>Submissions:</span> 3</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;RNAi reagent, cell line</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Regulatory Elements in Drosophila</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=RNA-seq+support+of+the+ChIP+data" target="_blank">
+                            RNA-seq support of the ChIP data
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Kevin White"><span>Pi:</span> Kevin White</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Kevin White</div>
+                        <div class="submissions"><span>Submissions:</span> 12</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Small and microRNAs</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Small+RNA+identification" target="_blank">
+                            Small RNA identification
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Eric Lai"><span>Pi:</span> Eric Lai</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Eric Lai, Gregory Hannon</div>
+                        <div class="submissions"><span>Submissions:</span> 77</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, cell line, strain, tissue</div>
+                        
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=Lai_RNASEQ_DUAL_E/2-18hr_embryos_irradiated-Lai_RNASEQ_DUAL_CELLS/CMEW1_Cl_8-Lai_RNASEQ_DUAL_CELLS/1182-4Hcell_BS23-Lai_RNASEQ_DUAL_CELLS/ML-DmD21_BS90-Lai_RNASEQ_DUAL_CELLS/Sg4-Lai_RNASEQ_DUAL_CELLS/MLDmD20c5-Lai_RNASEQ_DUAL_CELLS/S1-Lai_RNASEQ_DUAL_CELLS/GM2cells-Lai_RNASEQ_DUAL_CELLS/ML-DmD16c3-Lai_RNASEQ_DUAL_CELLS/ML-DmD8-Lai_RNASEQ_DUAL_CELLS/ML-DmD32-Lai_RNASEQ_DUAL_CELLS/S2_DRSC-Lai_RNASEQ_DUAL_CELLS/ML-DmD9-Lai_RNASEQ_DUAL_CELLS/ML-DmBG1c1-Lai_RNASEQ_DUAL_CELLS/ML-DmBG3-C2-Lai_RNASEQ_DUAL_CELLS/CMEL1_BS28-Lai_RNASEQ_DUAL_CELLS/ML-DmD21_BS88-Lai_RNASEQ_DUAL_PE/1day_AdultFemale_BS152-Lai_RNASEQ_DUAL_PE/1day_AdultMale_BS149-Lai_RNASEQ_DUAL_E/2-6hr_embryo_BS43-46-Lai_RNASEQ_DUAL_E/12-24hr_embryo_BS61-64-67-73-Lai_RNASEQ_DUAL_CELLS/Kc167_Rubin-Lai_RNASEQ_DUAL_CELLS/S2_NP-Lai_RNASEQ_DUAL_T/imaginal_disc_brain-Lai_RNASEQ_DUAL_ENR_C/S2cells_Ago2IP-Lai_RNASEQ_DUAL_ENR_C/S2cells_Ago1IP-Lai_RNASEQ_DUAL_ENR_T/Adult_ovaries_AGO2IP-Lai_RNASEQ_DUAL_PE/0-1day_pupae-Lai_RNASEQ_DUAL_PE/L1_2ndRep-Lai_RNASEQ_DUAL_T/Male_body_2ndRep-Lai_RNASEQ_DUAL_T/Female_body_2ndRep-Lai_RNASEQ_DUAL_PE/0-2day_pupae-Lai_RNASEQ_DUAL_CELLS/OSS-Lai_RNASEQ_DUAL_CELLS/Kc167_2rep-Lai_RNASEQ_DUAL_CELLS/S2Rplus_2rep-Lai_RNASEQ_DUAL_CELLS/S2_Rubin-Lai_RNASEQ_DUAL_E/12-24hr_embryo_CantonS-Lai_RNASEQ_DUAL_ENR_T/CantonS_ovaries_Ago1IP-Lai_RNASEQ_DUAL_ENR_T/Ago2-414_ovaries_Ago1IP-Lai_RNASEQ_DUAL_ENR_T/r2d2_ovaries_Ago1IP-Lai_RNASEQ_DUAL_T/CantonS_Male_body-Lai_RNASEQ_DUAL_ENR_T/Dcr-2_L811fsX_ovaries_Ago1IP-Lai_RNASEQ_DUAL_E/2-18hr_embryos_non-irradiated-Lai_RNASEQ_DUAL_CELLS/S2_Rubin_Ecdysone-Lai_RNASEQ_DUAL_CELLS/Kc_Rubin_Ecdysone-Lai_RNASEQ_DUAL_T/Dcr-2_L811fsX_Ovary-Lai_RNASEQ_DUAL_T/CantonS_Adult_ovaries-Lai_RNASEQ_DUAL_T/CantonSAdultFemaleHeadHeatShocked-Lai_RNASEQ_DUAL_T/CantonSAdultFemaleHeadAged-Lai_RNASEQ_DUAL_T/r2d2_ovaries_totalRNA-Lai_RNASEQ_DUAL_T/Ago2-414_ovaries_total_RNA-Lai_RNASEQ_DUAL_CELLS/S2-DRSC_DTT-4h-Lai_RNASEQ_DUAL_T/dcr_2_ovaries-Lai_RNASEQ_DUAL_T/Female_heads-Lai_RNASEQ_DUAL_CELLS/Kc167_cells-Lai_RNASEQ_DUAL_T/Male_body-Lai_RNASEQ_DUAL_E/2-6hr_embryo_1stRep-Lai_RNASEQ_DUAL_CELLS/S2_Kc167_Ecdysone-Lai_RNASEQ_DUAL_T/Imaginal_disc-Lai_RNASEQ_DUAL_T/Female_Body-Lai_RNASEQ_DUAL_E/0-1h_embryo_2ndRep-Lai_RNASEQ_DUAL_CELLS/S2_DRSC2_cells-Lai_RNASEQ_DUAL_T/Male_heads-Lai_RNASEQ_DUAL_PE/L3_1stRep-Lai_RNASEQ_DUAL_PE/L3_2ndRep-Lai_RNASEQ_DUAL_T/Female_head_1stRep-Lai_RNASEQ_DUAL_T/Male_head_1stRep-Lai_RNASEQ_DUAL_E/2-6h_embryo_2ndRep-Lai_RNASEQ_DUAL_E/6-10h_embryo_2ndRep-Lai_RNASEQ_DUAL_E/6-10h_embryo_1stRep-Lai_RNASEQ_DUAL_E/0-1h_embryo_1stRep-Lai_RNASEQ_DUAL_PE/2-4day_pupae_1stRep-Lai_RNASEQ_DUAL_PE/2-4day_pupae_2ndRep-Lai_RNASEQ_DUAL_PE/L1_1stRep-Lai_RNASEQ_DUAL_T/adult_testes-Lai_RNASEQ_DUAL_T/adult_ovaries-Lai_RNASEQ_DUAL_T/loqs_ovaries" target="_blank">
+                                77
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Short+read+sequencing+of+fly+mRNA" target="_blank">
+                            Short read sequencing of fly mRNA
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Michael Brent</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Transcriptional+Profiling+of+D.+melanogaster+cell+lines+using+Illumina+poly%28A%29%252B+RNA-Seq" target="_blank">
+                            Transcriptional Profiling of D. melanogaster cell lines using Illumina poly(A)%2B RNA-Seq
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Brenton Graveley</div>
+                        <div class="submissions"><span>Submissions:</span> 21</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Paired+End+RNA-Seq+of+Drosophila+Cell+Lines" target="_blank">
+                            Paired End RNA-Seq of Drosophila Cell Lines
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Brenton Graveley</div>
+                        <div class="submissions"><span>Submissions:</span> 8</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Developmental+Time+Course+Transcriptional+Profiling+of+D.+melanogaster+Embryo+Using+SOLiD+Stranded+Total+RNA-Seq" target="_blank">
+                            Developmental Time Course Transcriptional Profiling of D. melanogaster Embryo Using SOLiD Stranded Total RNA-Seq
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Sue Celniker</div>
+                        <div class="submissions"><span>Submissions:</span> 12</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=Dm_SOLiD_WIG/embryo_0-2hr-Dm_SOLiD_WIG/embryo_2-4hr-Dm_SOLiD_WIG/embryo_4-6hr-Dm_SOLiD_WIG/embryo_6-8hr-Dm_SOLiD_WIG/embryo_8-10hr-Dm_SOLiD_WIG/embryo_10-12hr-Dm_SOLiD_WIG/embryo_12-14hr-Dm_SOLiD_WIG/embryo_14-16hr-Dm_SOLiD_WIG/embryo_16-18hr-Dm_SOLiD_WIG/embryo_18-20hr-Dm_SOLiD_WIG/embryo_20-22hr-Dm_SOLiD_WIG/embryo_22-24hr" target="_blank">
+                                12
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Tissue-specific+Transcriptional+Profiling+of+D.+melanogaster+using+Illumina+poly%28A%29%252B+RNA-Seq" target="_blank">
+                            Tissue-specific Transcriptional Profiling of D. melanogaster using Illumina poly(A)%2B RNA-Seq
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Brenton Graveley</div>
+                        <div class="submissions"><span>Submissions:</span> 29</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Identification+of+transcribed+sequences+with+expression+profile+maps" target="_blank">
+                            Identification of transcribed sequences with expression profile maps
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Tom Gingeras</div>
+                        <div class="submissions"><span>Submissions:</span> 80</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Identification of transcribed sequences with expression profile maps&feature=TranscriptRegion"
+                                   target="_blank">TranscriptRegion: 3665935</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=POST_EMBRYO_Total/Dm_larval_L3_gut_stage1-EMBRYO_Total/embryo_0-2h-EMBRYO_polyA/embryo_0-2h-EMBRYO_Total/embryo_8-10h-EMBRYO_polyA/embryo_8-10h-EMBRYO_Total/embryo_10-12h-EMBRYO_polyA/embryo_10-12h-EMBRYO_Total/embryo_12-14h-EMBRYO_polyA/embryo_12-14h-EMBRYO_Total/embryo_14-16h-EMBRYO_polyA/embryo_14-16h-EMBRYO_Total/embryo_16-18h-EMBRYO_polyA/embryo_16-18h-EMBRYO_Total/embryo_18-20h-EMBRYO_polyA/embryo_18-20h-EMBRYO_polyA/embryo_20-22h-EMBRYO_Total/embryo_20-22h-EMBRYO_Total/embryo_22-24h-EMBRYO_Total/embryo_2-4h-EMBRYO_polyA/embryo_2-4h-EMBRYO_Total/embryo_4-6h-EMBRYO_polyA/embryo_4-6h-EMBRYO_polyA/embryo_6-8h-CEL_CLINES/mbn2-CEL_CLINES/CME_W2-CEL_TISSUES/Dm_MatedOvary_F_4d-CEL_TISSUES/Dm_VirginHead_F_1d-CEL_TISSUES/Dm_VirginHead_F_4d-CEL_CLINES/Kc167-nucl.RNA-CEL_CLINES/Kc167-polyA.RNA-POST_EMBRYO_Total/Dm_adult_Female_30daysPostEclosion-POST_EMBRYO_Total/Dm_adult_Male_30daysPostEclosion-CEL_CLINES/S2R%2B-CEL_CLINES/S3-CEL_CLINES/Sg4-CEL_CLINES/ML-DmD16-c3-CEL_CLINES/ML-DmD32-CEL_CLINES/ML-DmD4-c1-CEL_CLINES/ML-DmD8-CEL_CLINES/ML-DmD9-CEL_CLINES/S1-CEL_CLINES/S2-DRSC-POST_EMBRYO_Total/Dm_adult_Female_5dayPostEclosion-POST_EMBRYO_Total/Dm_adult_Female_1dayPostEclosion-POST_EMBRYO_Total/Dm_adult_Male_5dayPostEclosion-POST_EMBRYO_Total/Dm_adult_Male_1dayPostEclosion-POST_EMBRYO_Total/Dm_larval_L1-EMBRYO_Total/embryo_6-8h-POST_EMBRYO_Total/Dm_prepupae_White-POST_EMBRYO_Total/Dm_larval_L2-CEL_CLINES/Kc167-CEL_CLINES/GM2-POST_EMBRYO_Total/Dm_larval_L3-clear-CEL_CLINES/ML-DmBG3-c2-CEL_CLINES/ML-DmBG1-c2-POST_EMBRYO_Total/Dm_larval_L3-12hr-CEL_CLINES/CME-L1-CEL_CLINES/CME-W1-CL8%2B-CEL_CLINES/1182-4H-CEL_CLINES/ML-DmD20-c2-CEL_CLINES/ML-DmD17-c3-CEL_CLINES/ML-DmD21-CEL_CLINES/ML-DmD20-c5-POST_EMBRYO_Total/Dm_prepupae_White-4days-POST_EMBRYO_Total/Dm_prepupae_White-3days-POST_EMBRYO_Total/Dm_prepupae_White-2days-POST_EMBRYO_Total/Dm_larval_L3-light-blue-CEL_CLINES/ML-DmD11-POST_EMBRYO_Total/Dm_prepupae_White-24hr-POST_EMBRYO_Total/Dm_prepupae_White-12hr-CEL_CLINES/ML-DmBG2-c2-OR_EMBRYO_polyA/embryo_14-16h-OR_EMBRYO_polyA/embryo_2-4h-CEL_CLINES/ML_DmBG3_c2_polyA-CEL_CLINES/S2_DRSC_nucl-CEL_CLINES/ML_DmBG3_c2_nucl-CEL_CLINES/C1_8_polyA-CEL_CLINES/S2_DRSC_polyA" target="_blank">
+                                78
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Stranded+Cell+Line+Transcriptional+Profiling+Using+Illumina+poly%2528A%2529%252B+RNA-seq" target="_blank">
+                            Stranded Cell Line Transcriptional Profiling Using Illumina poly%28A%29%2B RNA-seq
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Sue Celniker</div>
+                        <div class="submissions"><span>Submissions:</span> 19</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Capped+and+uncapped+short+RNAs" target="_blank">
+                            Capped and uncapped short RNAs
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Tom Gingeras</div>
+                        <div class="submissions"><span>Submissions:</span> 4</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=C-tailed+RNA-Seq+of+Drosophila+Cell+lines+and+stages" target="_blank">
+                            C-tailed RNA-Seq of Drosophila Cell lines and stages
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Tom Gingeras</div>
+                        <div class="submissions"><span>Submissions:</span> 6</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Developmental+Stage+Timecourse+Transcriptional+Profiling+with+RNA-Seq" target="_blank">
+                            Developmental Stage Timecourse Transcriptional Profiling with RNA-Seq
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Brenton Graveley, Sue Celniker</div>
+                        <div class="submissions"><span>Submissions:</span> 61</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The Drosophila Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=RNAi+of+RNA+splicing+factors+in+D.+melanogaster" target="_blank">
+                            RNAi of RNA splicing factors in D. melanogaster
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Sue Celniker"><span>Pi:</span> Sue Celniker</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Brenton Graveley</div>
+                        <div class="submissions"><span>Submissions:</span> 58</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;RNAi reagent, cell line</div>
+                        
+                        
+                        
+                    </div>
+                </li></ul>
+        </div><div class="organism" id="organism-2" style="display:none;">
+            
+            
+            <div class="filter">
+                <span>Filter by Pi:</span>
+                <ul>
+                    <li class="selected">Show all</li>
+                    
+                        <li>Jason Lieb</li>
+                    
+                        <li>Steven Henikoff</li>
+                    
+                        <li>Fabio Piano</li>
+                    
+                        <li>Robert Waterston</li>
+                    
+                </ul>
+            </div>
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">Chromatin Function</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Assaying+RNA+Expression+in+C.+elegans" target="_blank">
+                            Assaying RNA Expression in C. elegans
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Jason Lieb"><span>Pi:</span> Jason Lieb</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Jason Lieb</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain, temperature</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Assaying RNA Expression in C. elegans&feature=Gene"
+                                   target="_blank">Gene: 23177</a></div>
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Histone Variants</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Transcriptional+profiling+of+C.+elegans+N2+embryos" target="_blank">
+                            Transcriptional profiling of C. elegans N2 embryos
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Steven Henikoff"><span>Pi:</span> Steven Henikoff</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Kamran Ahmad</div>
+                        <div class="submissions"><span>Submissions:</span> 1</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The 3&#39; UTRome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Small+RNA+expression+in+C.+elegans+embryos" target="_blank">
+                            Small RNA expression in C. elegans embryos
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Fabio Piano"><span>Pi:</span> Fabio Piano</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Nikolaus Rajewsky</div>
+                        <div class="submissions"><span>Submissions:</span> 6</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, fixation state, fixative, strain, temperature</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Identification+of+tissue+and+stage-specific+transcribed+sequences+with+expression+profile+maps" target="_blank">
+                            Identification of tissue and stage-specific transcribed sequences with expression profile maps
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;David Miller, Valerie Reinke</div>
+                        <div class="submissions"><span>Submissions:</span> 42</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, strain, temperature, tissue</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Identification of tissue and stage-specific transcribed sequences with expression profile maps&feature=TranscriptRegion"
+                                   target="_blank">TranscriptRegion: 1704355</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+worm/?label=PEMBRYO_FAX_WIG/L3-L4_hypodermis-EMBRYO_FAX_WIG/EMB_BAG-EMBRYO_FAX_WIG/EMB_PVC-EMBRYO_FAX_WIG/EMB_PhM-EMBRYO_FAX_WIG/EMB_0hr_ref_array-EMBRYO_FAX_WIG/EMB_AVE_neurons-EMBRYO_FAX_WIG/EMB_panneural-EMBRYO_FAX_WIG/EMB_ALLREF-EMBRYO_FAX_WIG/EMB_intestine-EMBRYO_FAX_WIG/EMB_coelomocytes-EMBRYO_FAX_WIG/EMB_AVA_neurons-PEMBRYO_FAX_WIG/L3_L4_PVD_OLL-PEMBRYO_FAX_WIG/L2_reference-PEMBRYO_FAX_WIG/L2_panneural-PEMBRYO_FAX_WIG/L2_intestine-PEMBRYO_FAX_WIG/L2_excretory_cell-PEMBRYO_FAX_WIG/L2_bw_muscle-PEMBRYO_FAX_WIG/L2_GABA_motor_neurons-EMBRYO_FAX_WIG/EMB_dopa-EMBRYO_FAX_WIG/EMB_GABA-PEMBRYO_FAX_WIG/L2_A_class_neuron-EMBRYO_FAX_WIG/EMB_bw_v2-REINKE_TF_WIG/L2-REINKE_TF_WIG/L4-REINKE_TF_WIG/L3-REINKE_TF_WIG/YA-REINKE_TF_WIG/N2EE-REINKE_TF_WIG/L2_polyA-REINKE_TF_WIG/L4_male-REINKE_TF_WIG/N2LE-REINKE_TF_WIG/YA_gonad-REINKE_TF_WIG/L1-REINKE_TF_WIG/L4_soma-EMBRYO_FAX_WIG/EMB_ACLASS-PEMBRYO_FAX_WIG/L3_L4_dopa_neuron-PEMBRYO_FAX_WIG/YA_reference-PEMBRYO_FAX_WIG/L2_coelomocytes-PEMBRYO_FAX_WIG/L2_glut_rec-PEMBRYO_FAX_WIG/L3_L4_reference-PEMBRYO_FAX_WIG/YA_CEPsh-EMBRYO_FAX_WIG/EMB_GLP-EMBRYO_FAX_WIG/EMB_hypodermal" target="_blank">
+                                42
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Definition+of+comprehensive+set+of+C.+elegans+transcripts+and+expression+for+various+stages+and+conditions" target="_blank">
+                            Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Robert Waterston</div>
+                        <div class="submissions"><span>Submissions:</span> 75</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, exposure time, food, strain, temperature</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=TSS"
+                                   target="_blank">TSS: 150548</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=Exon"
+                                   target="_blank">Exon: 2502380</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=OverlappingESTSet"
+                                   target="_blank">OverlappingESTSet: 554418</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=SL1AcceptorSite"
+                                   target="_blank">SL1AcceptorSite: 150241</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=Transcript"
+                                   target="_blank">Transcript: 886092</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=Chromosome"
+                                   target="_blank">Chromosome: 6</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=MatureTranscript"
+                                   target="_blank">MatureTranscript: 12316</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=PolyASite"
+                                   target="_blank">PolyASite: 261045</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=Intron"
+                                   target="_blank">Intron: 1604492</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=CDS"
+                                   target="_blank">CDS: 209278</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=TranscriptionEndSite"
+                                   target="_blank">TranscriptionEndSite: 128646</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Definition of comprehensive set of C. elegans transcripts and expression for various stages and conditions&feature=SL2AcceptorSite"
+                                   target="_blank">SL2AcceptorSite: 40655</a></div>
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Changes+in+expression+of+small+RNAs+under+stress+conditions+in+C.+elegans" target="_blank">
+                            Changes in expression of small RNAs under stress conditions in C. elegans
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Frank Slack</div>
+                        <div class="submissions"><span>Submissions:</span> 4</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain, temperature</div>
+                        
+                        
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Identification+of+transcribed+sequences+under+pathogenic+bacterial+growth+conditions+with+expression+profile+maps" target="_blank">
+                            Identification of transcribed sequences under pathogenic bacterial growth conditions with expression profile maps
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Valerie Reinke</div>
+                        <div class="submissions"><span>Submissions:</span> 6</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, exposure time, food, strain</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Identification of transcribed sequences under pathogenic bacterial growth conditions with expression profile maps&feature=TranscriptRegion"
+                                   target="_blank">TranscriptRegion: 261696</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+worm/?label=PATHOGEN_TF_WIG/Hb_24-PATHOGEN_TF_WIG/OG1RF_24h-PATHOGEN_TF_WIG/Db_48h-PATHOGEN_TF_WIG/Db_24h-PATHOGEN_TF_WIG/OP50_48h-PATHOGEN_TF_WIG/OP50_24h" target="_blank">
+                                6
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">The C. elegans Transcriptome</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Changes+in+expression+of+small+RNAs+during+aging+in+C.+elegans" target="_blank">
+                            Changes in expression of small RNAs during aging in C. elegans
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Robert Waterston"><span>Pi:</span> Robert Waterston</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Frank Slack</div>
+                        <div class="submissions"><span>Submissions:</span> 15</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, days post-L4, strain, temperature</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Changes in expression of small RNAs during aging in C. elegans&feature=MiRNA"
+                                   target="_blank">MiRNA: 1705</a></div>
+                        
+                        
+                    </div>
+                </li></ul>
+        </div></div><div class="category" id="category-8" style="display:none;">
+        <ul class="switcher">
+        <li class="d-melanogaster active"
+                target="organism-1"><span>D. melanogaster</span></li></ul>
+        <div class="separator"></div><div class="organism" id="organism-1" >
+            
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">Origins of Replication</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Replication+Timing+Characterization" target="_blank">
+                            Replication Timing Characterization
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="David MacAlpine"><span>Pi:</span> David MacAlpine</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;David MacAlpine</div>
+                        <div class="submissions"><span>Submissions:</span> 3</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;cell line</div>
+                        
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=MacAlpine_M_WIG_RT_465_466_468/Kc167-MacAlpine_M_WIG_RT_465_466_468/S2-MacAlpine_M_WIG_RT_465_466_468/Bg3" target="_blank">
+                                3
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Origins of Replication</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=MacAlpine+Early+Origin+of+Replication+Identification" target="_blank">
+                            MacAlpine Early Origin of Replication Identification
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="David MacAlpine"><span>Pi:</span> David MacAlpine</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;David MacAlpine</div>
+                        <div class="submissions"><span>Submissions:</span> 3</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;cell line</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=MacAlpine Early Origin of Replication Identification&feature=OriginOfReplication"
+                                   target="_blank">OriginOfReplication: 1520</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=MacAlpine_K_WIG_934_939_941/Bg3-MacAlpine_K_WIG_934_939_941/S2-MacAlpine_K_WIG_934_939_941/Kc167" target="_blank">
+                                3
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Origins of Replication</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Genome-wide+localization+of+essential+replication+initiators" target="_blank">
+                            Genome-wide localization of essential replication initiators
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="David MacAlpine"><span>Pi:</span> David MacAlpine</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;David MacAlpine, Terry Orr-Weaver</div>
+                        <div class="submissions"><span>Submissions:</span> 10</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, cell line, read length, strain, tissue</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Genome-wide localization of essential replication initiators&feature=ProteinBindingSite"
+                                   target="_blank">ProteinBindingSite: 156135</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Genome-wide localization of essential replication initiators&feature=UnderReplicatedRegion"
+                                   target="_blank">UnderReplicatedRegion: 512</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=MacAlpine_ORC_CHIPSEQ_COMB/S2_dOrc2-MacAlpine_ORC_CHIPSEQ_COMB/BG3_dOrc2-MacAlpine_ORC_CHIPSEQ_COMB/Kc167_dOrc2-MacAlpine_MCM_CHIPSEQ_COMB/Kc167_MCM_2_7-MacAlpine_MCM_CHIPSEQ_COMB/S2_DRSC_MCM_2_7-MacAlpine_CHIPSEQ_TISSUES/Overnight_embryo_ORC-MacAlpine_CHIPSEQ_TISSUES/Overnight_embryo_PolII-MacAlpine_CHIPSEQ_TISSUES/Salivary_Gland_ORC-MacAlpine_CNV_TISSUES/Fatbody_CGH-MacAlpine_CNV_TISSUES/Midgut_CGH" target="_blank">
+                                10
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Origins of Replication</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Genome-wide+localization+of+essential+replication+initiators+by+ChIP-chip" target="_blank">
+                            Genome-wide localization of essential replication initiators by ChIP-chip
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="David MacAlpine"><span>Pi:</span> David MacAlpine</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;David MacAlpine, Terry Orr-Weaver</div>
+                        <div class="submissions"><span>Submissions:</span> 4</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;antibody</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Genome-wide localization of essential replication initiators by ChIP-chip&feature=BindingSite"
+                                   target="_blank">BindingSite: 8927</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Genome-wide localization of essential replication initiators by ChIP-chip&feature=UnderReplicatedRegion"
+                                   target="_blank">UnderReplicatedRegion: 8050</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=MacAlpine_PRERC_WIG_1049/ORC2-MacAlpine_PRERC_WIG_1049/MCM_cycE" target="_blank">
+                                2
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li></ul>
+        </div></div><div class="category" id="category-9" style="display:none;">
+        <ul class="switcher">
+        <li class="d-melanogaster active"
+                target="organism-1"><span>D. melanogaster</span></li><li class="c-elegans"
+                target="organism-2"><span>C. elegans</span></li></ul>
+        <div class="separator"></div><div class="organism" id="organism-1" >
+            
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">Regulatory Elements in Drosophila</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Chromatin+Binding+Site+Mapping" target="_blank">
+                            Chromatin Binding Site Mapping
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Kevin White"><span>Pi:</span> Kevin White</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Kevin White</div>
+                        <div class="submissions"><span>Submissions:</span> 259</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, cell line, strain, threshold</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Chromatin Binding Site Mapping&feature=BindingSite"
+                                   target="_blank">BindingSite: 10456</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Chromatin Binding Site Mapping&feature=ProteinBindingSite"
+                                   target="_blank">ProteinBindingSite: 901790</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Chromatin Binding Site Mapping&feature=HistoneBindingSite"
+                                   target="_blank">HistoneBindingSite: 12968</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Chromatin Binding Site Mapping&feature=TFBindingSite"
+                                   target="_blank">TFBindingSite: 31284</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=White_CC_SG_NAJIRE/E0_4_CBP-White_INSULATORS_WIG/BEAF32-White_INSULATORS_WIG/CP190-White_INSULATORS_WIG/GAF-White_INSULATORS_WIG/MDG4-White_CC_SG_TRITHORAX/Kc167_Trl-White_CC_SG_CNS/E-0-4h_bks-White_CC_SG_TRANSFACT/E0-4h_cad-White_CC_SG_CNS/E0-8_D-White_CC_SG_PRONEUR/E0-8h_disco-White_CC_SG_TRANSFACT/E0-8h_GATAe-White_CC_SG_TRANSFACT/E0-8h_h-White_CC_SG_GAP/E0-8h_hkb-White_CC_SG_CNS/E0-8h_jumu-White_CC_SG_PRONEUR/E4-8h_sens-White_AGILENT_SG/ISO1_8-16_Ez-White_AGILENT_SG/ISO1_8-16_mod_mdg4-White_AGILENT_SG/R13_1-6-GFP_BC-White_CS_SG_GAP/A-Female_7T-White_CS_SG_GAP/E0-4h_7T-White_CS_SG_CHROMISOL/HDAC-492-White_CS_SG_CHROMISOL/HDAC-493-White_CS_SG_CHROMISOL/HDAC-494-White_CS_SG_CHROMISOL/HDAC-495-White_CS_SG_CHROMISOL/HDAC-496-White_CS_SG_CHROMISOL/HDAC-497-White_CS_SG_CHROMISOL/HDAC-498-White_CS_SG_CHROMISOL/HDAC-499-White_CS_SG_CHROMISOL/HDAC-500-White_CS_SG_CHROMISOL/HDAC-501-White_INSULATORS_WIG_CS/S2_CTCF200-White_INSULATORS_WIG_CS/S2_CTCF500-White_ECR_SG_CS/W3L_EcRGFP-White_ECR_SG_CS/WPP-White_ECR_SG_CS/WPP30-33-White_INSULATORS_WIG/SuHw-White_INSULATORS_WIG/E0_12_CTCF_C-White_INSULATORS_WIG/E0_12_SuHw_PG-White_INSULATORS_WIG/E0_12_CTCF_N-White_CC_Adult_Female/AdF_H3K27Me3-White_CC_L3/L3_H3K9Me3-White_CC_L3/L3_H3K27Me3-White_CC_embryo_20_24h/E20_24_K27Me3-White_CC_L2/L2_H3K27Me3-White_CC_L1/L1_H3K27Me3-White_CC_L1/L1_H3K9Me3-White_CC_L2/L2_H3K9Me3-White_CC_embryo_16_20h/E16_20_H3K27Me3-White_CC_embryo_20_24h/E20_24_H3K9Me3-White_CC_Pupae/Pupae_H3K9Ac-White_CC_Pupae/Pupae_H3K4Me3-White_CC_Pupae/Pupae_H3K4Me1-White_CC_Pupae/Pupae_H3K27Ac-White_CC_L3/L3_H3K9Ac-White_CC_L3/L3_H3K4Me3-White_CC_L3/L3_H3K4Me1-White_CC_L3/L3_H3K27Ac-White_CC_L2/L2_H3K9Ac-White_CC_L2/L2_H3K4Me3-White_CC_L2/L2_H3K4Me1-White_CC_L2/L2_H3K27Ac-White_CC_L1/L1_H3K9Ac-White_CC_L1/L1_H3K4Me3-White_CC_L1/L1_H3K4Me1-White_CC_L1/L1_H3K27Ac-White_CC_embryo_4_8h/E4_8_H3K9Ac-White_CC_embryo_4_8h/E4_8_H3K4Me3-White_CC_embryo_4_8h/E4_8_H3K4Me1-White_CC_embryo_4_8h/E4_8_H3K27Ac-White_CC_embryo_20_24h/E20_24_H3K9Ac-White_CC_embryo_20_24h/E20_24_H3K4Me3-White_CC_embryo_20_24h/E20_24_H3K4Me1-White_CC_embryo_20_24h/E20_24_H3K27Ac-White_CC_embryo_16_20h/E16_20_H3K9Me3-White_CC_embryo_16_20h/E16_20_H3K4Me3-White_CC_embryo_16_20h/E16_20_H3K4Me1-White_CC_embryo_16_20h/E16_20_H3K27Ac-White_CC_embryo_12_16h/E12_16_H3K9Me3-White_CC_embryo_12_16h/E12_16_H3K9Ac-White_CC_embryo_12_16h/E12_16_H3K4Me3-White_CC_embryo_12_16h/E12_16_H3K4Me1-White_CC_embryo_12_16h/E12_16_H3K27Ac-White_CC_embryo_0_4h/E0_4_H3K9Me3-White_CC_embryo_0_4h/E0_4_H3K9Ac-White_CC_embryo_0_4h/E0_4_H3K4Me3-White_CC_embryo_0_4h/E0_4_H3K4Me1-White_CC_embryo_0_4h/E0_4_H3K27Ac_set1-White_CC_Adult_Male/AdultMale_H3K9Me3-White_CC_Adult_Male/AdultMale_H3K9Ac-White_CC_Adult_Male/AdM_H3K4Me3-White_CC_Adult_Male/AdultMale_H3K4Me1_set2-White_CC_Adult_Female/AdultFemale_H3K9Ac-White_CC_Adult_Female/AdF_H3K4Me3-White_CC_Adult_Female/AdultFemale_H3K4Me1-White_CC_SG_NEURO/GROAviva-White_CC_SG_TRITHORAX/Pupae_snr1-White_CC_SG_TRITHORAX/Pupae_brm-White_CC_SG_HOMEOTIC/E3_8_UBX7701-White_CC_SG_SEGPOL/E0_12_INV7657-White_CC_SG_TRANSFACT/E0_12_dll-White_CC_SG_TRANSFACT/E0_12_dCtBP7667-White_CC_SG_CNS/E0_12_chinmo-White_CC_SG_CNS/E0_12_bks-White_CC_SG_SEGPOL/E7_24_gsbnpurif-White_CC_SG_SEGPOL/E7_24_end300-White_CC_SG_HOMEOTIC/E3_8_UBX2-White_CC_SG_HOMEOTIC/E3_8_UBX1-White_CC_SG_HOMEOTIC/E0_12_UBX7701-White_CC_SG_TRANSFACT/E0_12_TTK-White_CC_SG_NTWCF/E0_12_Stat92E-White_CC_SG_GAP/E0_12_KN-White_CC_SG_SEGPOL/E0_12_INVGFP-White_CC_embryo_0_12h/E0-12_H3K36Me3-White_CC_embryo_0_12h/E0_12_H3K9Me3-White_CC_embryo_0_12h/E0_12h_H3K4Me3-White_CC_SG_NEURO/E0_12_Gro3-White_CC_SG_NTWCF/E0_12_FTZ_F1-White_CC_SG_SEGPOL/E0_12_ENserum-White_CC_SG_CNS/E0_12_D-White_CC_SG_GAP/E0-12_CNC-White_CC_SG_TRANSFACT/E0_12_bab1-White_CC_SG_NAJIRE/E20_24_CBP-White_CC_embryo_4_8h/E4_8_H3K9Me3-White_CC_Pupae/Pupae_H3K9Me3-White_CC_embryo_12_16h/E12_16_H3K27Me3-White_CC_embryo_4_8h/E4_8_H3K27Me3-White_CC_embryo_0_4h/E0_4_H3K4Me3_new-White_CS_embryo_0_4h/E0_4_H3K4me1-White_CS_embryo_4_8h/E4_8_H3K4Me1-White_CS_embryo_8_12h/E8_12_H3K4Me1-White_CS_embryo_12_16h/E12_16_H3K4Me1-White_CS_embryo_16_20h/E16_20_H3K4Me1-White_CS_embryo_20_24h/E20_24_H3K4Me1-White_CS_L1/L1_H3K4Me1-White_CS_L2/L2_H3K4Me1-White_CS_L3/L3_H3K4Me1-White_CS_Pupae/Pupae_H3K4Me1-White_CS_Adult_Female/AdF_H3K4Me1-White_CS_Adult_Male/AdM_H3K4Me1-White_CS_embryo_0_4h/E0_4_H3K4Me3-White_CS_embryo_4_8h/E4_8_H3K4Me3-White_CS_embryo_8_12h/E8_12_H3K4Me3-White_CS_embryo_12_16h/E12_16_H3K4Me3-White_CS_embryo_16_20h/E16_20_H3K4Me3-White_CS_embryo_20_24h/E20_24_H3K4Me3-White_CS_L1/L1_H3K4Me3-White_CS_L2/L2_H3K4Me3-White_CS_L3/L3_H3K4Me3-White_CS_Pupae/Pupae_H3K4Me3-White_CS_Adult_Female/AdF_H3K4Me3-White_CS_Adult_Male/AdM_H3K4Me3-White_CS_embryo_0_4h/E0_4_H3K9Me3-White_CS_embryo_4_8h/E4_8_H3K9Me3-White_CS_embryo_8_12h/E8_12_H3K9Me3-White_CS_embryo_12_16h/E12_16_H3K9Me3-White_CS_embryo_16_20h/E16_20_H3K9Me3-White_CS_embryo_20_24h/E20_24_H3K9Me3-White_CS_L1/L1_H3K9Me3-White_CS_L2/L2_H3K9Me3-White_CS_Pupae/Pupae_H3K9Me3-White_CS_embryo_0_4h/E0_4_H3K27Me3-White_CS_embryo_4_8h/E4_8_H3K27Me3-White_CS_embryo_8_12h/E8_12_H3K27Me3-White_CS_embryo_12_16h/E12_16_H3K27Me3-White_CS_embryo_16_20h/E16_20_H3K27Me3-White_CS_embryo_20_24h/E20_24_H3K27Me3-White_CS_L1/L1_H3K27Me3-White_CS_L2/L2_H3K27Me3-White_CS_L3/L3_H3K27Me3-White_CS_Pupae/Pupae_H3K27Me3-White_CS_Adult_Male/AdultMale_H3K27Me3-White_CS_embryo_0_4h/E0_4_H3K9Ac-White_CS_embryo_4_8h/E4_8_H3K9Ac-White_CS_embryo_8_12h/E8_12_H3K9Ac-White_CS_embryo_12_16h/E12_16_H3K9Ac-White_CS_embryo_16_20h/E16_20_H3K9Ac-White_CS_embryo_20_24h/E20_24_H3K9Ac-White_CS_L1/L1_H3K9Ac-White_CS_L2/L2_H3K9Ac-White_CS_L3/L3_H3K9Ac-White_CS_Pupae/Pupae_H3K9Ac-White_CS_Adult_Female/AdultFemale_H3K9Ac-White_CS_Adult_Male/AdultMale_H3K9Ac-White_CS_embryo_0_4h/E0_4_H3K27Ac-White_CS_embryo_4_8h/E4_8_H3K27Ac-White_CS_embryo_8_12h/E8_12_H3K27Ac-White_CS_embryo_12_16h/E12_16_H3K27Ac-White_CS_embryo_16_20h/E16_20_H3K27Ac-White_CS_embryo_20_24h/E20_24_H3K27Ac-White_CS_L1/L1_H3K27Ac-White_CS_L2/L2_H3K27Ac-White_CS_L3/L3_H3K27Ac-White_CS_Pupae/Pupae_H3K27Ac-White_CS_Adult_Female/AdultFemale_H3K27Ac-White_CS_Adult_Male/AdultMale_H3K27Ac-White_CS_SG_POLII/E4_8_PolII-White_CS_SG_POLII/E8_12_PolII-White_CS_SG_POLII/E12_16_PolII-White_CS_SG_POLII/E16_20_PolII-White_CS_SG_POLII/E20_24_PolII-White_CS_SG_POLII/L1_PolII-White_CS_SG_POLII/L3_PolII-White_CS_SG_POLII/Pupae_PolII-White_CS_SG_NAJIRE/E0_4_CBP-White_CS_SG_NAJIRE/E4_8_CBP-White_CS_SG_NAJIRE/E12_16_CBP-White_CS_SG_NAJIRE/E16_20_CBP-White_CS_SG_NAJIRE/E20_24_CBP-White_CS_SG_NAJIRE/L1_CBP-White_CS_SG_NAJIRE/L3_CBP-White_CS_SG_NAJIRE/Pupae-White_CS_SG_NAJIRE/AdultFemale_CBP-White_CS_SG_NAJIRE/AdultMale_CBP-White_CC_embryo_8_12h/E8_12_H3K4Me1-White_CC_embryo_8_12h/E8_12_H3K4Me3-White_CC_embryo_8_12h/E8_12_H3K9Me3-White_CC_embryo_0_4h/E0_4_H3K27Me3-White_CC_embryo_8_12h/E8_12_H3K27Me3-White_CC_Adult_Male/AdM_H3K27Me3_set2-White_CC_embryo_8_12h/E8_12_H3K9Ac-White_CC_Adult_Male/AdultMale_H3K9Ac_Set2-White_CC_embryo_8_12h/E8_12_H3K27Ac-White_CC_Adult_Male/AdultMale_H3K27Ac-White_CC_Adult_Male/AdultMale_H3K27Ac_set2-White_CC_SG_NAJIRE/E4_8_CBP-White_CC_SG_NAJIRE/E16_20_CBP-White_CC_SG_NAJIRE/L1_CBP-White_CC_SG_NAJIRE/L3_CBP-White_CC_SG_NAJIRE/Pupae_CBP-White_CC_SG_NAJIRE/AdultFemale_CBP-White_CC_SG_NAJIRE/AdultMale_CBP-White_CC_SG_POLII/L2_PolII-White_CC_SG_POLII/L3_PolII-White_CC_SG_8WG16/E0_4_8wg16_set2-White_CC_SG_8WG16/E4_8_8wg16_set2-White_CC_SG_8WG16/E4_8_8wg16-White_CC_SG_8WG16/E16_20_8wg16_set2-White_CC_SG_8WG16/L3_8wg16-White_CC_SG_8WG16/Pupae_PolII_set2-White_CC_SG_8WG16/AdultFemale_8wg16_set2-White_CS_L2/L2_H3K27Ac_set2-White_CC_SG_GAP/E0_8_Kr_D2-White_CC_SG_POLII/E0_12_PolII-White_CC_SG_GAP/E0_4_GFP_7T-White_CC_SG_8WG16/L2_8wg16_set2-White_INSULATORS_WIG/CTCF_N_Kc167-White_INSULATORS_WIG/CTCF_N_S2-White_CC_embryo_0_12h/E0_12_H3K27Me3-White_CC_SG_PRONEUR/E4_8_sens-White_CC_SG_PRONEUR/E4_8_GFP_sens-White_CS_SG_POLII/L2_PolII-White_CS_SG_NAJIRE/E8_12_CBP_set2" target="_blank">
+                                253
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li><li>
+                    <div class="project">Regulatory Elements in Drosophila</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=Chromatin+Binding+Site+Mapping+of+Transcription+Factors+in+D.+melanogaster+by+ChIP-seq" target="_blank">
+                            Chromatin Binding Site Mapping of Transcription Factors in D. melanogaster by ChIP-seq
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Kevin White"><span>Pi:</span> Kevin White</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Kevin White</div>
+                        <div class="submissions"><span>Submissions:</span> 25</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, antibody, strain</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=Chromatin Binding Site Mapping of Transcription Factors in D. melanogaster by ChIP-seq&feature=ProteinBindingSite"
+                                   target="_blank">ProteinBindingSite: 52694</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+fly/?label=White_CS_SG_CHROMISOL/Sin3A" target="_blank">
+                                1
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li></ul>
+        </div><div class="organism" id="organism-2" style="display:none;">
+            
+            
+
+            <ul class="experiments"><li>
+                    <div class="project">Regulatory Elements in C. elegans</div>
+                    <h2>
+                        <a href="http://intermine.modencode.org/modminetest/experiment.do?experiment=ChIP-Seq+Identification+of+C.+elegans+TF+Binding+Sites" target="_blank">
+                            ChIP-Seq Identification of C. elegans TF Binding Sites
+                        </a>
+                    </h2>
+                    <div class="meta">
+                        <div class="pi" title="Michael Snyder"><span>Pi:</span> Michael Snyder</div>
+                        <div class="labs"><span>Labs:</span>&nbsp;Gerstein, Michael Snyder</div>
+                        <div class="submissions"><span>Submissions:</span> 94</div>
+                        
+                        <div class="factors"><span>Experimental factors:</span>&nbsp;developmental stage, strain, target gene, temperature</div>
+                        
+                        
+                        <div class="features"><span>Features:</span>&nbsp;<a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=ChIP-Seq Identification of C. elegans TF Binding Sites&feature=BindingSite"
+                                   target="_blank">BindingSite: 616927</a>, <a href="http://intermine.modencode.org/modminetest/features.do?type=experiment&action=results&experiment=ChIP-Seq Identification of C. elegans TF Binding Sites&feature=TFBindingSite"
+                                   target="_blank">TFBindingSite: 46910</a></div>
+                        
+                        
+                        <div class="tracks"><span>GBrowse Tracks:</span>
+                            <a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/
+worm/?label=Snyder_N2_WIG_COMB/N2_POLII_eemb-Snyder_N2_WIG_COMB/N2_POLII_lemb-Snyder_N2_WIG_COMB/N2_POLII_L1-Snyder_N2_WIG_COMB/N2_POLII_L2-Snyder_N2_WIG_COMB/N2_POLII_L3-Snyder_N2_WIG_COMB/N2_POLII_L4-Snyder_N2_WIG_COMB/N2_POLII_YA-Snyder_PHA4_GFP_COMB/PHA4_GFP_lemb-Snyder_PHA4_GFP_COMB/PHA4_L2_GFP-Snyder_PHA4_GFP_COMB/PHA4_GFP_YA-Snyder_PHA4_GFP_COMB/PHA4_emb_GFP-Snyder_PHA4_GFP_COMB/PHA4_StarvedL1_GFP-Snyder_PHA4_GFP_COMB/PHA4_FedL1_GFP-Snyder_PHA4_POLII_COMB/PHA4_POLII_emb-Snyder_PHA4_POLII_COMB/PHA4_POLII_FedL1-Snyder_PHA4_POLII_COMB/PHA4_POLII_StarvedL1" target="_blank">
+                                16
+                            </a>
+                        </div>
+                        
+                    </div>
+                </li></ul>
+        </div></div></div>
 
 <script type="text/javascript">
     $("aside ul li").click(function() {
@@ -132,4 +1648,11 @@
     });
 </script>
 
-{% endblock %}
+
+            
+            <div class="clear"></div>
+        </article>
+    </section>
+    <footer>Last updated: 11 August 18:37</footer>
+</body>
+</html>
