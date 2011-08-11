@@ -56,10 +56,17 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
     text-decoration:none; }
 
 #content div.category ul.switcher { height:29px; margin-top:12px; }
-#content div.category ul.switcher li { display:inline-block; padding:10px; cursor:pointer; margin-right:10px;
+#content div.category ul.switcher li { display:inline-block; padding:7px 10px; cursor:pointer; margin-right:10px;
     border-bottom:1px solid #FFF; background:url('../img/organism-tab-bg.png') repeat-x top left; color:#565148;
     font-size:15px; }
 #content div.category ul.switcher li.active { background:#5EA2B9; color:#FFF; border-bottom-color:#5EA2B9; }
+#content div.category ul.switcher li span { background-position:top left; background-repeat:no-repeat; padding-left:20px;
+    line-height:21px; height:21px; display:inline-block; }
+#content div.category ul.switcher li.d-melanogaster span { background-image:url('../img/drosophila-brown.png');
+    padding-left:23px; }
+#content div.category ul.switcher li.d-melanogaster.active span { background-image:url('../img/drosophila-white.png'); }
+#content div.category ul.switcher li.c-elegans span { background-image:url('../img/elegans-brown.png'); }
+#content div.category ul.switcher li.c-elegans.active span { background-image:url('../img/elegans-white.png'); }
 #content div.category div.separator { height:5px; display:block; width:100%; background:#5EA2B9; margin-top:7px; }
 
 #content div.category div.filter { margin-top:20px; font-size:13px; }

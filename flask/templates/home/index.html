@@ -27,7 +27,7 @@
         {% set organisms = category.organisms|empty_organisms_filter %}
         {%- for organism in organisms -%}
             <li class="{{ organism.organism|slugify }}{% if loop.first %} active{% endif %}"
-                target="organism-{{ loop.index }}">{{ organism.organism }}</li>
+                target="organism-{{ loop.index }}"><span>{{ organism.organism }}</span></li>
         {%- endfor -%}
         </ul>
         <div class="separator"></div>
