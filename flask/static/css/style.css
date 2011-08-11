@@ -31,7 +31,7 @@ header nav ul li a:hover { color:#FFF; background:#167C94; text-shadow:0 0 0; }
 article { width:1000px; margin:0 auto; margin-top:45px; border:1px solid #D7D5C8; background:#FFF; }
 
 aside { border-right:1px solid #DDD; width:280px; min-height:400px; float:left; }
-aside ul { font-size:14px; cursor:pointer; margin-top:16px; }
+aside ul { font-size:14px; cursor:pointer; margin:16px 0; }
 aside ul li { background:url('../img/sidebar-option.png') repeat-x top left; width:266px; height:50px;
     line-height:50px; padding-left:14px; }
 aside ul li.active { background:url('../img/sidebar-option-active.png') no-repeat top left; height:62px; width:285px;
@@ -55,10 +55,34 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content div.yellow-box ul li a { color:#70706D; border-bottom:1px solid #E0E1D3; padding-bottom:1px; font-size:13px;
     text-decoration:none; }
 
-#content div.category ul.switcher li { display:inline; padding:10px; background:pink; cursor:pointer; margin-right:10px; }
-#content div.category ul.switcher li.active { background:red; }
+#content div.category ul.switcher { height:29px; margin-top:12px; }
+#content div.category ul.switcher li { display:inline-block; padding:10px; cursor:pointer; margin-right:10px;
+    border-bottom:1px solid #FFF; background:url('../img/organism-tab-bg.png') repeat-x top left; color:#565148;
+    font-size:15px; }
+#content div.category ul.switcher li.active { background:#5EA2B9; color:#FFF; border-bottom-color:#5EA2B9; }
+#content div.category div.separator { height:5px; display:block; width:100%; background:#5EA2B9; margin-top:7px; }
 
-#content div.category ul.experiments { margin-top:20px; }
-#content div.category ul.experiments li { border-top:1px solid #000; }
+#content div.category div.filter { margin-top:20px; font-size:13px; }
+#content div.category div.filter span { color:#70706D; font-size:13px; margin-right:5px; }
+#content div.category div.filter ul { display:inline; }
+#content div.category div.filter ul li { display:inline-block; margin-right:10px; padding:2px 4px; border:1px solid #5EA2B9;
+    cursor:pointer; color:#5EA2B9; }
+#content div.category div.filter ul li.selected { background:#5EA2B9; color:#FFF; }
+
+#content div.category ul.experiments { margin-top:20px; font-size:14px; }
+#content div.category ul.experiments h2 { font-size:20px; text-shadow:1px 1px 1px #F6F6F6; line-height:23px;
+    margin-bottom:6px; }
+#content div.category ul.experiments h2 a { text-decoration:none; }
+#content div.category ul.experiments h2 a:hover { text-decoration:underline; }
+#content div.category ul.experiments span { color:#70706D; font-size:13px; }
+#content div.category ul.experiments li { padding:14px 5px; }
+#content div.category ul.experiments li:nth-child(even) { background:#FBF9F1; }
+#content div.category ul.experiments li:not(:first-child) { border-top:1px solid #E8DDC8; }
+#content div.category ul.experiments div { display:inline-block; margin-right:10px; line-height:22px; }
+#content div.category ul.experiments div.project { float:right; line-height:26px; vertical-align:bottom; font-size:13px;
+    margin-left:10px; }
+#content div.category ul.experiments div.labs, #content div.category ul.experiments div.factors { clear:both; }
+
+#content ul.experiments a { color:#167C94; }
 
 footer { margin:0 auto; margin-top:6px; width:1000px; text-align:center; color:#70706D; font-size:13px; }

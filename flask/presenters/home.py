@@ -25,7 +25,7 @@ def index(update=False):
     if t.exists():
         # fetch data
         m = Modmine()
-        catexp_data = m.get_catexp_data(update)
+        data = m.get_catexp_data(update)
         modmine_path = config.DATASOURCE_ROOT + "/" # make it work for modminetest for now, will switch to the next line
         # modmine_path = config.DATASOURCE_ROOT + "/" + m.get_webapp_path(update)
         gbrowse_base = m.get_gbrowse_base(update)
