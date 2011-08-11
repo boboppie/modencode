@@ -8,7 +8,7 @@ from flask import Flask
 import config
 
 # utils
-import re, unicodedata
+import re, unicodedata, urllib
 
 app = None
 
@@ -62,6 +62,9 @@ def create_app():
         value = unicode(re.sub('[^\w\s-]', '', value).strip().lower())
         return re.sub('[-\s]+', '-', value)
 
+    @app.template_filter('url_encode')
+    def url_encode(uri):
+       return urllib.quote_plus(uri)
 
     return app
 
