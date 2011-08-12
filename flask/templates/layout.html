@@ -22,8 +22,10 @@
                 <div class="div"></div>
 
                 <div id="search">
-                    <input type="text" class="text">
-                    <input type="submit" class="button" value="">
+                    <form method="get" action="http://intermine.modencode.org/query/keywordSearchResults.do?searchTerm=" name="input">
+                        <input type="text" class="text" name="searchTerm" value="">
+                        <input type="submit" class="button" value="">
+                    </form>
                 </div>
             </div>
         </div>
@@ -34,7 +36,7 @@
     <section>
         <article>
             {% block body %}{% endblock %}
-            
+
             <div class="clear"></div>
         </article>
     </section>
