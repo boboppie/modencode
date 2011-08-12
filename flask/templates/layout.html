@@ -32,12 +32,23 @@
         <nav>
             {% block nav %}{% endblock %}
         </nav>
+
+        <p class="blurb"><span>&ldquo;</span> The <a href="http://genome.gov">National Human Genome Research Institute</a> (NHGRI)
+        model organism ENCyclopedia Of DNA Elements (modENCODE) Project will try to identify all of the sequence-based functional
+        elements in the Caenorhabditis elegans and Drosophila melanogaster genomes.<span>&rdquo;</span>
+        </p>
     </header>
-    <section>
+    <section id="main">
         <article>
             {% block body %}{% endblock %}
-
             <div class="clear"></div>
+        </article>
+    </section>
+    <section id="bottom">
+        <article>
+            <nav>
+                {% block bottom_nav %}{% endblock %}
+            </nav>
         </article>
     </section>
     <footer>Last updated: {{ time }}</footer>
