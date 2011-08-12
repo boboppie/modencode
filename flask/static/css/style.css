@@ -28,7 +28,13 @@ header nav ul li a { text-decoration:none; color:#167C94; font-size:16px; letter
     text-shadow:1px 1px 1px #FFF; padding:6px; }
 header nav ul li a:hover { color:#FFF; background:#167C94; text-shadow:0 0 0; }
 
-article { width:1000px; margin:0 auto; margin-top:45px; border:1px solid #D7D5C8; background:#FFF; }
+header p.blurb { width:1000px; margin:45px auto 0; color:#167C94; text-shadow:1px 1px 1px #FFFFFF;
+    letter-spacing:0.2px; }
+    header p.blurb a { text-decoration:none; color:#154E5B; }
+    header p.blurb a:hover { text-decoration:underline; }
+    header p.blurb span { font-family:Times; font-size:20px; font-style:italic; font-weight:bold; }
+
+article { width:1000px; margin:0 auto; margin-top:30px; border:1px solid #D7D5C8; background:#FFF; }
 
 aside { border-right:1px solid #DDD; width:280px; min-height:400px; float:left; }
 aside ul { font-size:14px; cursor:pointer; margin:16px 0; }
@@ -91,5 +97,11 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content div.category ul.experiments div.labs, #content div.category ul.experiments div.factors { clear:both; }
 
 #content ul.experiments a { color:#167C94; }
+
+section#bottom article { margin-top:20px; border:0; }
+section#bottom article nav { text-align:center; margin-bottom:25px; }
+section#bottom article nav li { display:inline; margin-right:15px; }
+section#bottom article nav li.last { margin:0; }
+section#bottom article nav a { color:#70706D; text-decoration:none; font-size:14px; border-bottom:1px solid #DCDCCE; }
 
 footer { margin:0 auto; margin-top:6px; width:1000px; text-align:center; color:#70706D; font-size:13px; }
