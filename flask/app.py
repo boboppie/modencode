@@ -64,7 +64,17 @@ def create_app():
 
     @app.template_filter('url_encode')
     def url_encode(uri):
-       return urllib.quote_plus(uri)
+        return urllib.quote_plus(uri)
+
+    @app.template_filter('article_count')
+    def article_count(pubs):
+        """
+        Jinja var set in a for loop does not work outside the loop, apparently...
+        """
+        size = 0
+        for j in pubs['journal']:
+            size += len(j['articles'])
+        return size
 
     return app
 

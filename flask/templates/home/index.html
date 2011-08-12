@@ -135,6 +135,50 @@
 
 {% endblock %}
 
+{% block gallery %}
+<section id="gallery">
+    <article>
+        <div class="move right"></div>
+        <div class="move left"></div>
+        
+        <div class="inner">
+            <div class="publications">
+                <div class="wrapper" style="width:{{ publications|article_count *  316 }}px">
+                {% for journal in publications.journal %}
+                    {% for article in journal.articles %}
+                        <div class="article">
+                            <img src="{{ url_for('static', filename='img/journals/nature.jpg') }}" />
+                            <p>{{ article.title }}</p>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                </div>
+            </div>
+
+            <ul class="switchers">
+                {% for foo in range(publications|article_count) %}
+                    <li class="article-{{ foo }}{% if loop.first %} current{% endif %}">&bull;</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </article>
+</section>
+<script type="text/javascript">
+    $("section#gallery div.move").click(function() {
+        if ($(this).hasClass('right')) {
+            $("section#gallery div.article:not(:hidden):first").animate({ 
+                marginRight: "-=316px",
+            }, 500, function() { $(this).hide(); });
+        } else {
+            $("section#gallery div.article(:hidden):first").show().animate({ 
+                marginRight: "+=316px",
+            }, 500);
+        }
+    });
+</script>
+{% endblock %}
+
 {% block bottom_nav %}
 <ul>
     <li><a href="#">modMine</a></li>

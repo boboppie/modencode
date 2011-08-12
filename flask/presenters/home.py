@@ -32,6 +32,8 @@ def index(update=False):
         modmine_path = "http://intermine.modencode.org/modminetest/"
         gbrowse_base = "http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/"
 
+        from models.publications import publications
+
         html = render_template('home/index.html', **locals())
         t.write(html)
 
