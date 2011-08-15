@@ -126,6 +126,7 @@ section#gallery div.publications h4,
 section#gallery div.publications p { margin:0 0 5px 5px; float:left; display:inline; width:150px; }
 section#gallery div.publications h4 { font-size:15px; }
 section#gallery div.publications p { font-size:12px; }
+section#gallery div.publications a { color:#000; }
 
 section#gallery ul.switchers { text-align:center; font-size:18px; }
 section#gallery ul.switchers li { display:inline; color:#DDD; cursor:pointer; }
