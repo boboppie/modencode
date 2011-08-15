@@ -8,7 +8,7 @@ from flask import Flask
 import config
 
 # utils
-import re, unicodedata, urllib
+import re, unicodedata, urllib, time
 
 app = None
 
@@ -96,7 +96,9 @@ def create_app():
             for article in journal['articles']:
                 article['journal'] = journal['name']
                 articles.append(article)
-        return articles
+        return sorted(articles,
+                      key=lambda a: time.mktime(time.strptime(a['date'], "%d %B %Y" if len(a['date'].split()) == 3 else "%B %Y")),
+                      reverse=True)
 
     return app
 

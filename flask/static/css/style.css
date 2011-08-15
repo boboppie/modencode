@@ -109,6 +109,7 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 
 /* gallery section */
 section#gallery article { border:0; }
+section#gallery article h3 { color:#167C94; font-weight:bold; text-shadow:1px 1px 1px #FFF; }
 section#gallery div.move { display:block; background-position:center left; background-repeat:no-repeat; width:16px;
     height:217px; cursor:pointer; }
 section#gallery div.move.right { float:right; background-image:url('../img/arrow-right.png'); margin-left:10px; }
@@ -134,7 +135,7 @@ section#gallery ul.switchers li { display:inline; color:#DDD; cursor:pointer; }
 section#gallery ul.switchers li.current { color:#BBB; }
 
 /* bottom links */
-section#bottom article { margin-top:20px; border:0; }
+section#bottom article { border:0; }
 section#bottom article nav { text-align:center; margin-bottom:25px; }
 section#bottom article nav li { display:inline; margin-right:15px; }
 section#bottom article nav li.last { margin:0; }
