@@ -81,7 +81,19 @@ def create_app():
         """
         Determine article image name
         """
-        return slugify("-".join([journal, article['vol'], article['date']]))
+        return slugify('-'.join([journal, article['vol'], article['date']]))
+
+    @app.template_filter('shorten_authors')
+    def shorten_authors(authors, limit=30):
+        """
+        Shorten the authors listing if too long
+        """
+        result = []
+        for author in authors.split(', '):
+            limit -= len(author)
+            result.append(author)
+            if limit < 0: break
+        return ', '.join(result) + '&hellip;' if limit < 0 else ', '.join(result)
 
     return app
 
