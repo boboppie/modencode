@@ -20,7 +20,7 @@ def index(update=False):
     """
     serve home page
     """
-    t = Templates('index') # call Templates.__init__, 'index' is the name of html under templates/home
+    t = Templates('index') # create a new Template object from "static/html/index.html", it doesn't exist the first call
 
     if update or not t.exists():
         # fetch data
@@ -35,7 +35,7 @@ def index(update=False):
 
         # **locals(): the variables (time, etc.) that should be available in the context of the template
         html = render_template('home/index.html', **locals())
-        t.write(html)
+        t.write(html) # create a new static/html/index.html if not exist
 
     return t.read()
 
