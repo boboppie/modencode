@@ -261,6 +261,6 @@ publications = {
                     "type": "companion"
                 }
             ]
-        },
+        }
     ]
 }

@@ -143,25 +143,24 @@
         
         <div class="inner">
             <div class="publications">
-                <div class="wrapper" style="width:{{ publications|article_count *  316 }}px">
-                {% for journal in publications.journal %}
-                    {% for article in journal.articles %}
+                {% set articles = publications|flatten_publications %}
+                <div class="wrapper" style="width:{{ articles|length *  316 }}px">
+                    {% for article in articles %}
                         <div class="article">
                             <a href="http://dx.doi.org/{{ article.doi }}" target="new">
-                                <img src="{{ url_for('static', filename='img/journals/' + article|article_image(journal.name) + '.jpg') }}" />
+                                <img src="{{ url_for('static', filename='img/journals/' + article|article_image + '.jpg') }}" />
                                 <h4>{{ article.title }}</h4>
                                 <p title="{{ article.full_authors }}">{{ article.full_authors|shorten_authors(article.title)|safe }}</p>
-                                <p><em>{{ journal.name }}</em>, <strong>{{ article.vol }}</strong>, pp {{ article.page }}, doi: {{ article.doi }}</p>
+                                <p><em>{{ article.journal }}</em>, <strong>{{ article.vol }}</strong>, pp {{ article.page }}, doi: {{ article.doi }}</p>
                             </a>
                         </div>
                     {% endfor %}
-                {% endfor %}
                 </div>
             </div>
 
             <ul class="switchers">
-                {% for foo in range(publications|article_count) %}
-                    <li class="article-{{ foo }}{% if loop.first %} current{% endif %}">&bull;</li>
+                {% for foo in range(articles|length) %}
+                    <li class="set-{{ foo }}{% if loop.first %} current{% endif %}">&bull;</li>
                 {% endfor %}
             </ul>
         </div>
@@ -192,7 +191,7 @@
             function updateSwitchers(n) {
                 n += parseInt($("section#gallery ul.switchers li.current").attr('class').match(/\d+/));
                 $("section#gallery ul.switchers li.current").removeClass('current');
-                $("section#gallery ul.switchers li.article-" + n).addClass('current');
+                $("section#gallery ul.switchers li.set-" + n).addClass('current');
             }
 
             // scroll to next/previous; queue events for animate() to work

@@ -66,22 +66,12 @@ def create_app():
     def url_encode(uri):
         return urllib.quote_plus(uri)
 
-    @app.template_filter('article_count')
-    def article_count(pubs):
-        """
-        Jinja var set in a for loop does not work outside the loop, apparently...
-        """
-        size = 0
-        for j in pubs['journal']:
-            size += len(j['articles'])
-        return size
-
     @app.template_filter('article_image')
-    def article_image(article, journal):
+    def article_image(article):
         """
         Determine article image name
         """
-        return slugify('-'.join([journal, article['vol'], article['date']]))
+        return slugify('-'.join([article['journal'], article['vol'], article['date']]))
 
     @app.template_filter('shorten_authors')
     def shorten_authors(authors, title, limit=140):
@@ -95,6 +85,18 @@ def create_app():
             result.append(author)
             if limit < 0: break
         return ', '.join(result) + '&hellip;' if limit < 0 else ', '.join(result)
+
+    @app.template_filter('flatten_publications')
+    def flatten_publications(pubs):
+        """
+        Make a dict into a list of individual articles with journal field
+        """
+        articles = []
+        for journal in pubs['journal']:
+            for article in journal['articles']:
+                article['journal'] = journal['name']
+                articles.append(article)
+        return articles
 
     return app
 
