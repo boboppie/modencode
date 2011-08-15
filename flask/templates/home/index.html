@@ -165,32 +165,67 @@
     </article>
 </section>
 <script type="text/javascript">
-    $("section#gallery div.move").click(function() {
-        // show arrow controls?
-        function directionControls() {
-            if ($("section#gallery div.article:not(:visible)").length > 0) {
-                $("section#gallery div.move.left").removeClass('inactive'); // show <
-            } else {
-                $("section#gallery div.move.left").addClass('inactive'); // hide <
+    (function() {
+        // updates the gallery
+        function moveGallery(distance, speed) {
+            if (!speed) speed = 1000;
+
+            // show arrow controls?
+            function directionControls() {
+                if ($("section#gallery div.article:not(:visible)").length > 0) {
+                    $("section#gallery div.move.left").removeClass('inactive'); // show <
+                } else {
+                    $("section#gallery div.move.left").addClass('inactive'); // hide <
+                }
+                if ($("section#gallery div.article:visible").length <= 3) {
+                    $("section#gallery div.move.right").addClass('inactive'); // hide >
+                } else {
+                    $("section#gallery div.move.right").removeClass('inactive'); // show >
+                }
             }
-            if ($("section#gallery div.article:visible").length <= 3) {
-                $("section#gallery div.move.right").addClass('inactive'); // hide >
-            } else {
-                $("section#gallery div.move.right").removeClass('inactive'); // show >
+
+            // update individual article switchers as we move
+            function updateSwitchers(n) {
+                n += parseInt($("section#gallery ul.switchers li.current").attr('class').match(/\d+/));
+                $("section#gallery ul.switchers li.current").removeClass('current');
+                $("section#gallery ul.switchers li.article-" + n).addClass('current');
+            }
+
+            // scroll to next/previous; queue events for animate() to work
+            var queue = new Array(Math.abs(distance));
+            for (i = 0; i < Math.abs(distance); i++) queue[i] = (distance > 0) ? 1 : -1;
+            deQueue();
+            function deQueue() {
+                if (queue.length > 0) {
+                    if (queue.pop() > 0) { // >
+                        $("section#gallery div.article:not(:hidden):first").animate({
+                            marginRight: "-=316px",
+                        }, speed, function() { $(this).hide(); directionControls(); updateSwitchers(1); deQueue(); });
+                    } else { // <
+                        $("section#gallery div.article:not(:visible):last").show().animate({
+                            marginRight: "+=316px",
+                        }, speed, function() { directionControls(); updateSwitchers(-1); deQueue(); });
+                    }
+                }
             }
         }
 
-        // scroll to next/previous
-        if ($(this).hasClass('right')) {
-            $("section#gallery div.article:not(:hidden):first").animate({
-                marginRight: "-=316px",
-            }, 500, function() { $(this).hide(); directionControls(); });
-        } else {
-            $("section#gallery div.article:not(:visible):last").show().animate({
-                marginRight: "+=316px",
-            }, 500, function() { directionControls(); });
-        }
-    });
+        // arrow <,> controls events (scroll to next/previous)
+        $("section#gallery div.move").click(function() {
+            if ($(this).hasClass('right')) {
+                moveGallery(1);
+            } else {
+                moveGallery(-1);
+            }
+        });
+
+        // individual switchers *,* events
+        $("section#gallery ul.switchers li:not(.current)").click(function() {
+            var n = parseInt($(this).attr('class').match(/\d+/))
+            - parseInt($("section#gallery ul.switchers li.current").attr('class').match(/\d+/));
+            moveGallery(n, 100);
+        });
+    })();
 </script>
 {% endblock %}
 
