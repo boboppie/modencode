@@ -145,7 +145,11 @@
             <div class="publications">
                 {% set articles = publications|flatten_publications %}
                 <div class="wrapper" style="width:{{ articles|length *  316 }}px">
+                    <div class="set">
                     {% for article in articles %}
+                        {% if loop.index0 is divisibleby(3) and not loop.last and not loop.first -%}
+                            </div><div class="set">
+                        {%- endif %}
                         <div class="article">
                             <a href="http://dx.doi.org/{{ article.doi }}" target="new">
                                 <img src="{{ url_for('static', filename='img/journals/' + article|article_image + '.jpg') }}" />
@@ -155,11 +159,12 @@
                             </a>
                         </div>
                     {% endfor %}
+                    </div>
                 </div>
             </div>
 
             <ul class="switchers">
-                {% for foo in range(articles|length) %}
+                {% for foo in range(articles|length / 3) -%}
                     <li class="set-{{ foo }}{% if loop.first %} current{% endif %}">&bull;</li>
                 {% endfor %}
             </ul>
@@ -175,12 +180,12 @@
 
             // show arrow controls?
             function directionControls() {
-                if ($("section#gallery div.article:not(:visible)").length > 0) {
+                if ($("section#gallery div.set:not(:visible)").length > 0) {
                     $("section#gallery div.move.left").removeClass('inactive'); // show <
                 } else {
                     $("section#gallery div.move.left").addClass('inactive'); // hide <
                 }
-                if ($("section#gallery div.article:visible").length <= 3) {
+                if ($("section#gallery div.set:visible").length <= 1) {
                     $("section#gallery div.move.right").addClass('inactive'); // hide >
                 } else {
                     $("section#gallery div.move.right").removeClass('inactive'); // show >
@@ -201,19 +206,19 @@
             function deQueue() {
                 if (queue.length > 0) {
                     if (queue.pop() > 0) { // >
-                        $("section#gallery div.article:not(:hidden):first").animate({
-                            marginRight: "-=316px",
+                        $("section#gallery div.set:not(:hidden):first").animate({
+                            marginRight: "-=948px",
                         }, speed, function() { $(this).hide(); directionControls(); updateSwitchers(1); deQueue(); });
                     } else { // <
-                        $("section#gallery div.article:not(:visible):last").show().animate({
-                            marginRight: "+=316px",
+                        $("section#gallery div.set:not(:visible):last").show().animate({
+                            marginRight: "+=948px",
                         }, speed, function() { directionControls(); updateSwitchers(-1); deQueue(); });
                     }
                 }
             }
         }
 
-        // arrow <,> controls events (scroll to next/previous)
+        // arrow <,> controls events (scroll to next/previous set)
         $("section#gallery div.move").click(function() {
             if ($(this).hasClass('right')) {
                 moveGallery(1);

@@ -121,6 +121,7 @@ section#gallery div.publications { overflow:hidden; width:948px; height:217px; d
 section#gallery div.publications div.wrapper { position:absolute; }
 section#gallery div.publications div.article { float:left; width:316px; margin-bottom:100px; padding:10px 0;
     background:#FFF; }
+section#gallery div.publications div.set { float:left; width:948px; }
 section#gallery div.publications img { float:left; border:1px solid #DDD; }
 section#gallery div.publications h4,
 section#gallery div.publications p { margin:0 0 5px 5px; float:left; display:inline; width:150px; }
