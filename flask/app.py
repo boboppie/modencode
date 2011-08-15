@@ -76,6 +76,13 @@ def create_app():
             size += len(j['articles'])
         return size
 
+    @app.template_filter('article_image')
+    def article_image(article, journal):
+        """
+        Determine article image name
+        """
+        return slugify("-".join([journal, article['vol'], article['date']]))
+
     return app
 
 if __name__ == '__main__':

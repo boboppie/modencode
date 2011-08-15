@@ -147,7 +147,7 @@
                 {% for journal in publications.journal %}
                     {% for article in journal.articles %}
                         <div class="article">
-                            <img src="{{ url_for('static', filename='img/journals/nature.jpg') }}" />
+                            <img src="{{ url_for('static', filename='img/journals/' + article|article_image(journal.name) + '.jpg') }}" />
                             <p>{{ article.title }}</p>
                         </div>
                     {% endfor %}
