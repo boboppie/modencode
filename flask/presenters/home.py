@@ -22,16 +22,14 @@ def index(update=False):
     """
     t = Templates('index') # call Templates.__init__, 'index' is the name of html under templates/home
 
-    if t.exists():
+    if update or not t.exists():
         # fetch data
         m = Modmine()
-        data = m.get_catexp_data(update)
+        data = m.get_catexp_data()
         modmine_path = config.DATASOURCE_ROOT + "/" # make it work for modminetest for now, will switch to the next line
         # modmine_path = config.DATASOURCE_ROOT + "/" + m.get_webapp_path(update)
         # or modmine_path = config.DATASOURCE_ROOT + "/query/"
-        gbrowse_base = m.get_gbrowse_base(update)
-
-        # TODO: how shall we do "genus" italics?
+        gbrowse_base = m.get_gbrowse_base()
 
         time = utils.current_time()
 
@@ -39,9 +37,7 @@ def index(update=False):
         html = render_template('home/index.html', **locals())
         t.write(html)
 
-        return t.read()
-    else:
-        return "index.html template does not exsit..."
+    return t.read()
 
 @home.route('/update')
 def update():
@@ -49,3 +45,17 @@ def update():
     fetch updates from modmine
     """
     return index(update=True)
+
+@home.route('/publications')
+def publications():
+    """
+    serve publications page
+    """
+    t = Templates('publications')
+
+    if not t.exists():
+        # TODO fetch data
+        html = render_template('home/publications.html', **locals())
+        t.write(html)
+
+    return t.read()

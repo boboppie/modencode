@@ -6,7 +6,9 @@ import os
 class Templates:
 
     def __init__(self, name):
-        self.path = os.getcwd() + '/templates/home/%s.html' % name
+        self.dir = os.getcwd() + '/static/html/'
+        self.path = self.dir + '%s.html' % name
+
     def exists(self):
         """
         check that a file exists

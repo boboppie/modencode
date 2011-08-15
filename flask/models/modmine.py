@@ -16,41 +16,23 @@ class Modmine:
     webapp_path = None
     gbrowse_base = None
 
-    def get_catexp_data(self, update=False):
+    def get_catexp_data(self):
 
-        if update:
-            Modmine.metadata_catexp = fetch(Modmine.catexp_ws_url)
-        else:
-            if not Modmine.metadata_catexp:
-                Modmine.metadata_catexp = fetch(Modmine.catexp_ws_url)
-            else:
-                pass
+        Modmine.metadata_catexp = fetch(Modmine.catexp_ws_url)
 
         # TODO check if returns json string
         return json.loads(Modmine.metadata_catexp)
 
-    def get_webapp_path(self, update=False):
+    def get_webapp_path(self):
 
-        if update:
-            Modmine.webapp_path = fetch(Modmine.webapp_path_ws_url)
-        else:
-            if not Modmine.webapp_path:
-                Modmine.webapp_path = fetch(Modmine.webapp_path_ws_url)
-            else:
-                pass
+        Modmine.webapp_path = fetch(Modmine.webapp_path_ws_url)
 
         # TODO check if starts with "/"
         return Modmine.webapp_path
 
-    def get_gbrowse_base(self, update=False):
+    def get_gbrowse_base(self):
 
-        if update:
-            Modmine.gbrowse_base = fetch(Modmine.gbrowse_base_url)
-        else:
-            if not Modmine.gbrowse_base:
-                Modmine.gbrowse_base = fetch(Modmine.gbrowse_base_url)
-            else:
-                pass
+        Modmine.gbrowse_base = fetch(Modmine.gbrowse_base_url)
 
         # TODO check if starts with "/"
         return Modmine.gbrowse_base
