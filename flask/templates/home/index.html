@@ -168,7 +168,7 @@
     (function() {
         // updates the gallery
         function moveGallery(distance, speed) {
-            if (!speed) speed = 1000;
+            if (!speed) speed = 500;
 
             // show arrow controls?
             function directionControls() {
@@ -220,7 +220,7 @@
         });
 
         // individual switchers *,* events
-        $("section#gallery ul.switchers li:not(.current)").click(function() {
+        $("section#gallery ul.switchers li").click(function() {
             var n = parseInt($(this).attr('class').match(/\d+/))
             - parseInt($("section#gallery ul.switchers li.current").attr('class').match(/\d+/));
             moveGallery(n, 100);
