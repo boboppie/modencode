@@ -113,6 +113,7 @@ section#gallery div.move { display:block; background-position:center left; backg
     height:217px; cursor:pointer; }
 section#gallery div.move.right { float:right; background-image:url('../img/arrow-right.png'); margin-left:10px; }
 section#gallery div.move.left { float:left; background-image:url('../img/arrow-left.png'); margin-right:10px; }
+section#gallery div.move.inactive { background:none; cursor:default; }
 
 section#gallery div.inner { float:left; }
 

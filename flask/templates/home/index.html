@@ -139,7 +139,7 @@
 <section id="gallery">
     <article>
         <div class="move right"></div>
-        <div class="move left"></div>
+        <div class="move left inactive"></div>
         
         <div class="inner">
             <div class="publications">
@@ -166,14 +166,29 @@
 </section>
 <script type="text/javascript">
     $("section#gallery div.move").click(function() {
+        // show arrow controls?
+        function directionControls() {
+            if ($("section#gallery div.article:not(:visible)").length > 0) {
+                $("section#gallery div.move.left").removeClass('inactive'); // show <
+            } else {
+                $("section#gallery div.move.left").addClass('inactive'); // hide <
+            }
+            if ($("section#gallery div.article:visible").length <= 3) {
+                $("section#gallery div.move.right").addClass('inactive'); // hide >
+            } else {
+                $("section#gallery div.move.right").removeClass('inactive'); // show >
+            }
+        }
+
+        // scroll to next/previous
         if ($(this).hasClass('right')) {
-            $("section#gallery div.article:not(:hidden):first").animate({ 
+            $("section#gallery div.article:not(:hidden):first").animate({
                 marginRight: "-=316px",
-            }, 500, function() { $(this).hide(); });
+            }, 500, function() { $(this).hide(); directionControls(); });
         } else {
-            $("section#gallery div.article(:hidden):first").show().animate({ 
+            $("section#gallery div.article:not(:visible):last").show().animate({
                 marginRight: "+=316px",
-            }, 500);
+            }, 500, function() { directionControls(); });
         }
     });
 </script>
