@@ -149,7 +149,7 @@
                         <div class="article">
                             <img src="{{ url_for('static', filename='img/journals/' + article|article_image(journal.name) + '.jpg') }}" />
                             <h4>{{ article.title }}</h4>
-                            <p title="{{ article.full_authors }}">{{ article.full_authors|shorten_authors|safe }}</p>
+                            <p title="{{ article.full_authors }}">{{ article.full_authors|shorten_authors(article.title)|safe }}</p>
                             <p><em>{{ journal.name }}</em>, <strong>{{ article.vol }}</strong>, pp {{ article.page }}, doi: {{ article.doi }}</p>
                         </div>
                     {% endfor %}

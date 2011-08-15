@@ -84,10 +84,11 @@ def create_app():
         return slugify('-'.join([journal, article['vol'], article['date']]))
 
     @app.template_filter('shorten_authors')
-    def shorten_authors(authors, limit=30):
+    def shorten_authors(authors, title, limit=140):
         """
         Shorten the authors listing if too long
         """
+        limit -= len(title)
         result = []
         for author in authors.split(', '):
             limit -= len(author)

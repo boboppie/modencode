@@ -122,8 +122,10 @@ section#gallery div.publications div.wrapper { position:absolute; }
 section#gallery div.publications div.article { float:left; width:316px; margin-bottom:100px; padding:10px 0;
     background:#FFF; }
 section#gallery div.publications img { float:left; border:1px solid #DDD; }
-section#gallery div.publications h4 { margin:0 0 5px 5px; float:left; display:inline; width:150px; }
-section#gallery div.publications p { font-size:12px; display:inline; float:left; width:150px; margin:0 0 5px 5px; }
+section#gallery div.publications h4,
+section#gallery div.publications p { margin:0 0 5px 5px; float:left; display:inline; width:150px; }
+section#gallery div.publications h4 { font-size:15px; }
+section#gallery div.publications p { font-size:12px; }
 
 section#gallery ul.switchers { text-align:center; font-size:18px; }
 section#gallery ul.switchers li { display:inline; color:#DDD; cursor:pointer; }
