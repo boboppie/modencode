@@ -100,6 +100,14 @@ def create_app():
                       key=lambda a: time.mktime(time.strptime(a['date'], "%d %B %Y" if len(a['date'].split()) == 3 else "%B %Y")),
                       reverse=True)
 
+    @app.template_filter('italics')
+    def italics(text):
+        """
+        Apply italics to genus etc.
+        """        
+        return re.sub(re.compile('('+('|'.join(['C\. elegans', 'Caenorhabditis elegans', 'D\. melanogaster', 'Drosophila melanogaster',
+        'Drosophila', 'cis-', 'trans-']))+')'), lambda m: "<i>%s</i>" % m.group(1), text)
+
     return app
 
 if __name__ == '__main__':

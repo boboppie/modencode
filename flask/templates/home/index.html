@@ -50,10 +50,10 @@
             <ul class="experiments">
                 {%- for experiment in organism.experiments -%}
                 <li>
-                    <div class="project">{{experiment.project_name}}</div>
+                    <div class="project">{{ experiment.project_name|italics|safe }}</div>
                     <h2>
                         <a href="{{ modmine_path }}experiment.do?experiment={{ experiment.experiment_name|url_encode }}" target="_blank">
-                            {{ experiment.experiment_name}}
+                            {{ experiment.experiment_name|italics|safe }}
                         </a>
                     </h2>
                     <div class="meta">
@@ -71,7 +71,7 @@
                         <div class="features"><span>Features:</span>&nbsp;
                             {%- for feature in experiment.features -%}
                                 <a href="{{ modmine_path }}features.do?type=experiment&action=results&experiment=
-                                    {{- experiment.experiment_name }}&feature={{ feature.feature_type }}"
+                                    {{- experiment.experiment_name|italics|safe }}&feature={{ feature.feature_type }}"
                                    target="_blank">
                                     {{- feature.feature_type }}: {{ feature.feature_counts -}}
                                 </a>{% if not loop.last %}, {% endif %}
@@ -154,9 +154,9 @@
                         <div class="article">
                             <a href="http://dx.doi.org/{{ article.doi }}" target="new">
                                 <img src="{{ url_for('static', filename='img/journals/' + article|article_image + '.jpg') }}" />
-                                <h4>{{ article.title }}</h4>
+                                <h4>{{ article.title|italics|safe }}</h4>
                                 <p title="{{ article.full_authors }}">{{ article.full_authors|shorten_authors(article.title)|safe }}</p>
-                                <p><em>{{ article.journal }}</em>, <strong>{{ article.vol }}</strong>, pp {{ article.page }}, doi: {{ article.doi }}</p>
+                                <p><i>{{ article.journal }}</i>, <strong>{{ article.vol }}</strong>, pp {{ article.page }}, doi: {{ article.doi }}</p>
                             </a>
                         </div>
                     {% endfor %}
