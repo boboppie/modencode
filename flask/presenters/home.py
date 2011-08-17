@@ -33,6 +33,8 @@ def index(update=False):
 
         time = utils.current_time()
 
+        from models.publications import publications
+
         # **locals(): the variables (time, etc.) that should be available in the context of the template
         html = render_template('home/index.html', **locals())
         t.write(html) # create a new static/html/index.html if not exist

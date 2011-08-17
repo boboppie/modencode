@@ -165,7 +165,7 @@
             </div>
 
             <ul class="switchers">
-                {% for foo in range(articles|length / 3) -%}
+                {% for foo in range(articles|length // 3) -%}
                     <li class="set-{{ foo }}{% if loop.first %} current{% endif %}">&bull;</li>
                 {% endfor %}
             </ul>
