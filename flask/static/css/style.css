@@ -1,8 +1,9 @@
 body { background:#FFF url('../img/bg.png') repeat-x top left; font-family:Arial,"Gill Sans","Gill Sans MT", "Myriad Pro",
     Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, sans-serif; }
 
-span.genus { font-style:italic; }
+i { font-style:italic; }
 
+/* header */
 header #top { background:#167C94; height:60px; color:#EEF0E3; font-size:11px; }
 header #top div.wrap { width:1000px; margin:0 auto; position:relative; }
 header #top #title { position:absolute; top:0; left:0; background:url('../img/logo.png') no-repeat top left;
@@ -13,6 +14,7 @@ header #top p.sub { position:absolute; top:20px; left:170px; width:270px; }
 header #top div.div { position:absolute; top:0; left:678px; border-left:1px solid #2E94AC; border-right:1px solid #3B6872;
     display:block; height:60px; width:0px; }
 
+/* search */
 header #top #search { float:right; margin-top:18px; }
 header #top #search input.text { background:url('../img/search-input.png') no-repeat top left; border:0;
     padding:1px 20px 1px 30px; height:23px; width:130px; }
@@ -20,6 +22,7 @@ header #top #search input.button { background:url('../img/search-btn.png') no-re
     cursor:pointer; color:#FFF; font-size:11px; letter-spacing:-0.5px; width:119px; height:27px;
     margin:0 0 0 -20px; vertical-align:bottom; }
 
+/* top navigation */
 header nav { width:1000px; margin:0 auto; }
 header nav ul { margin:20px 0 0 145px; }
 header nav ul li { display:inline; border-right:1px solid #A3DBE8; padding:0 18px; }
@@ -28,6 +31,7 @@ header nav ul li a { text-decoration:none; color:#167C94; font-size:16px; letter
     text-shadow:1px 1px 1px #FFF; padding:6px; }
 header nav ul li a:hover { color:#FFF; background:#167C94; text-shadow:0 0 0; }
 
+/* header text*/
 header p.blurb { width:1000px; margin:45px auto 0; color:#167C94; text-shadow:1px 1px 1px #FFFFFF;
     letter-spacing:0.2px; }
     header p.blurb a { text-decoration:none; color:#154E5B; }
@@ -36,6 +40,7 @@ header p.blurb { width:1000px; margin:45px auto 0; color:#167C94; text-shadow:1p
 
 article { width:1000px; margin:0 auto; margin-top:30px; border:1px solid #D7D5C8; background:#FFF; }
 
+/* sidebar */
 aside { border-right:1px solid #DDD; width:280px; min-height:400px; float:left; }
 aside ul { font-size:14px; cursor:pointer; margin:16px 0; }
 aside ul li { background:url('../img/sidebar-option.png') repeat-x top left; width:266px; height:50px;
@@ -44,6 +49,7 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
     color:#FFF; padding-left:25px; font-weight:bold; text-shadow:1px 1px 1px #A5692F; line-height:56px;
     position:relative; left:-12px; bottom:-11px; margin-top:-16px; }
 
+/* @deprecated, original content boxes */
 #content { float:left; padding:14px 0px 14px 40px; width:665px; }
 #content div.title-box { background:url('../img/yellow-box-title-bg.jpg') no-repeat top left; width:715px; height:101px;
     padding:10px; margin-bottom:20px; }
@@ -61,6 +67,7 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content div.yellow-box ul li a { color:#70706D; border-bottom:1px solid #E0E1D3; padding-bottom:1px; font-size:13px;
     text-decoration:none; }
 
+/* categories -> switchers */
 #content div.category ul.switcher { height:29px; margin-top:12px; }
 #content div.category ul.switcher li { display:inline-block; padding:7px 10px; cursor:pointer; margin-right:10px;
     border-bottom:1px solid #FFF; background:url('../img/organism-tab-bg.png') repeat-x top left; color:#565148;
@@ -75,6 +82,7 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content div.category ul.switcher li.c-elegans.active span { background-image:url('../img/elegans-white.png'); }
 #content div.category div.separator { height:5px; display:block; width:100%; background:#5EA2B9; margin-top:7px; }
 
+/* categories -> pi filter */
 #content div.category div.filter { margin-top:20px; font-size:13px; }
 #content div.category div.filter span { color:#70706D; font-size:13px; margin-right:5px; }
 #content div.category div.filter ul { display:inline; }
@@ -82,6 +90,7 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
     cursor:pointer; color:#5EA2B9; }
 #content div.category div.filter ul li.selected { background:#5EA2B9; color:#FFF; }
 
+/* categories -> experiments */
 #content div.category ul.experiments { margin-top:20px; font-size:14px; }
 #content div.category ul.experiments h2 { font-size:20px; text-shadow:1px 1px 1px #F6F6F6; line-height:23px;
     margin-bottom:6px; }
@@ -98,7 +107,35 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 
 #content ul.experiments a { color:#167C94; }
 
-section#bottom article { margin-top:20px; border:0; }
+/* gallery section */
+section#gallery article { border:0; }
+section#gallery article h3 { color:#167C94; font-weight:bold; text-shadow:1px 1px 1px #FFF; }
+section#gallery div.move { display:block; background-position:center left; background-repeat:no-repeat; width:16px;
+    height:217px; cursor:pointer; }
+section#gallery div.move.right { float:right; background-image:url('../img/arrow-right.png'); margin-left:10px; }
+section#gallery div.move.left { float:left; background-image:url('../img/arrow-left.png'); margin-right:10px; }
+section#gallery div.move.inactive { background:none; cursor:default; }
+
+section#gallery div.inner { float:left; }
+
+section#gallery div.publications { overflow:hidden; width:948px; height:217px; display:block; position:relative; }
+section#gallery div.publications div.wrapper { position:absolute; }
+section#gallery div.publications div.article { float:left; width:316px; margin-bottom:100px; padding:10px 0;
+    background:#FFF; }
+section#gallery div.publications div.set { float:left; width:948px; }
+section#gallery div.publications img { float:left; border:1px solid #DDD; }
+section#gallery div.publications h4,
+section#gallery div.publications p { margin:0 0 5px 5px; float:left; display:inline; width:150px; }
+section#gallery div.publications h4 { font-size:15px; }
+section#gallery div.publications p { font-size:12px; }
+section#gallery div.publications a { color:#000; }
+
+section#gallery ul.switchers { text-align:center; font-size:18px; }
+section#gallery ul.switchers li { display:inline; color:#DDD; cursor:pointer; }
+section#gallery ul.switchers li.current { color:#BBB; }
+
+/* bottom links */
+section#bottom article { border:0; }
 section#bottom article nav { text-align:center; margin-bottom:25px; }
 section#bottom article nav li { display:inline; margin-right:15px; }
 section#bottom article nav li.last { margin:0; }
