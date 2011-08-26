@@ -154,7 +154,7 @@
                         <div class="article">
                             <a href="http://dx.doi.org/{{ article.doi }}" target="new">
                                 <img src="{{ url_for('static', filename='img/journals/' + article|article_image + '.jpg') }}" />
-                                <h4>{{ article.title|italics|safe }}</h4>
+                                <h4 class="{% if article.title|length > 150 %}small{% endif %}">{{ article.title|italics|safe }}</h4>
                                 <p title="{{ article.full_authors }}">{{ article.full_authors|shorten_authors(article.title)|safe }}</p>
                                 <p><i>{{ article.journal }}</i>, <strong>{{ article.vol }}</strong>, pp {{ article.page }}, doi: {{ article.doi }}</p>
                             </a>
