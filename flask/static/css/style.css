@@ -108,17 +108,17 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content ul.experiments a { color:#167C94; }
 
 /* gallery section */
-section#gallery article { border:0; }
+section#gallery article { border:0; position:relative; }
 section#gallery article h3 { color:#167C94; font-weight:bold; text-shadow:1px 1px 1px #FFF; }
 section#gallery div.move { display:block; background-position:center left; background-repeat:no-repeat; width:16px;
-    height:217px; cursor:pointer; }
+    height:150px; cursor:pointer; }
 section#gallery div.move.right { float:right; background-image:url('../img/arrow-right.png'); margin-left:10px; }
 section#gallery div.move.left { float:left; background-image:url('../img/arrow-left.png'); margin-right:10px; }
 section#gallery div.move.inactive { background:none; cursor:default; }
 
 section#gallery div.inner { float:left; }
 
-section#gallery div.publications { overflow:hidden; width:948px; height:217px; display:block; position:relative; }
+section#gallery div.publications { overflow:hidden; width:948px; height:150px; display:block; position:relative; }
 section#gallery div.publications div.wrapper { position:absolute; }
 section#gallery div.publications div.article { float:left; width:280px; margin:0 50px 100px 0; padding:10px 0;
     background:#FFF; }
@@ -134,6 +134,9 @@ section#gallery div.publications a { color:#000; }
 section#gallery ul.switchers { text-align:center; font-size:18px; }
 section#gallery ul.switchers li { display:inline; color:#DDD; cursor:pointer; }
 section#gallery ul.switchers li.current { color:#BBB; }
+
+section#gallery article div.see-more { position:absolute; top:41px; right:-43px; display:block; width:68px; height:60px;
+    background:url('../img/see-more.png') no-repeat top left; }
 
 /* bottom links */
 section#bottom article { border:0; }

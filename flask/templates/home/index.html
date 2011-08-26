@@ -171,6 +171,7 @@
             </ul>
         </div>
         <div class="clear"></div>
+        <div class="see-more"></div>
     </article>
 </section>
 <script type="text/javascript">
@@ -178,6 +179,9 @@
         // updates the gallery
         function moveGallery(distance, speed) {
             if (!speed) speed = 500;
+
+            // hide the tooltip
+            $("section#gallery div.see-more").remove();
 
             // show arrow controls?
             function directionControls() {
