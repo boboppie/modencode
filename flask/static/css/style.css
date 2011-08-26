@@ -127,7 +127,7 @@ section#gallery div.publications div.set div.article:last-child { margin-right:0
 section#gallery div.publications img { float:right; border:1px solid #DDD; }
 section#gallery div.publications h4,
 section#gallery div.publications p { margin:0 0 5px 5px; float:left; display:inline; width:220px; }
-section#gallery div.publications h4 { font-size:17px; margin-bottom:10px; }
+section#gallery div.publications h4 { font-size:17px; margin-bottom:10px; color:#1B98B5; }
 section#gallery div.publications p { font-size:12px; }
 section#gallery div.publications a { color:#000; }
 
@@ -135,7 +135,7 @@ section#gallery ul.switchers { text-align:center; font-size:18px; }
 section#gallery ul.switchers li { display:inline; color:#DDD; cursor:pointer; }
 section#gallery ul.switchers li.current { color:#BBB; }
 
-section#gallery article div.see-more { position:absolute; top:41px; right:-43px; display:block; width:68px; height:60px;
+section#gallery article div.see-more { position:absolute; top:38px; right:-40px; display:block; width:68px; height:40px;
     background:url('../img/see-more.png') no-repeat top left; }
 
 /* bottom links */
