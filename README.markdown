@@ -7,7 +7,7 @@ A Flask app serving the homepage of the modENCODE project
 - CherryPy
 
 ## Installation:
-- make sure Flask is installed, <code>easy_install flask</code>
+- make sure Flask is installed, <code>easy_install flask</code>, to install the bleeding edge version, refer to http://flask.pocoo.org/docs/installation/#living-on-the-edge
 - make sure CherryPy is installed, <code>easy_install cherrypy</code>
 - run the install script <code>python install.py</code> and input the port the app will run at
 - run the app, <code>python server.py</code>
