@@ -19,6 +19,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(config)
     app.secret_key = config.SECRET_KEY
+    app.debug = False
 
     # presenters
     from presenters.home import home
