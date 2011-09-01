@@ -15,4 +15,4 @@ A Flask app serving the homepage of the modENCODE project
 ## Usage:
 
 - Visit <code>/update</code> to force an update to html cache
-- Change modMine webservice base url in install.py (DATASOURCE_ROOT field), and install the script again 
+- Change modMine webservice base url in install.py (DATASOURCE_ROOT field), and install the script again; or change directly in the generated config.py, and refresh the page 
