@@ -11,88 +11,95 @@
 
 {% block body %}
 
-<aside>
-    <ul>
-    {%- for category in data.categories -%}
-        <li target="category-{{ loop.index }}"
-        {% if loop.first %}class="active"{% endif %}>{{ category.category }}</li>
-    {%- endfor -%}
-    </ul>
-</aside>
+<div id="modmine-projects">
+    <h3>Browse Projects</h3>
 
-<div id="content">
-    {%- for category in data.categories -%}
-    <div class="category" id="category-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
-        <ul class="switcher">
-        {% set organisms = category.organisms|empty_organisms_filter %}
-        {%- for organism in organisms -%}
-            <li class="{{ organism.organism|slugify }}{% if loop.first %} active{% endif %}"
-                target="organism-{{ loop.index }}"><span>{{ organism.organism }}</span></li>
-        {%- endfor -%}
-        </ul>
-        <div class="separator"></div>
-
-        {%- for organism in organisms -%}
-        <div class="organism" id="organism-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
-            {% set pis = organism.experiments|pi_filter %}
-            {% if pis|count > 1 %}
-            <div class="filter">
-                <span>Filter by Pi:</span>
-                <ul>
-                    <li class="selected">Show all</li>
-                    {% for pi in pis %}
-                        <li>{{ pi }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
-
-            <ul class="experiments">
-                {%- for experiment in organism.experiments -%}
-                <li>
-                    <div class="project">{{ experiment.project_name|italics|safe }}</div>
-                    <h2>
-                        <a href="{{ modmine_path }}experiment.do?experiment={{ experiment.experiment_name|url_encode }}" target="_blank">
-                            {{ experiment.experiment_name|italics|safe }}
-                        </a>
-                    </h2>
-                    <div class="meta">
-                        <div class="pi" title="{{ experiment.pi }}"><span>Pi:</span> {{ experiment.pi }}</div>
-                        <div class="labs"><span>Labs:</span>&nbsp;
-                            {%- for lab in experiment.labs -%}{{ lab }}{% if not loop.last %}, {% endif %}{%- endfor -%}
-                        </div>
-                        <div class="submissions"><span>Submissions:</span> {{ experiment.submission_count }}</div>
-                        {% if experiment.factor_types|count > 0 %}
-                        <div class="factors"><span>Experimental factors:</span>&nbsp;
-                            {%- for factor in experiment.factor_types -%}{{ factor }}{% if not loop.last %}, {% endif %}{%- endfor -%}
-                        </div>
-                        {% endif %}
-                        {% if experiment.features %}
-                        <div class="features"><span>Features:</span>&nbsp;
-                            {%- for feature in experiment.features -%}
-                                <a href="{{ modmine_path }}features.do?type=experiment&action=results&experiment=
-                                    {{- experiment.experiment_name|italics|safe }}&feature={{ feature.feature_type }}"
-                                   target="_blank">
-                                    {{- feature.feature_type }}: {{ feature.feature_counts -}}
-                                </a>{% if not loop.last %}, {% endif %}
-                            {%- endfor -%}
-                        </div>
-                        {% endif %}
-                        {% if experiment.gbrowse_tracks|count > 0 %}
-                        <div class="tracks"><span>GBrowse Tracks:</span>
-                            <a href="{{ gbrowse_base }}{{ experiment.gbrowse_tracks.track_link }}" target="_blank">
-                                {{ experiment.gbrowse_tracks.track_counts }}
-                            </a>
-                        </div>
-                        {% endif %}
-                    </div>
-                </li>
-                {%- endfor -%}
+    <div class="box">
+        <aside>
+            <ul>
+            {%- for category in data.categories -%}
+                <li target="category-{{ loop.index }}"
+                {% if loop.first %}class="active"{% endif %}>{{ category.category }}</li>
+            {%- endfor -%}
             </ul>
+        </aside>
+
+        <div id="content">
+            {%- for category in data.categories -%}
+            <div class="category" id="category-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
+                <ul class="switcher">
+                {% set organisms = category.organisms|empty_organisms_filter %}
+                {%- for organism in organisms -%}
+                    <li class="{{ organism.organism|slugify }}{% if loop.first %} active{% endif %}"
+                        target="organism-{{ loop.index }}"><span>{{ organism.organism }}</span></li>
+                {%- endfor -%}
+                </ul>
+                <div class="separator"></div>
+
+                {%- for organism in organisms -%}
+                <div class="organism" id="organism-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
+                    {% set pis = organism.experiments|pi_filter %}
+                    {% if pis|count > 1 %}
+                    <div class="filter">
+                        <span>Filter by Pi:</span>
+                        <ul>
+                            <li class="selected">Show all</li>
+                            {% for pi in pis %}
+                                <li>{{ pi }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    <ul class="experiments">
+                        {%- for experiment in organism.experiments -%}
+                        <li>
+                            <div class="project">{{ experiment.project_name|italics|safe }}</div>
+                            <h4>
+                                <a href="{{ modmine_path }}experiment.do?experiment={{ experiment.experiment_name|url_encode }}" target="_blank">
+                                    {{ experiment.experiment_name|italics|safe }}
+                                </a>
+                            </h4>
+                            <div class="meta">
+                                <div class="pi" title="{{ experiment.pi }}"><span>Pi:</span> {{ experiment.pi }}</div>
+                                <div class="labs"><span>Labs:</span>&nbsp;
+                                    {%- for lab in experiment.labs -%}{{ lab }}{% if not loop.last %}, {% endif %}{%- endfor -%}
+                                </div>
+                                <div class="submissions"><span>Submissions:</span> {{ experiment.submission_count }}</div>
+                                {% if experiment.factor_types|count > 0 %}
+                                <div class="factors"><span>Experimental factors:</span>&nbsp;
+                                    {%- for factor in experiment.factor_types -%}{{ factor }}{% if not loop.last %}, {% endif %}{%- endfor -%}
+                                </div>
+                                {% endif %}
+                                {% if experiment.features %}
+                                <div class="features"><span>Features:</span>&nbsp;
+                                    {%- for feature in experiment.features -%}
+                                        <a href="{{ modmine_path }}features.do?type=experiment&action=results&experiment=
+                                            {{- experiment.experiment_name|italics|safe }}&feature={{ feature.feature_type }}"
+                                           target="_blank">
+                                            {{- feature.feature_type }}: {{ feature.feature_counts -}}
+                                        </a>{% if not loop.last %}, {% endif %}
+                                    {%- endfor -%}
+                                </div>
+                                {% endif %}
+                                {% if experiment.gbrowse_tracks|count > 0 %}
+                                <div class="tracks"><span>GBrowse Tracks:</span>
+                                    <a href="{{ gbrowse_base }}{{ experiment.gbrowse_tracks.track_link }}" target="_blank">
+                                        {{ experiment.gbrowse_tracks.track_counts }}
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
+                {%- endfor -%}
+            </div>
+            {%- endfor -%}
         </div>
-        {%- endfor -%}
+        <div class="clear"></div>
     </div>
-    {%- endfor -%}
 </div>
 
 <script type="text/javascript">
