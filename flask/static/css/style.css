@@ -18,9 +18,22 @@ header #top div.div { position:absolute; top:0; left:678px; border-left:1px soli
 header #top #search { float:right; margin-top:18px; }
 header #top #search input.text { background:url('../img/search-input.png') no-repeat top left; border:0;
     padding:1px 20px 1px 30px; height:23px; width:130px; }
-header #top #search input.button { background:url('../img/search-btn.png') no-repeat center left; border:0;
-    cursor:pointer; color:#FFF; font-size:11px; letter-spacing:-0.5px; width:119px; height:27px;
-    margin:0 0 0 -20px; vertical-align:bottom; }
+header #top #search div.button { -moz-border-radius:10px; -webkit-border-radius:10px; -o-border-radius:10px;
+    border-radius:10px; -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.3); -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow:1px 1px 2px rgba(0, 0, 0, 0.3); width:119px; border:1px solid #a15a15; margin:-1px 0 0 -20px;
+    display:inline-block; height:20px; vertical-align:top; position:relative; }
+header #top #search input.button { background:#f38b26;
+    background:-moz-linear-gradient(top, #f38b26 0%, #d26a05 100%);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#f38b26), color-stop(100%,#d26a05));
+    background:-webkit-linear-gradient(top, #f38b26 0%,#d26a05 100%);
+    background:-o-linear-gradient(top, #f38b26 0%,#d26a05 100%);
+    background: -ms-linear-gradient(top, #f38b26 0%,#d26a05 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f38b26', endColorstr='#d26a05', GradientType=0);
+    background: linear-gradient(top, #f38b26 0%,#d26a05 100%); border:0; cursor:pointer; color:#FFF; width:119px;
+    height:20px; vertical-align:top; -moz-border-radius:10px; -webkit-border-radius:10px; -o-border-radius:10px;
+    border-radius:10px; -moz-box-shadow:inset 0 0 5px rgba(246, 165, 86, 1);
+    -webkit-box-shadow:inset 0 0 5px rgba(246, 165, 86, 1); box-shadow:inset 0 0 5px rgba(246, 165, 86, 1);
+    font-size:14px; font-weight:bold; text-shadow: 1px 1px 0px #975412; filter:dropshadow(color=#975412, offx=1, offy=1); }
 
 /* top navigation */
 header nav { width:1000px; margin:0 auto; }
@@ -130,7 +143,7 @@ section#gallery div.publications p { margin:0 0 5px 5px; float:left; display:inl
 section#gallery div.publications h4 { font-size:17px; margin-bottom:10px; color:#1B98B5; letter-spacing:-0.5px; }
 section#gallery div.publications h4.small { font-size:16px; }
 section#gallery div.publications p { font-size:12px; }
-section#gallery div.publications a { color:#000; }
+section#gallery div.publications a { color:#000; text-decoration:none; }
 
 section#gallery ul.switchers { text-align:center; font-size:18px; }
 section#gallery ul.switchers li { display:inline; color:#DDD; cursor:pointer; }
