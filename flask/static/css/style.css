@@ -165,14 +165,14 @@ div.wrap { width:1000px; margin:0 auto; margin-top:30px; }
     padding-top:30px; min-width:55px; margin-right:18px; cursor:pointer; position:relative; }
 #callout-boxes div.organisms ul li.push { margin-right:60px; }
 
-#callout-boxes div.organisms ul li.c-elegans { background-image:url('../img/organisms/c-elegans.png'); }
-#callout-boxes div.organisms ul li.d-melanogaster { background-image:url('../img/organisms/d-melanogaster.png'); }
-#callout-boxes div.organisms ul li.d-ananassae { background-image:url('../img/organisms/d-ananassae.png'); }
-#callout-boxes div.organisms ul li.d-mojavensis { background-image:url('../img/organisms/d-mojavensis.png'); }
-#callout-boxes div.organisms ul li.d-pseudoobscura { background-image:url('../img/organisms/d-pseudoobscura.png'); }
-#callout-boxes div.organisms ul li.d-simulans { background-image:url('../img/organisms/d-genericus.png'); }
-#callout-boxes div.organisms ul li.d-virilis { background-image:url('../img/organisms/d-virilis.png'); }
-#callout-boxes div.organisms ul li.d-yakuba { background-image:url('../img/organisms/d-genericus.png'); }
+#callout-boxes div.organisms ul li.worm { background-image:url('../img/organisms/c-elegans.png'); }
+#callout-boxes div.organisms ul li.fly { background-image:url('../img/organisms/d-melanogaster.png'); }
+#callout-boxes div.organisms ul li.fly_ananas { background-image:url('../img/organisms/d-ananassae.png'); }
+#callout-boxes div.organisms ul li.fly_dmoj { background-image:url('../img/organisms/d-mojavensis.png'); }
+#callout-boxes div.organisms ul li.fly_dp { background-image:url('../img/organisms/d-pseudoobscura.png'); }
+#callout-boxes div.organisms ul li.fly_simul { background-image:url('../img/organisms/d-genericus.png'); }
+#callout-boxes div.organisms ul li.fly_virilis { background-image:url('../img/organisms/d-virilis.png'); }
+#callout-boxes div.organisms ul li.fly_yakuba { background-image:url('../img/organisms/d-genericus.png'); }
 
 #callout-boxes div.organisms ul li div.actions { position:absolute; top:45px; left:0; background:#FFF; padding:14px;
     -moz-border-radius:3px; -webkit-border-radius:3px; -o-border-radius:3px; border-radius:3px; border:1px solid #72b0bf;

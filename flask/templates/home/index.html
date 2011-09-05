@@ -69,14 +69,14 @@
                 <div class="clear"></div>
             </div>
             <ul>
-                <li class="c-elegans">C. elegans</li>
-                <li class="d-melanogaster push">D. melanogaster</li>
-                <li class="d-ananassae">D. ananassae</li>
-                <li class="d-mojavensis">D. mojavensis</li>
-                <li class="d-pseudoobscura">D. pseudoobscura</li>
-                <li class="d-simulans">D. simulans</li>
-                <li class="d-virilis">D. virilis</li>
-                <li class="d-yakuba">D. yakuba</li>
+                <li class="worm">C. elegans</li>
+                <li class="fly push">D. melanogaster</li>
+                <li class="fly_ananas">D. ananassae</li>
+                <li class="fly_dmoj">D. mojavensis</li>
+                <li class="fly_dp">D. pseudoobscura</li>
+                <li class="fly_simul">D. simulans</li>
+                <li class="fly_virilis">D. virilis</li>
+                <li class="fly_yakuba">D. yakuba</li>
             </ul>
             <div class="clear"></div>
         </div>
@@ -100,7 +100,12 @@
             .append(jQuery('<div/>', {
                 class: 'button',
                 html: jQuery('<a/>', {
-                    href: '#',
+                    target: 'new',
+                    href: function() {
+                        // link to GBrowse
+                        return 'http://modencode.oicr.on.ca/fgb2/gbrowse/' + $(that).attr('class').replace('push', '')
+                        .replace('active', '').replace(/ /g,'');
+                    }(),
                     class: 'amaranth',
                     html: '<span>View in</span> GBrowse'
                 })
