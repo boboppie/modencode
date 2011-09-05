@@ -95,10 +95,10 @@
             // create the actions box
             var that = this;
             jQuery('<div/>', {
-                class: 'actions'
+                'class': 'actions'
             })
             .append(jQuery('<div/>', {
-                class: 'button',
+                'class': 'button',
                 html: jQuery('<a/>', {
                     target: 'new',
                     href: function() {
@@ -106,19 +106,19 @@
                         return 'http://modencode.oicr.on.ca/fgb2/gbrowse/' + $(that).attr('class').replace('push', '')
                         .replace('active', '').replace(/ /g,'');
                     }(),
-                    class: 'amaranth',
+                    'class': 'amaranth',
                     html: '<span>View in</span> GBrowse'
                 })
             }))
             .append(jQuery('<div/>', {
-                class: 'button',
+                'class': 'button',
                 html: jQuery('<a/>', {
                     target: 'new',
                     href: function() {
                         // link to Dataset Search
                         return 'http://50.19.216.135/?Organism=' + $(that).text();
                     }(),
-                    class: 'blumine',
+                    'class': 'blumine',
                     html: '<span>Search for</span> Datasets'
                 })
             }))
@@ -337,12 +337,25 @@
                 if (queue.length > 0) {
                     if (queue.pop() > 0) { // >
                         $("section#gallery div.set:not(:hidden):first").animate({
-                            marginRight: "-=948px",
-                        }, speed, function() { $(this).hide(); directionControls(); updateSwitchers(1); deQueue(); });
+                            marginRight: "-=948px"
+                        },
+                        speed,
+                        function() {
+                            $(this).hide();
+                            directionControls();
+                            updateSwitchers(1);
+                            deQueue();
+                        });
                     } else { // <
                         $("section#gallery div.set:not(:visible):last").show().animate({
-                            marginRight: "+=948px",
-                        }, speed, function() { directionControls(); updateSwitchers(-1); deQueue(); });
+                            marginRight: "+=948px"
+                        },
+                        speed,
+                        function() {
+                            directionControls();
+                            updateSwitchers(-1);
+                            deQueue();
+                        });
                     }
                 }
             }
