@@ -61,3 +61,39 @@ def publications():
         t.write(html)
 
     return t.read()
+    
+@home.route('/about')
+def about():
+    """
+    serve about page
+    """
+    return render_template('home/about.html')
+
+@home.route('/fly_2010pubs')
+def fly_2010pubs():
+    """
+    serve fly pubs page
+    """
+    return render_template('home/fly_2010pubs.html')
+
+@home.route('/worm_2010pubs')
+def worm_2010pubs():
+    """
+    serve worm pubs page
+    """
+    return render_template('home/worm_2010pubs.html')
+
+@home.route('/howtopubs')
+def howtopubs():
+    """
+    serve data format page
+    """
+    return render_template('home/howtopubs.html')
+
+@home.route('/dcc')
+def dcc():
+    """
+    serve dcc page
+    """
+    return render_template('home/dcc.html')
+

@@ -29,29 +29,95 @@
                 </div>
             </div>
         </div>
-        <nav>
-            {% block nav %}{% endblock %}
-        </nav>
+
+    <section id="top">
+        <article>
+            <nav>
+        {% block nav %}
+    <ul>
+        <li><a href="about">About modENCODE</a></li>
+        <li><a href="mailto:help@modencode.org">Contact Us</a></li>
+        <li><a href="dcc">Data Coordination Centre</a></li>
+        <li class="last"><a href="http://blog.modencode.org/">Latest News</a></li>
+    </ul>
+        {% endblock %}
+            </nav>
+        </article>
+    </section>
+
+
 
         <p class="blurb"><span>&ldquo;</span> The <a href="http://genome.gov">National Human Genome Research Institute</a> (NHGRI)
         model organism ENCyclopedia Of DNA Elements (modENCODE) Project will try to identify all of the sequence-based functional
         elements in the <i>Caenorhabditis elegans</i> and <i>Drosophila melanogaster</i> genomes.<span>&rdquo;</span>
         </p>
     </header>
+    
+
+    
+    
     <section id="main">
         <article>
             {% block body %}{% endblock %}
             <div class="clear"></div>
         </article>
     </section>
+    <section id="about">
+        <article>
+            {% block about %}{% endblock %}
+            <div class="clear"></div>
+        </article>
+    </section>
+    <section id="fly_2010pubs">
+        <article>
+            {% block fly_2010pubs %}{% endblock %}
+            <div class="clear"></div>
+        </article>
+    </section>
+    <section id="worm_2010pubs">
+        <article>
+            {% block worm_2010pubs %}{% endblock %}
+            <div class="clear"></div>
+        </article>
+    </section>
+    <section id="howtopubs">
+        <article>
+            {% block howtopubs %}{% endblock %}
+            <div class="clear"></div>
+        </article>
+    </section>
+    <section id="dcc">
+        <article>
+            {% block dcc %}{% endblock %}
+            <div class="clear"></div>
+        </article>
+    </section>
+    <section id="publications">
+        <article>
+            {% block publications %}{% endblock %}
+            <div class="clear"></div>
+        </article>
+    </section>
+   
+    
     {% block gallery %}{% endblock %}
     <section id="bottom">
         <article>
             <nav>
-                {% block bottom_nav %}{% endblock %}
+{% block bottom_nav %}
+<ul>
+    <li><a href="http://intermine.modencode.org/query/" target="_blank">modMine</a></li>
+    <li><a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/fly" target="_blank">Browse D. melanogaster genome</a></li>
+    <li><a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/worm" target="_blank">Browse C. elegans genome</a></li>
+    <li><a href="http://submit.modencode.org/submit/bulk_download" target="_blank">Download submissions</a></li>
+    <li class="last"><a href="http://submit.modencode.org/submit" target="_blank">Submit data</a></li>
+</ul>
+{% endblock %}
+
             </nav>
         </article>
     </section>
     <footer>Last updated: {{ time }}</footer>
+    
 </body>
 </html>
