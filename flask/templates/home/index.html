@@ -113,7 +113,11 @@
             .append(jQuery('<div/>', {
                 class: 'button',
                 html: jQuery('<a/>', {
-                    href: '#',
+                    target: 'new',
+                    href: function() {
+                        // link to Dataset Search
+                        return 'http://50.19.216.135/?Organism=' + $(that).text();
+                    }(),
                     class: 'blumine',
                     html: '<span>Search for</span> Datasets'
                 })
