@@ -14,10 +14,12 @@
     <header>
         <div id="top">
             <div class="wrap">
-                <div id="title">
-                    <p>modENCODE</p>
-                </div>
-                <p class="sub">The National Human Genome Research Institute MODel organism ENCyclopedia Of DNA Elements</p>
+                <hgroup>
+                    <div id="title">
+                        <p>modENCODE</p>
+                    </div>
+                    <p class="sub">The National Human Genome Research Institute MODel organism ENCyclopedia Of DNA Elements</p>
+                </hgroup>
 
                 <div class="div"></div>
 
@@ -37,17 +39,17 @@
         </p>
     </header>
     <section id="main">
-        <article>
+        <div class="wrap">
             {% block body %}{% endblock %}
-        </article>
+        </div>
     </section>
     {% block gallery %}{% endblock %}
     <section id="bottom">
-        <article>
+        <div class="wrap">
             <nav>
                 {% block bottom_nav %}{% endblock %}
             </nav>
-        </article>
+        </div>
     </section>
     <footer>Last updated: {{ time }}</footer>
 </body>

@@ -59,7 +59,7 @@ header p.blurb { width:1000px; margin:45px auto 0; color:#167C94; text-shadow:1p
     header p.blurb a:hover { text-decoration:underline; }
     header p.blurb span { font-family:Times; font-size:20px; font-style:italic; font-weight:bold; }
 
-article { width:1000px; margin:0 auto; margin-top:30px; }
+div.wrap { width:1000px; margin:0 auto; margin-top:30px; }
 
 /* callout boxes */
 #callout-boxes { background:#d6eff4; -moz-border-radius:5px; -webkit-border-radius:5px; -o-border-radius:5px;
@@ -258,8 +258,8 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content ul.experiments a { color:#155463; }
 
 /* gallery section */
-section#gallery article { border:0; position:relative; }
-section#gallery article h3 { color:#167C94; font-weight:bold; text-shadow:1px 1px 1px #FFF; }
+section#gallery div.wrap { border:0; position:relative; }
+section#gallery div.wrap h3 { color:#167C94; font-weight:bold; text-shadow:1px 1px 1px #FFF; }
 section#gallery div.move { display:block; background-position:center left; background-repeat:no-repeat; width:16px;
     height:150px; cursor:pointer; }
 section#gallery div.move.right { float:right; background-image:url('../img/arrow-right.png'); margin-left:10px; }
@@ -286,14 +286,14 @@ section#gallery ul.switchers { text-align:center; font-size:18px; }
 section#gallery ul.switchers li { display:inline; color:#DDD; cursor:pointer; }
 section#gallery ul.switchers li.current { color:#BBB; }
 
-section#gallery article div.see-more { position:absolute; top:38px; right:-40px; display:block; width:68px; height:40px;
+section#gallery div.wrap div.see-more { position:absolute; top:38px; right:-40px; display:block; width:68px; height:40px;
     background:url('../img/see-more.png') no-repeat top left; }
 
 /* bottom links */
-section#bottom article { border:0; }
-section#bottom article nav { text-align:center; margin-bottom:25px; }
-section#bottom article nav li { display:inline; margin-right:15px; }
-section#bottom article nav li.last { margin:0; }
-section#bottom article nav a { color:#70706D; text-decoration:none; font-size:14px; border-bottom:1px solid #DCDCCE; }
+section#bottom div.wrap { border:0; }
+section#bottom div.wrap nav { text-align:center; margin-bottom:25px; }
+section#bottom div.wrap nav li { display:inline; margin-right:15px; }
+section#bottom div.wrap nav li.last { margin:0; }
+section#bottom div.wrap nav a { color:#70706D; text-decoration:none; font-size:14px; border-bottom:1px solid #DCDCCE; }
 
 footer { margin:0 auto; margin-top:6px; width:1000px; text-align:center; color:#70706D; font-size:13px; }
