@@ -76,9 +76,18 @@ article { width:1000px; margin:0 auto; margin-top:30px; }
         rgba(174,207,215,1) 95%,rgba(154,182,191,1) 100%);
     filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#b0d1da', endColorstr='#9ab6bf',GradientType=0 );
     background:linear-gradient(top, rgba(176,209,218,1) 0%,rgba(179,212,221,1) 90%,rgba(174,207,215,1) 95%,
-        rgba(154,182,191,1) 100%); padding:16px 20px; }
-#callout-boxes div.box header h3 { color:#154e5b; font-weight:bold; text-shadow:1px 1px 1px #d8e8ed; }
-#callout-boxes div.box div { padding:10px; }
+        rgba(154,182,191,1) 100%); padding:11px 12px; height:30px; position:relative; }
+#callout-boxes div.box header h3 { color:#154e5b; font-weight:bold; text-shadow:1px 1px 1px #d8e8ed; display:inline-block;
+    margin:7px 0; }
+#callout-boxes div.box header div { display:inline; }
+#callout-boxes div.box header div.latest { display:block; position:absolute; top:-2px; right:12px; height:51px; width:52px;
+    background:url('../img/latest-modmine.png') no-repeat top left; padding:0; margin:0; }
+#callout-boxes div.box header div.latest span { color:#fff; font-size:11px; text-align:center; display:block; margin-top:2px; }
+#callout-boxes div.box header div.latest span.version { font-size:22px; margin-top:1px; font-weight:bold;
+    text-shadow:0 -1px 0px rgba(0, 0, 0, 0.3); }
+#callout-boxes div.box header div.latest span.version:before { content:"#"; color:#fff; font-size:14px; height:22px;
+    vertical-align:middle; }
+#callout-boxes div.box div { padding:10px 12px; }
 #callout-boxes div.box h4 { color:#154e5b; font-size:15px; margin-bottom:10px; }
 #callout-boxes div.box p { color:#167c94; font-size:14px; line-height:20px; }
 #callout-boxes div.box a { color:#167c94; }
@@ -92,6 +101,8 @@ article { width:1000px; margin:0 auto; margin-top:30px; }
 
 #callout-boxes div.box.amazon { width:279px; border-right:1px solid #fff; }
 #callout-boxes div.box.amazon header { border-top-width:1px; }
+#callout-boxes div.box.amazon header h3 { background:url('../img/amazon-logo.png') no-repeat top left; width:85px; height:0;
+    overflow:hidden; padding:22px 0 0 0; margin-bottom:0px; }
 
 #callout-boxes div.box.datasets { width:279px; border-right:1px solid #fff; }
 #callout-boxes div.box.datasets header { border-top-width:1px; }
@@ -99,6 +110,70 @@ article { width:1000px; margin:0 auto; margin-top:30px; }
 #callout-boxes div.box.ftp { width:279px; }
 #callout-boxes div.box.ftp header { -moz-border-radius-topright:5px; -webkit-border-top-right-radius:5px;
     border-top-right-radius:5px; border-width:1px 1px 0 0; }
+
+#callout-boxes div.button { -moz-border-radius:3px; -webkit-border-radius:3px; -o-border-radius:3px; border-radius:3px;
+    padding:6.5px 0 !important; margin:0; -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.25); box-shadow:1px 1px 2px rgba(0, 0, 0, 0.25); }
+#callout-boxes header div.button { float:right; display:inline-block !important; }
+#callout-boxes div.button a { text-decoration:none; color:#fff !important; font-weight:bold;
+    padding:5px 7px; -moz-border-radius:3px; -webkit-border-radius:3px; -o-border-radius:3px; border-radius:3px; }
+#callout-boxes div.button a.amaranth { text-shadow: 1px 1px 0px #9e1237; filter:dropshadow(color=#9e1237, offx=1, offy=1);
+    border:1px solid #9e143b; background:rgb(255,91,134);
+    background:-moz-linear-gradient(top, rgba(255,91,134,1) 0%, rgba(234,37,85,1) 100%);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,91,134,1)), color-stop(100%,rgba(234,37,85,1)));
+    background:-webkit-linear-gradient(top, rgba(255,91,134,1) 0%,rgba(234,37,85,1) 100%);
+    background:-o-linear-gradient(top, rgba(255,91,134,1) 0%,rgba(234,37,85,1) 100%);
+    background:-ms-linear-gradient(top, rgba(255,91,134,1) 0%,rgba(234,37,85,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5b86', endColorstr='#ea2555',GradientType=0 );
+    background: linear-gradient(top, rgba(255,91,134,1) 0%,rgba(234,37,85,1) 100%);
+    -moz-box-shadow:inset 0 0 5px rgba(244, 105, 141, 0.75); -webkit-box-shadow:inset 0 0 5px rgba(244, 105, 141, 0.75);
+    box-shadow:inset 0 0 5px rgba(244, 105, 141, 0.75);
+}
+#callout-boxes div.button a.blumine { text-shadow: 1px 1px 0px #0a2a31; filter:dropshadow(color=#0a2a31, offx=1, offy=1);
+    border:1px solid #0d3038; background:rgb(22,124,148);
+    background:-moz-linear-gradient(top, rgba(22,124,148,1) 0%, rgba(21,78,91,1) 100%);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(22,124,148,1)), color-stop(100%,rgba(21,78,91,1)));
+    background:-webkit-linear-gradient(top, rgba(22,124,148,1) 0%,rgba(21,78,91,1) 100%);
+    background:-o-linear-gradient(top, rgba(22,124,148,1) 0%,rgba(21,78,91,1) 100%);
+    background:-ms-linear-gradient(top, rgba(22,124,148,1) 0%,rgba(21,78,91,1) 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#167c94', endColorstr='#154e5b',GradientType=0 );
+    background:linear-gradient(top, rgba(22,124,148,1) 0%,rgba(21,78,91,1) 100%);
+    -moz-box-shadow:inset 0 0 5px rgba(104, 181, 199, 0.75); -webkit-box-shadow:inset 0 0 5px rgba(104, 181, 199, 0.75);
+    box-shadow:inset 0 0 5px rgba(104, 181, 199, 0.75);
+}
+
+#callout-boxes div.organisms header { color:#154e5b; border-top:1px solid #b2d0d7; background:rgb(196,225,232);
+    background:-moz-linear-gradient(top, rgba(176,209,218,0.5) 0%, rgba(195,224,231,0.5) 85%, rgba(189,217,224,0.6) 100%);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(176,209,218,0.5)),
+        color-stop(85%,rgba(195,224,231,0.5)), color-stop(100%,rgba(189,217,224,0.6)));
+    background:-webkit-linear-gradient(top, rgba(176,209,218,0.5) 0%,rgba(195,224,231,0.5) 85%,rgba(189,217,224,0.6) 100%);
+    background:-o-linear-gradient(top, rgba(176,209,218,0.5) 0%,rgba(195,224,231,0.5) 85%,rgba(189,217,224,0.6) 100%);
+    background:-ms-linear-gradient(top, rgba(176,209,218,0.5) 0%,rgba(195,224,231,0.5) 85%,rgba(189,217,224,0.6) 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#b0d1da', endColorstr='#bdd9e0',GradientType=0 );
+    background:linear-gradient(top, rgba(176,209,218,0.5) 0%,rgba(195,224,231,0.5) 85%,rgba(189,217,224,0.6) 100%);
+    font-size:14px; padding:7px 12px; }
+#callout-boxes div.organisms header p { margin-left:162px; }
+#callout-boxes div.organisms div.bottom div.logos { padding:12px; width:136px; border-right:1px solid #fff; float:left; }
+#callout-boxes div.organisms div.bottom div.logos a { height:0; overflow:hidden; display:inline-block; vertical-align:middle; }
+#callout-boxes div.organisms div.bottom div.logos a.gbrowse { background:url('../img/gbrowse-logo.png') no-repeat top left;
+    padding-top:15px; width:71px; margin-top:13px; }
+#callout-boxes div.organisms div.bottom div.logos a.oicr { background:url('../img/oicr-logo.png') no-repeat top left;
+    padding-top:42px; width:57px; float:right; }
+
+#callout-boxes div.organisms ul { float:left; margin:12px 0 0 12px; color:#167c94; font-size:13px; font-style:italic; }
+#callout-boxes div.organisms ul li { display:inline-block; background-repeat:no-repeat; background-position:top center;
+    padding-top:30px; min-width:55px; margin-right:18px; cursor:pointer; }
+#callout-boxes div.organisms ul li.active { text-decoration:underline; }
+#callout-boxes div.organisms ul li.push { margin-right:60px; }
+
+#callout-boxes div.organisms ul li.c-elegans { background-image:url('../img/organisms/c-elegans.png'); }
+#callout-boxes div.organisms ul li.d-melanogaster { background-image:url('../img/organisms/d-melanogaster.png'); }
+#callout-boxes div.organisms ul li.d-ananassae { background-image:url('../img/organisms/d-ananassae.png'); }
+#callout-boxes div.organisms ul li.d-mojavensis { background-image:url('../img/organisms/d-mojavensis.png'); }
+#callout-boxes div.organisms ul li.d-pseudoobscura { background-image:url('../img/organisms/d-pseudoobscura.png'); }
+#callout-boxes div.organisms ul li.d-simulans { background-image:url('../img/organisms/d-genericus.png'); }
+#callout-boxes div.organisms ul li.d-virilis { background-image:url('../img/organisms/d-virilis.png'); }
+#callout-boxes div.organisms ul li.d-yakuba { background-image:url('../img/organisms/d-genericus.png'); }
 
 /* modmine projects */
 #modmine-projects div.box { background:#FFF; border:1px solid #d7d5c8; -moz-border-radius:5px; -webkit-border-radius:5px;
