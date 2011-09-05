@@ -17,14 +17,14 @@
             <h3>modMine</h3>
             <div class="latest">
                 <span>release</span>
-                <span class="version">23</span>
+                <span class="version">24</span>
             </div>
         </header>
         <div>
             <h4>Older versions:</h4>
             <p>
-                <a class="size-1" href="#">22</a>, <a class="size-2" href="#">21</a>, <a class="size-3" href="#">20</a>,
-                <a href="#">19</a>, <a href="#">18</a>, <a href="#">17</a>, <a href="#">16</a>
+                <a class="size-1" href="#">23</a>, <a class="size-2" href="#">22</a>, <a class="size-3" href="#">21</a>,
+                <a href="#">20</a>, <a href="#">19</a>, <a href="#">18</a>, <a href="#">17</a>, <a href="#">16</a>
             </p>
         </div>
     </div>
@@ -84,13 +84,36 @@
 </div>
 <script>
     $('#callout-boxes div.organisms ul li').click(function() {
-        // TODO: hide the actions box
-
+        // hide the actions box
+        $(this).parent().find('div.actions').remove();
+        // are we activating an actions box?
         if (! $(this).hasClass('active')) {
             // make all inactive
             $('#callout-boxes div.organisms ul li').removeClass('active');
             // make this active
             $(this).addClass('active');
+            // create the actions box
+            var that = this;
+            jQuery('<div/>', {
+                class: 'actions'
+            })
+            .append(jQuery('<div/>', {
+                class: 'button',
+                html: jQuery('<a/>', {
+                    href: '#',
+                    class: 'amaranth',
+                    html: '<span>View in</span> GBrowse'
+                })
+            }))
+            .append(jQuery('<div/>', {
+                class: 'button',
+                html: jQuery('<a/>', {
+                    href: '#',
+                    class: 'blumine',
+                    html: '<span>Search for</span> Datasets'
+                })
+            }))
+            .appendTo(that);
         } else {
             $(this).removeClass('active');
         }
