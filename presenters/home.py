@@ -45,38 +45,3 @@ def update():
     fetch updates from modmine
     """
     return index(update=True)
-    
-@home.route('/about')
-def about():
-    """
-    serve about page
-    """
-    return render_template('home/about.html', **globals())
-
-@home.route('/fly_2010pubs')
-def fly_2010pubs():
-    """
-    serve fly pubs page
-    """
-    return render_template('home/fly_2010pubs.html', **globals())
-
-@home.route('/worm_2010pubs')
-def worm_2010pubs():
-    """
-    serve worm pubs page
-    """
-    return render_template('home/worm_2010pubs.html', **globals())
-
-@home.route('/howtopubs')
-def howtopubs():
-    """
-    serve data format page
-    """
-    return render_template('home/howtopubs.html', **globals())
-
-@home.route('/dcc')
-def dcc():
-    """
-    serve dcc page
-    """
-    return render_template('home/dcc.html', **globals())

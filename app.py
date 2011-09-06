@@ -23,9 +23,11 @@ def create_app():
 
     # presenters
     from presenters.home import home
+    from presenters.static import static
 
     # register modules
     app.register_blueprint(home)
+    app.register_blueprint(static)
 
     # template filters
     @app.template_filter('pi_filter')
