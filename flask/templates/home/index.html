@@ -3,24 +3,28 @@
 {% block body %}
 <div id="callout-boxes">
     <div class="box modmine">
+        <a target="new" href="{{ INTERMINE_URL }}/query" title="Latest modMine">
         <header>
             <h3>modMine</h3>
             <div class="latest">
                 <span>release</span>
-                <span class="version">24</span>
+                <span class="version">{{ MODMINE_REL[0] }}</span>
             </div>
         </header>
+        </a>
         <div>
             <h4>Older versions:</h4>
             <p>
-                <a class="size-1" href="#">23</a>, <a class="size-2" href="#">22</a>, <a class="size-3" href="#">21</a>,
-                <a href="#">20</a>, <a href="#">19</a>, <a href="#">18</a>, <a href="#">17</a>, <a href="#">16</a>
+                {% for rel in MODMINE_REL %}
+                    <a class="size-{{ loop.index }}" target="new" href="{{ INTERMINE_URL }}/release-{{ rel }}">{{ rel }}</a>
+                    {%- if not loop.last %},{% endif %}
+                {% endfor %}
             </p>
         </div>
     </div>
     <div class="box amazon">
         <header>
-            <div class="button"><a class="amaranth" href="#">Cloud instance</a></div>
+            <div class="button"><a class="amaranth" target="new" href="{{ DATASET_SEARCH_URL +  CLOUD_PAGE }}">Cloud instance</a></div>
             <h3>amazon</h3>
         </header>
         <div>
@@ -29,7 +33,7 @@
     </div>
     <div class="box datasets">
         <header>
-            <div class="button"><a class="blumine" href="#">Datasets</a></div>
+            <div class="button"><a class="blumine" target="new" href="{{ DATASET_SEARCH_URL }}">Datasets</a></div>
             <h3>Dataset Search</h3>
         </header>
         <div>
@@ -38,7 +42,7 @@
     </div>
     <div class="box ftp">
         <header>
-            <div class="button"><a class="blumine" href="#">Get FTP data</a></div>
+            <div class="button"><a class="blumine" target="new" href="{{ FTP_URL }}">Get FTP data</a></div>
             <h3>FTP Download</h3>
         </header>
         <div>
@@ -54,8 +58,8 @@
         </header>
         <div class="bottom">
             <div class="logos">
-                <a class="oicr" href="#">OICR</a>
-                <a class="gbrowse" href="#">GBrowse</a>
+                <a class="oicr">OICR</a>
+                <a class="gbrowse">GBrowse</a>
                 <div class="clear"></div>
             </div>
             <ul>
@@ -93,7 +97,7 @@
                     target: 'new',
                     href: function() {
                         // link to GBrowse
-                        return 'http://modencode.oicr.on.ca/fgb2/gbrowse/' + $(that).attr('class').replace('push', '')
+                        return '{{ GBROWSE_URL }}' + $(that).attr('class').replace('push', '')
                         .replace('active', '').replace(/ /g,'');
                     }(),
                     'class': 'amaranth',
@@ -106,7 +110,7 @@
                     target: 'new',
                     href: function() {
                         // link to Dataset Search
-                        return 'http://50.19.216.135/?Organism=' + $(that).text();
+                        return '{{ DATASET_SEARCH_URL }}?Organism=' + $(that).text();
                     }(),
                     'class': 'blumine',
                     html: '<span>Search for</span> Datasets'
@@ -165,7 +169,7 @@
                         <li>
                             <div class="project">{{ experiment.project_name|italics|safe }}</div>
                             <h4>
-                                <a href="{{ modmine_path }}experiment.do?experiment={{ experiment.experiment_name|url_encode }}" target="_blank">
+                                <a href="{{ INTERMINE_URL }}query/experiment.do?experiment={{ experiment.experiment_name|url_encode }}" target="_blank">
                                     {{ experiment.experiment_name|italics|safe }}
                                 </a>
                             </h4>
@@ -183,7 +187,7 @@
                                 {% if experiment.features %}
                                 <div class="features"><span>Features:</span>&nbsp;
                                     {%- for feature in experiment.features -%}
-                                        <a href="{{ modmine_path }}features.do?type=experiment&action=results&experiment=
+                                        <a href="{{ INTERMINE_URL }}query/features.do?type=experiment&action=results&experiment=
                                             {{- experiment.experiment_name|italics|safe }}&feature={{ feature.feature_type }}"
                                            target="_blank">
                                             {{- feature.feature_type }}: {{ feature.feature_counts -}}
@@ -193,7 +197,7 @@
                                 {% endif %}
                                 {% if experiment.gbrowse_tracks|count > 0 %}
                                 <div class="tracks"><span>GBrowse Tracks:</span>
-                                    <a href="{{ gbrowse_base }}{{ experiment.gbrowse_tracks.track_link }}" target="_blank">
+                                    <a href="{{ GBROWSE_URL }}{{ experiment.gbrowse_tracks.track_link }}" target="_blank">
                                         {{ experiment.gbrowse_tracks.track_counts }}
                                     </a>
                                 </div>

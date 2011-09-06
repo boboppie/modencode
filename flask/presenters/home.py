@@ -28,7 +28,6 @@ def index(update=False):
         # fetch data
         m = Modmine()
         data = m.get_catexp_data()
-        modmine_path = DATASOURCE_ROOT + "/" # make it work for modminetest for now, will switch to the next line
         gbrowse_base = m.get_gbrowse_base()
 	
         time = utils.current_time()
@@ -46,13 +45,6 @@ def update():
     fetch updates from modmine
     """
     return index(update=True)
-
-@home.route('/publications')
-def publications():
-    """
-    serve publications page
-    """
-    return render_template('home/publications.html', **globals())
     
 @home.route('/about')
 def about():

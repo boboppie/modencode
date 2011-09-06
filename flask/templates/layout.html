@@ -18,9 +18,11 @@
         <div id="top">
             <div class="wrap">
                 <hgroup>
-                    <div id="title">
-                        <p>modENCODE</p>
-                    </div>
+                    <a href="{{ url_for('home.index') }}">
+                        <div id="title">
+                            <p>modENCODE</p>
+                        </div>
+                    </a>
                     <p class="sub">The National Human Genome Research Institute MODel organism ENCyclopedia Of DNA Elements</p>
                 </hgroup>
 
@@ -28,15 +30,15 @@
 
                 <div id="search">
                     <form method="get" action="http://intermine.modencode.org/query/keywordSearchResults.do">
-                        <input type="text" class="text">
-                        <div class="button"><input type="submit" class="button" name="searchTerm" value="Search"></div>
+                        <input type="text" class="text" name="searchTerm">
+                        <div class="button"><input type="submit" class="button" value="Search"></div>
                     </form>
                 </div>
             </div>
         </div>
         <nav>
             <ul>
-                <li><a href="about">About modENCODE</a></li>
+                <li><a href="{{ url_for('home.about') }}">About modENCODE</a></li>
                 <li><a href="mailto:help@modencode.org">Contact Us</a></li>
                 <li><a href="dcc">Data Coordination Centre</a></li>
                 <li class="last"><a href="http://blog.modencode.org/">Latest News</a></li>

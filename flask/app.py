@@ -23,11 +23,9 @@ def create_app():
 
     # presenters
     from presenters.home import home
-    from presenters.fakeserver import modmine
 
     # register modules
     app.register_blueprint(home)
-    app.register_blueprint(modmine)
 
     # template filters
     @app.template_filter('pi_filter')
