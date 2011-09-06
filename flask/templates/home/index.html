@@ -320,6 +320,9 @@
     </div>
 </section>
 <script>
+    // change the width of the gallery articles in IE
+    if ($.browser.msie) $('section#gallery div.article').css('width', '300px').find('a').children('h4, p').css('width', '242px');
+
     (function() {
         // updates the gallery
         function moveGallery(distance, speed) {
