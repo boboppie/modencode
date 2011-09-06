@@ -188,7 +188,7 @@
                                 <div class="features"><span>Features:</span>&nbsp;
                                     {%- for feature in experiment.features -%}
                                         <a href="{{ INTERMINE_URL }}query/features.do?type=experiment&action=results&experiment=
-                                            {{- experiment.experiment_name|italics|safe }}&feature={{ feature.feature_type }}"
+                                            {{- experiment.experiment_name|url_encode }}&feature={{ feature.feature_type }}"
                                            target="_blank">
                                             {{- feature.feature_type }}: {{ feature.feature_counts -}}
                                         </a>{% if not loop.last %}, {% endif %}
