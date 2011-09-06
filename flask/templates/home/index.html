@@ -254,16 +254,24 @@
         $("#content ul li[target='" + organism + "']").addClass('active');
     });
 
+    // control the pi filter for a given category organism
     $("#content div.filter ul li").click(function() {
+        // no filter is active at the moment (even the 'show all' one)
         $(this).parent().find('li').removeClass('selected');
-        var pi = $(this).addClass('selected').text();
-        var experiments = $(this).parents(':eq(2)').find("ul.experiments li");
-        if (pi == 'Show all') {
-            experiments.show();
+        // set the current filter as active and fetch the pi we are filtering by
+        var pi = $(this).addClass('selected').text().replace(/ /g,''); // strip whitespace IE7
+        // go 3 parents up and find the list with all the experiments
+        var experiments = $(this).parents(':eq(2)').find("ul.experiments");
+        // are we showing them all?
+        if (pi == 'Showall') { // for stupid IE7 purposes
+            experiments.show().find('li').show();
         } else {
-            experiments.hide().each(function(index) {
-                if ($(this).find('div.pi').attr('title') == pi) {
+            // traverse the experiments and show only those that have the selected pi
+            experiments.find('li').each(function(index) {
+                if ($(this).find('div.pi').attr('title').replace(/ /g,'') == pi) {
                     $(this).show();
+                } else {
+                    $(this).hide();
                 }
             });
         }
