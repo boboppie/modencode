@@ -21,7 +21,7 @@ header #top #search input.text { background:url('../img/search-input.png') no-re
 header #top #search div.button { -moz-border-radius:10px; -webkit-border-radius:10px; -o-border-radius:10px;
     border-radius:10px; -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.3); -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.3);
     box-shadow:1px 1px 2px rgba(0, 0, 0, 0.3); width:119px; border:1px solid #a15a15; margin:-1px 0 0 -20px;
-    display:inline-block; height:20px; vertical-align:top; position:relative; }
+    display:inline-block; height:20px; vertical-align:top; position:relative; /* msie7 */ zoom:1; *display:inline; }
 header #top #search input.button { background:#f38b26;
     background:-moz-linear-gradient(top, #f38b26 0%, #d26a05 100%);
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#f38b26), color-stop(100%,#d26a05));
