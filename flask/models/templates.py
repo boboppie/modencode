@@ -19,6 +19,9 @@ class Templates:
         """
         write html into a template file
         """
+        if not os.path.isdir(self.dir):
+            os.makedirs(self.dir)
+
         with open(self.path, 'w') as f:
             f.write(template)
 

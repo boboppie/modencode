@@ -12,7 +12,7 @@ from libs import utils
 # models
 from models.modmine import Modmine
 from models.templates import Templates
-from models.constant import *
+from models.constants import *
 
 home = Blueprint('home', __name__)
 
@@ -28,24 +28,14 @@ def index(update=False):
         # fetch data
         m = Modmine()
         data = m.get_catexp_data()
-        modmine_path = config.DATASOURCE_ROOT + "/" # make it work for modminetest for now, will switch to the next line
-        # modmine_path = config.DATASOURCE_ROOT + "/" + m.get_webapp_path(update)
-        # or modmine_path = config.DATASOURCE_ROOT + "/query/"
+        modmine_path = DATASOURCE_ROOT + "/" # make it work for modminetest for now, will switch to the next line
         gbrowse_base = m.get_gbrowse_base()
-	
-        intermine_url = INTERMINE_URL
-	modmine_rel = MODMINE_REL
-        gbrowse_url = GBROWSE_URL
-        dataset_search_url = DATASET_SEARCH_URL
-
-	#aFly = ORG_MAP['D. pseudoobscura']
 	
         time = utils.current_time()
 
-        from models.publications import publications
+        from models.publications import publications as modencode_publications
 
-        # **locals(): the variables (time, etc.) that should be available in the context of the template
-        html = render_template('home/index.html', **locals())
+        html = render_template('home/index.html', **dict(locals().items() + globals().items()))
         t.write(html) # create a new static/html/index.html if not exist
 
     return t.read()
@@ -62,63 +52,39 @@ def publications():
     """
     serve publications page
     """
-    t = Templates('publications')
-
-    if not t.exists():
-        # TODO fetch data
-        html = render_template('home/publications.html', **locals())
-        t.write(html)
-
-    return t.read()
+    return render_template('home/publications.html', **globals())
     
 @home.route('/about')
 def about():
     """
     serve about page
     """
-    intermine_url = INTERMINE_URL
-    gbrowse_url = GBROWSE_URL
-    dataset_search_url = DATASET_SEARCH_URL
-
-    return render_template('home/about.html',**locals())
+    return render_template('home/about.html', **globals())
 
 @home.route('/fly_2010pubs')
 def fly_2010pubs():
     """
     serve fly pubs page
     """
-    intermine_url = INTERMINE_URL
-    gbrowse_url = GBROWSE_URL
-    dataset_search_url = DATASET_SEARCH_URL
-    return render_template('home/fly_2010pubs.html',**locals())
+    return render_template('home/fly_2010pubs.html', **globals())
 
 @home.route('/worm_2010pubs')
 def worm_2010pubs():
     """
     serve worm pubs page
     """
-    intermine_url = INTERMINE_URL
-    gbrowse_url = GBROWSE_URL
-    dataset_search_url = DATASET_SEARCH_URL
-    return render_template('home/worm_2010pubs.html',**locals())
+    return render_template('home/worm_2010pubs.html', **globals())
 
 @home.route('/howtopubs')
 def howtopubs():
     """
     serve data format page
     """
-    intermine_url = INTERMINE_URL
-    gbrowse_url = GBROWSE_URL
-    dataset_search_url = DATASET_SEARCH_URL
-    return render_template('home/howtopubs.html',**locals())
+    return render_template('home/howtopubs.html', **globals())
 
 @home.route('/dcc')
 def dcc():
     """
     serve dcc page
     """
-    intermine_url = INTERMINE_URL
-    gbrowse_url = GBROWSE_URL
-    dataset_search_url = DATASET_SEARCH_URL
-    return render_template('home/dcc.html',**locals())
-
+    return render_template('home/dcc.html', **globals())

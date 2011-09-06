@@ -1,15 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf -*-
 
-import config
 from libs.utils import fetch
 import json
 
+# models
+from models.constants import *
+
 class Modmine:
 
-    catexp_ws_url = config.DATASOURCE_ROOT + '/service/query/metadatacache/catexp'
-    webapp_path_ws_url = config.DATASOURCE_ROOT + '/service/query/metadatacache/webapp_path'
-    gbrowse_base_url = config.DATASOURCE_ROOT + '/service/query/metadatacache/gbrowse_base_url'
+    catexp_ws_url = DATASOURCE_ROOT + '/service/query/metadatacache/catexp'
+    webapp_path_ws_url = DATASOURCE_ROOT + '/service/query/metadatacache/webapp_path'
+    gbrowse_base_url = DATASOURCE_ROOT + '/service/query/metadatacache/gbrowse_base_url'
 
     #init value of metadata_cache is null
     metadata_catexp = None
