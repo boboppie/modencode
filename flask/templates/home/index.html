@@ -155,7 +155,7 @@
                 <div class="separator"></div>
 
                 {%- for organism in organisms -%}
-                <div class="organism" id="organism-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
+                <div class="organism organism-{{ loop.index }}" {% if not loop.first %}style="display:none;"{% endif %}>
                     {% set pis = organism.experiments|pi_filter %}
                     {% if pis|count > 1 %}
                     <div class="filter">
@@ -166,6 +166,7 @@
                                 <li>{{ pi }}</li>
                             {% endfor %}
                         </ul>
+                        <div class="clear"></div>
                     </div>
                     {% endif %}
 
@@ -221,25 +222,36 @@
 </div>
 
 <script>
+    // control the project tabs on the left
     $("aside ul li").click(function() {
+        var category = $(this).attr('target');
+        // no left tabs are active now
         $("aside ul li.active").removeClass('active');
+        // any current category is not visible anymore
         $("#content div.category:visible").hide();
-        $("#" + $(this).attr('target')).show();
+        // show #category-2 etc.
+        $("#" + category).show();
+        // make the left tab active
         $(this).addClass('active');
 
-        if ($("#" + $(this).attr('target') + " ul.switcher li.active").length < 1) {
-            $("#" + $(this).attr('target') + " ul.switcher li:first").addClass('active');
+        // make the first organism tag active if the second organism is not present in the current category
+        if ($("#" + category + " ul.switcher li.active").length < 1) {
+            $("#" + category + " ul.switcher li:first").addClass('active');
         }
 
+        // hide all experiments for all organisms first
         $("#content div.category div.organism").hide();
-        $("#content #" + $("#" + $(this).attr('target') + " ul.switcher li.active").attr('target')).show();
+        // show the experiments being targeted by the active organism tab
+        $("#content #" + category + " div.organism." + $("#" + category + " ul.switcher li.active").attr('target')).show();
     });
 
+    // control the organism tabs in a given category
     $("#content ul.switcher li").click(function() {
+        var organism = $(this).attr('target');
         $("#content ul li.active").removeClass('active');
         $("#content div.organism:visible").hide();
-        $("#content #" + $(this).attr('target')).show();
-        $("#content ul li[target='" + $(this).attr('target') + "']").addClass('active');
+        $("#content div.organism." + organism).show();
+        $("#content ul li[target='" + organism + "']").addClass('active');
     });
 
     $("#content div.filter ul li").click(function() {

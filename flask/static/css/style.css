@@ -162,7 +162,7 @@ div.wrap { width:1000px; margin:0 auto; margin-top:30px; }
 
 #callout-boxes div.organisms ul { float:left; margin:12px 0 0 12px; color:#167c94; font-size:13px; font-style:italic; }
 #callout-boxes div.organisms ul li { display:inline-block; background-repeat:no-repeat; background-position:top center;
-    padding-top:30px; min-width:55px; margin-right:18px; cursor:pointer; position:relative; }
+    padding-top:30px; min-width:55px; margin-right:18px; cursor:pointer; position:relative; float:left; }
 #callout-boxes div.organisms ul li.push { margin-right:60px; }
 
 #callout-boxes div.organisms ul li.worm { background-image:url('../img/organisms/c-elegans.png'); }
@@ -211,7 +211,7 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content div.category ul.switcher { height:29px; margin-top:12px; }
 #content div.category ul.switcher li { display:inline-block; padding:7px 10px; cursor:pointer; margin-right:10px;
     border-bottom:1px solid #FFF; background:url('../img/organism-tab-bg.png') repeat-x top left; color:#565148;
-    font-size:15px; }
+    font-size:15px; float:left; }
 #content div.category ul.switcher li.active { color:#FFF; border-bottom-color:#155463; background:rgb(22,123,147);
     background:-moz-linear-gradient(top, rgba(22,123,147,1) 0%, rgba(21,84,99,1) 100%);
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(22,123,147,1)),
@@ -234,10 +234,10 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 
 /* modmine projects -> pi filter */
 #content div.category div.filter { margin-top:20px; font-size:13px; }
-#content div.category div.filter span { color:#70706D; font-size:13px; margin-right:5px; }
+#content div.category div.filter span { color:#70706D; font-size:13px; margin-right:10px; float:left; line-height:18px; }
 #content div.category div.filter ul { display:inline; }
 #content div.category div.filter ul li { display:inline-block; margin-right:10px; padding:2px 4px; border:1px solid #155463;
-    cursor:pointer; color:#155463; }
+    cursor:pointer; color:#155463; float:left; }
 #content div.category div.filter ul li.selected { background:#155463; color:#FFF; }
 
 /* modmine projects -> experiments */
