@@ -12,8 +12,10 @@ from libs import utils
 # models
 from models.modmine import Modmine
 from models.templates import Templates
+from models.constant import *
 
 home = Blueprint('home', __name__)
+
 
 @home.route('/')
 def index(update=False):
@@ -30,7 +32,14 @@ def index(update=False):
         # modmine_path = config.DATASOURCE_ROOT + "/" + m.get_webapp_path(update)
         # or modmine_path = config.DATASOURCE_ROOT + "/query/"
         gbrowse_base = m.get_gbrowse_base()
+	
+        intermine_url = INTERMINE_URL
+	modmine_rel = MODMINE_REL
+        gbrowse_url = GBROWSE_URL
+        dataset_search_url = DATASET_SEARCH_URL
 
+	#aFly = ORG_MAP['D. pseudoobscura']
+	
         time = utils.current_time()
 
         from models.publications import publications
@@ -67,33 +76,49 @@ def about():
     """
     serve about page
     """
-    return render_template('home/about.html')
+    intermine_url = INTERMINE_URL
+    gbrowse_url = GBROWSE_URL
+    dataset_search_url = DATASET_SEARCH_URL
+
+    return render_template('home/about.html',**locals())
 
 @home.route('/fly_2010pubs')
 def fly_2010pubs():
     """
     serve fly pubs page
     """
-    return render_template('home/fly_2010pubs.html')
+    intermine_url = INTERMINE_URL
+    gbrowse_url = GBROWSE_URL
+    dataset_search_url = DATASET_SEARCH_URL
+    return render_template('home/fly_2010pubs.html',**locals())
 
 @home.route('/worm_2010pubs')
 def worm_2010pubs():
     """
     serve worm pubs page
     """
-    return render_template('home/worm_2010pubs.html')
+    intermine_url = INTERMINE_URL
+    gbrowse_url = GBROWSE_URL
+    dataset_search_url = DATASET_SEARCH_URL
+    return render_template('home/worm_2010pubs.html',**locals())
 
 @home.route('/howtopubs')
 def howtopubs():
     """
     serve data format page
     """
-    return render_template('home/howtopubs.html')
+    intermine_url = INTERMINE_URL
+    gbrowse_url = GBROWSE_URL
+    dataset_search_url = DATASET_SEARCH_URL
+    return render_template('home/howtopubs.html',**locals())
 
 @home.route('/dcc')
 def dcc():
     """
     serve dcc page
     """
-    return render_template('home/dcc.html')
+    intermine_url = INTERMINE_URL
+    gbrowse_url = GBROWSE_URL
+    dataset_search_url = DATASET_SEARCH_URL
+    return render_template('home/dcc.html',**locals())
 

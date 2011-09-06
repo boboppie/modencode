@@ -34,12 +34,26 @@
         <article>
             <nav>
         {% block nav %}
+        
+
     <ul>
         <li><a href="about">About modENCODE</a></li>
         <li><a href="mailto:help@modencode.org">Contact Us</a></li>
         <li><a href="dcc">Data Coordination Centre</a></li>
         <li class="last"><a href="http://blog.modencode.org/">Latest News</a></li>
     </ul>
+    <hr>
+<ul>
+{%- for rel in modmine_rel -%}
+<li><a href="{{ intermine_url }}release-{{ rel  }}">{{ rel }}</a></li>
+{%- endfor -%}
+</ul>
+<ul>
+<li>{{ gbrowse_base }}</li>
+<li>{{ gbrowse_url }}</li>
+<li>{{ mosca }}</li>
+</ul>
+
         {% endblock %}
             </nav>
         </article>
@@ -98,18 +112,18 @@
             <div class="clear"></div>
         </article>
     </section>
-   
-    
+       
     {% block gallery %}{% endblock %}
+
     <section id="bottom">
         <article>
             <nav>
 {% block bottom_nav %}
 <ul>
-    <li><a href="http://intermine.modencode.org/query/" target="_blank">modMine</a></li>
-    <li><a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/fly" target="_blank">Browse D. melanogaster genome</a></li>
-    <li><a href="http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/worm" target="_blank">Browse C. elegans genome</a></li>
-    <li><a href="http://submit.modencode.org/submit/bulk_download" target="_blank">Download submissions</a></li>
+    <li><a href="{{ intermine_url }}query/" target="_blank">modMine</a></li>
+    <li><a href="{{ gbrowse_url }}/fly" target="_blank">Browse D. melanogaster genome</a></li>
+    <li><a href="{{ gbrowse_url }}/worm" target="_blank">Browse C. elegans genome</a></li>
+    <li><a href="{{ dataset_search_url }}" target="_blank">DataSets search</a></li>
     <li class="last"><a href="http://submit.modencode.org/submit" target="_blank">Submit data</a></li>
 </ul>
 {% endblock %}
@@ -117,7 +131,9 @@
             </nav>
         </article>
     </section>
-    <footer>Last updated: {{ time }}</footer>
-    
+    <footer>
+    {% if time  %}
+    Last updated: {{ time }}</footer>
+    {% endif %}
 </body>
 </html>
