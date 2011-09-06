@@ -27,13 +27,20 @@
                 <div class="div"></div>
 
                 <div id="search">
-                    <input type="text" class="text">
-                    <div class="button"><input type="submit" class="button" value="Search"></div>
+                    <form method="get" action="http://intermine.modencode.org/query/keywordSearchResults.do">
+                        <input type="text" class="text">
+                        <div class="button"><input type="submit" class="button" name="searchTerm" value="Search"></div>
+                    </form>
                 </div>
             </div>
         </div>
         <nav>
-            {% block nav %}{% endblock %}
+            <ul>
+                <li><a href="about">About modENCODE</a></li>
+                <li><a href="mailto:help@modencode.org">Contact Us</a></li>
+                <li><a href="dcc">Data Coordination Centre</a></li>
+                <li class="last"><a href="http://blog.modencode.org/">Latest News</a></li>
+            </ul>
         </nav>
 
         <p class="blurb"><span>&ldquo;</span> The <a href="http://genome.gov">National Human Genome Research Institute</a> (NHGRI)
@@ -41,19 +48,15 @@
         elements in the <i>Caenorhabditis elegans</i> and <i>Drosophila melanogaster</i> genomes.<span>&rdquo;</span>
         </p>
     </header>
+
     <section id="main">
         <div class="wrap">
             {% block body %}{% endblock %}
         </div>
     </section>
+
     {% block gallery %}{% endblock %}
-    <section id="bottom">
-        <div class="wrap">
-            <nav>
-                {% block bottom_nav %}{% endblock %}
-            </nav>
-        </div>
-    </section>
-    <footer>Last updated: {{ time }}</footer>
+
+    {% if time %}<footer>Last updated: {{ time }}</footer>{% endif %}
 </body>
 </html>

@@ -1,14 +1,18 @@
+This is Fengyuan's fork from Radek's original project @ git://github.com/radekstepan/modencode.git
+
 A Flask app serving the homepage of the modENCODE project
 
 ## Requirements:
-- Flask 0.7+
-- CherryPy (if you want to call yourself, you do...)
+- Flask
+- CherryPy
 
 ## Installation:
-- make sure Flask is installed, <code>easy_install flask</code>
-- run the install script <code>python install.py</code> and choose the port the app will run at
-- run the app, <code>python server.py</code>
+- Make sure Flask is installed, <code>easy_install flask</code>, to install the bleeding edge version, refer to http://flask.pocoo.org/docs/installation/#living-on-the-edge
+- Make sure CherryPy is installed, <code>easy_install cherrypy</code>
+- Run the install script <code>python install.py</code> and input the port the app will run at
+- Run the app, <code>python server.py</code>
 
 ## Usage:
 
-Visit <code>/update</code> to force an update to html cache
+- Visit <code>/update</code> to force an update to html cache
+- Change modMine webservice base url in install.py (DATASOURCE_ROOT field), and install the script again; or change directly in the generated config.py, and refresh the page 

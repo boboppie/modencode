@@ -1,16 +1,6 @@
 {% extends "layout.html" %}
-{% block nav %}
-<ul>
-    <li><a href="index.html#">About modENCODE</a></li>
-    <li><a href="index.html#">Project Mission</a></li>
-    <li><a href="index.html#">Contact Us</a></li>
-    <li><a href="index.html#">Team Members</a></li>
-    <li class="last"><a href="index.html#">Latest News</a></li>
-</ul>
-{% endblock %}
 
 {% block body %}
-
 <div id="callout-boxes">
     <div class="box modmine">
         <header>
@@ -286,10 +276,9 @@
         <h3>modENCODE publications</h3>
         <div class="move right"></div>
         <div class="move left inactive"></div>
-        
         <div class="inner">
             <div class="publications">
-                {% set articles = publications|flatten_publications %}
+                {% set articles = modencode_publications|flatten_publications %}
                 <div class="wrapper" style="width:{{ articles|length *  316 }}px">
                     <div class="set">
                     {% for article in articles %}

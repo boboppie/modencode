@@ -19,6 +19,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(config)
     app.secret_key = config.SECRET_KEY
+    app.debug = False
 
     # presenters
     from presenters.home import home
@@ -104,7 +105,7 @@ def create_app():
     def italics(text):
         """
         Apply italics to genus etc.
-        """        
+        """
         return re.sub(re.compile('('+('|'.join(['C\. elegans', 'Caenorhabditis elegans', 'D\. melanogaster', 'Drosophila melanogaster',
         'Drosophila', 'cis-', 'trans-']))+')'), lambda m: "<i>%s</i>" % m.group(1), text)
 
@@ -112,4 +113,5 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
+    app.debug = True
     app.run(port=config.FLASK_PORT)

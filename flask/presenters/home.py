@@ -1,8 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf -*-
 
+import config
+
 # framework
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, jsonify
 
 # imports
 from libs import utils
@@ -10,32 +12,31 @@ from libs import utils
 # models
 from models.modmine import Modmine
 from models.templates import Templates
+from models.constants import *
 
 home = Blueprint('home', __name__)
+
 
 @home.route('/')
 def index(update=False):
     """
     serve home page
     """
-    t = Templates('index')
+    t = Templates('index') # create a new Template object from "static/html/index.html", it doesn't exist the first call
 
     if update or not t.exists():
         # fetch data
         m = Modmine()
-        data = m.get_data()
-
-        # TODO: how shall we do "genus" italics?
-
+        data = m.get_catexp_data()
+        modmine_path = DATASOURCE_ROOT + "/" # make it work for modminetest for now, will switch to the next line
+        gbrowse_base = m.get_gbrowse_base()
+	
         time = utils.current_time()
 
-        modmine_path = "http://intermine.modencode.org/modminetest/"
-        gbrowse_base = "http://modencode.oicr.on.ca/cgi-bin/gb2/gbrowse/"
+        from models.publications import publications as modencode_publications
 
-        from models.publications import publications
-
-        html = render_template('home/index.html', **locals())
-        t.write(html)
+        html = render_template('home/index.html', **dict(locals().items() + globals().items()))
+        t.write(html) # create a new static/html/index.html if not exist
 
     return t.read()
 
@@ -45,3 +46,45 @@ def update():
     fetch updates from modmine
     """
     return index(update=True)
+
+@home.route('/publications')
+def publications():
+    """
+    serve publications page
+    """
+    return render_template('home/publications.html', **globals())
+    
+@home.route('/about')
+def about():
+    """
+    serve about page
+    """
+    return render_template('home/about.html', **globals())
+
+@home.route('/fly_2010pubs')
+def fly_2010pubs():
+    """
+    serve fly pubs page
+    """
+    return render_template('home/fly_2010pubs.html', **globals())
+
+@home.route('/worm_2010pubs')
+def worm_2010pubs():
+    """
+    serve worm pubs page
+    """
+    return render_template('home/worm_2010pubs.html', **globals())
+
+@home.route('/howtopubs')
+def howtopubs():
+    """
+    serve data format page
+    """
+    return render_template('home/howtopubs.html', **globals())
+
+@home.route('/dcc')
+def dcc():
+    """
+    serve dcc page
+    """
+    return render_template('home/dcc.html', **globals())

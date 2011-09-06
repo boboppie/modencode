@@ -296,4 +296,83 @@ section#bottom div.wrap nav li { display:inline; margin-right:15px; }
 section#bottom div.wrap nav li.last { margin:0; }
 section#bottom div.wrap nav a { color:#70706D; text-decoration:none; font-size:14px; border-bottom:1px solid #DCDCCE; }
 
+/* categories -> switchers */
+#content div.category ul.switcher { height:29px; margin-top:12px; }
+#content div.category ul.switcher li { display:inline-block; padding:7px 10px; cursor:pointer; margin-right:10px;
+    border-bottom:1px solid #FFF; background:url('../img/organism-tab-bg.png') repeat-x top left; color:#565148;
+    font-size:15px; }
+#content div.category ul.switcher li.active { background:#5EA2B9; color:#FFF; border-bottom-color:#5EA2B9; }
+#content div.category ul.switcher li span { background-position:top left; background-repeat:no-repeat; padding-left:20px;
+    line-height:21px; height:21px; display:inline-block; }
+#content div.category ul.switcher li.d-melanogaster span { background-image:url('../img/drosophila-brown.png');
+    padding-left:23px; }
+#content div.category ul.switcher li.d-melanogaster.active span { background-image:url('../img/drosophila-white.png'); }
+#content div.category ul.switcher li.c-elegans span { background-image:url('../img/elegans-brown.png'); }
+#content div.category ul.switcher li.c-elegans.active span { background-image:url('../img/elegans-white.png'); }
+#content div.category div.separator { height:5px; display:block; width:100%; background:#5EA2B9; margin-top:7px; }
+
+/* categories -> pi filter */
+#content div.category div.filter { margin-top:20px; font-size:13px; }
+#content div.category div.filter span { color:#70706D; font-size:13px; margin-right:5px; }
+#content div.category div.filter ul { display:inline; }
+#content div.category div.filter ul li { display:inline-block; margin-right:10px; padding:2px 4px; border:1px solid #5EA2B9;
+    cursor:pointer; color:#5EA2B9; }
+#content div.category div.filter ul li.selected { background:#5EA2B9; color:#FFF; }
+
+/* categories -> experiments */
+#content div.category ul.experiments { margin-top:20px; font-size:14px; }
+#content div.category ul.experiments h2 { font-size:20px; text-shadow:1px 1px 1px #F6F6F6; line-height:23px;
+    margin-bottom:6px; }
+#content div.category ul.experiments h2 a { text-decoration:none; }
+#content div.category ul.experiments h2 a:hover { text-decoration:underline; }
+#content div.category ul.experiments span { color:#70706D; font-size:13px; }
+#content div.category ul.experiments li { padding:14px 5px; }
+#content div.category ul.experiments li:nth-child(even) { background:#FBF9F1; }
+#content div.category ul.experiments li:not(:first-child) { border-top:1px solid #E8DDC8; }
+#content div.category ul.experiments div { display:inline-block; margin-right:10px; line-height:22px; }
+#content div.category ul.experiments div.project { float:right; line-height:26px; vertical-align:bottom; font-size:13px;
+    margin-left:10px; }
+#content div.category ul.experiments div.labs, #content div.category ul.experiments div.factors { clear:both; }
+
+#content ul.experiments a { color:#167C94; }
+
+/* gallery section */
+section#gallery article { border:0; position:relative; }
+section#gallery article h3 { color:#167C94; font-weight:bold; text-shadow:1px 1px 1px #FFF; }
+section#gallery div.move { display:block; background-position:center left; background-repeat:no-repeat; width:16px;
+    height:150px; cursor:pointer; }
+section#gallery div.move.right { float:right; background-image:url('../img/arrow-right.png'); margin-left:10px; }
+section#gallery div.move.left { float:left; background-image:url('../img/arrow-left.png'); margin-right:10px; }
+section#gallery div.move.inactive { background:none; cursor:default; }
+
+section#gallery div.inner { float:left; }
+
+section#gallery div.publications { overflow:hidden; width:948px; height:150px; display:block; position:relative; }
+section#gallery div.publications div.wrapper { position:absolute; }
+section#gallery div.publications div.article { float:left; width:304px; margin:0 15px 100px 0; padding:10px 0;
+    background:#FFF; }
+section#gallery div.publications div.set { float:left; width:948px; }
+section#gallery div.publications div.set div.article:last-child { margin-right:0; }
+section#gallery div.publications img { float:right; border:1px solid #DDD; }
+section#gallery div.publications h4,
+section#gallery div.publications p { margin:0 0 5px 5px; float:left; display:inline; width:246px; }
+section#gallery div.publications h4 { font-size:17px; margin-bottom:10px; color:#1B98B5; letter-spacing:-0.5px; }
+section#gallery div.publications h4.small { font-size:16px; }
+section#gallery div.publications p { font-size:12px; }
+section#gallery div.publications a { color:#000; }
+
+section#gallery ul.switchers { text-align:center; font-size:18px; }
+section#gallery ul.switchers li { display:inline; color:#DDD; cursor:pointer; }
+section#gallery ul.switchers li.current { color:#BBB; }
+
+section#gallery article div.see-more { position:absolute; top:38px; right:-40px; display:block; width:68px; height:40px;
+    background:url('../img/see-more.png') no-repeat top left; }
+
+/* bottom links */
+section#bottom article { border:0; }
+section#bottom article nav { text-align:center; margin-bottom:25px; }
+section#bottom article nav li { display:inline; margin-right:15px; }
+section#bottom article nav li.last { margin:0; }
+section#bottom article nav a { color:#70706D; text-decoration:none; font-size:14px; border-bottom:1px solid #DCDCCE; }
+
 footer { margin:0 auto; margin-top:6px; width:1000px; text-align:center; color:#70706D; font-size:13px; }
