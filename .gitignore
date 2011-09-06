@@ -1,4 +1,4 @@
 *.pyc
 .idea
 config.py
-flask/static/html/
+flask/static/html/*.*
