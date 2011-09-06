@@ -3,6 +3,7 @@
 
 # framework
 from flask import Blueprint, render_template
+import jinja2
 
 # models
 from models.constants import *
@@ -14,4 +15,7 @@ def page(name):
     '''
     serve a 'static' page
     '''
-    return render_template('static/%s.html' % name, **globals())
+    try:
+    	return render_template('static/%s.html' % name, **globals())
+    except jinja2.exceptions.TemplateNotFound:
+    	return 'Page Not Found'
