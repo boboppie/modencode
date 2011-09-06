@@ -79,9 +79,10 @@ div.wrap { width:1000px; margin:0 auto; margin-top:30px; }
         rgba(154,182,191,1) 100%); padding:11px 12px; height:30px; position:relative; }
 #callout-boxes div.box header h3 { color:#154e5b; font-weight:bold; text-shadow:1px 1px 1px #d8e8ed; display:inline-block;
     margin:7px 0; }
+#callout-boxes div.box header a { text-decoration:none; }
 #callout-boxes div.box header div { display:inline; }
 #callout-boxes div.box header div.latest { display:block; position:absolute; top:-2px; right:12px; height:51px; width:52px;
-    background:url('../img/latest-modmine.png') no-repeat top left; padding:0; margin:0; }
+    background:url('../img/latest-modmine.png') no-repeat top left; padding:0; margin:0; text-decoration:none; }
 #callout-boxes div.box header div.latest span { color:#fff; font-size:11px; text-align:center; display:block; margin-top:2px; }
 #callout-boxes div.box header div.latest span.version { font-size:22px; margin-top:1px; font-weight:bold;
     text-shadow:0 -1px 0px rgba(0, 0, 0, 0.3); }
