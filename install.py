@@ -7,8 +7,7 @@ import random, os
 cfg = {
     'FLASK_PORT' : 5000,
     'DEBUG' : True,
-    'SECRET_KEY' : '',
-    'DATASOURCE_ROOT' : 'http://intermine.modencode.org/modminetest'
+    'SECRET_KEY' : ''
 }
 
 # flask app port
