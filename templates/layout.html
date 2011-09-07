@@ -39,7 +39,7 @@
         <nav>
             <ul>
                 <li><a href="{{ url_for('static.page', name='about') }}">About modENCODE</a></li>
-                <li><a href="mailto:help@modencode.org">Contact Us</a></li>
+                <li><a href="{{ url_for('forms.contact') }}">Contact Us</a></li>
                 <li><a href="{{ url_for('static.page', name='dcc') }}">Data Coordination Centre</a></li>
                 <li><a target="new" href="http://blog.modencode.org/">Latest News</a></li>
             </ul>
@@ -70,7 +70,7 @@
                     <li><a target="new" href="{{ DATASET_SEARCH_URL }}">Dataset Search</a></li>
                     <li><a target="new" href="{{ FTP_URL }}">FTP Download</a></li>
                     <li><a target="new" href="http://blog.modencode.org/">Latest News</a></li>
-                    <li><a href="mailto:help@modencode.org">Contact Us</a></li>
+                    <li><a href="{{ url_for('forms.contact') }}">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
