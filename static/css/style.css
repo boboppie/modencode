@@ -218,7 +218,6 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
     background:-webkit-linear-gradient(top, rgba(209,199,186,1) 0%,rgba(196,181,158,1) 100%);
     background:-o-linear-gradient(top, rgba(209,199,186,1) 0%,rgba(196,181,158,1) 100%);
     background:-ms-linear-gradient(top, rgba(209,199,186,1) 0%,rgba(196,181,158,1) 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1c7ba', endColorstr='#c4b59e',GradientType=0 );
     background:linear-gradient(top, rgba(209,199,186,1) 0%,rgba(196,181,158,1) 100%); }
 #content div.category ul.switcher li.active { background:#5EA2B9; border-bottom-color:#5EA2B9; color:#FFFFFF;
     -moz-box-shadow:1px 1px 2px #888; -webkit-box-shadow: 1px 1px 2px #888; box-shadow: 1px 1px 2px #888; }
