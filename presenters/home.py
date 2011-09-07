@@ -17,9 +17,6 @@ from models.constants import *
 
 home = Blueprint('home', __name__)
 
-# allowed ip addresses to call /update
-allowed_ip = ['127.0.0.1']
-
 def match_ip(f):
     """
     match a specific ip address when calling this function
@@ -27,9 +24,10 @@ def match_ip(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         remote = request.remote_addr
-        if remote not in allowed_ip:
-            return redirect(url_for('home.index'))
-        return f(*args, **kwargs)
+        for ip in config.ALLOWED_IP:
+            if remote.startswith(ip):
+                return f(*args, **kwargs)
+        return redirect(url_for('app.code_401', ip=remote))
     return decorated_function
 
 @home.route('/')
