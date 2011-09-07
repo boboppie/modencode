@@ -16,7 +16,7 @@
             <h4>Older versions:</h4>
             <p>
                 {% for rel in MODMINE_REL %}
-                    <a class="size-{{ loop.index }}" target="new" href="{{ INTERMINE_URL }}/release-{{ rel }}">{{ rel }}</a>
+                    <a class="size-{{ loop.index }}" target="new" href="{{ INTERMINE_URL }}release-{{ rel }}">{{ rel }}</a>
                     {%- if not loop.last %},{% endif %}
                 {% endfor %}
             </p>
