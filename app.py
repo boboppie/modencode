@@ -24,11 +24,14 @@ def create_app():
     # presenters
     from presenters.home import home
     from presenters.static import static
+    from presenters.forms import forms
     from presenters.app import app as system
+
 
     # register modules
     app.register_blueprint(home)
     app.register_blueprint(static)
+    app.register_blueprint(forms)
     app.register_blueprint(system)
 
     # template filters
