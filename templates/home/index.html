@@ -166,7 +166,13 @@
 
                     <ul class="experiments">
                         {%- for experiment in organism.experiments -%}
-                        <li>
+                        <li
+                        class="
+                        {%- if loop.index is divisibleby(2) -%}even {% endif -%}
+                        {%- if not loop.first -%}border {% endif -%}
+                        {%- if loop.last and not loop.first -%}last{% endif -%}
+                        "
+                        >
                             <div class="project">{{ experiment.project_name|italics|safe }}</div>
                             <h4>
                                 <a href="{{ INTERMINE_URL }}query/experiment.do?experiment={{ experiment.experiment_name|url_encode }}" target="_blank">
@@ -269,6 +275,14 @@
                 }
             });
         }
+
+        // apply the appropriate classes to list elements
+        visible = experiments.find('li:visible');
+        visible.removeClass('border even last').each(function(index) {
+            if (index > 0) $(this).addClass('border');
+            if (index % 2 != 0) $(this).addClass('even');
+        });
+        if (visible.length % 2 == 0) visible.last().addClass('last');
     });
 </script>
 

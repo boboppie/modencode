@@ -247,8 +247,9 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content div.category ul.experiments h4 a:hover { text-decoration:underline; }
 #content div.category ul.experiments span { color:#70706D; font-size:13px; }
 #content div.category ul.experiments li { padding:14px 5px; }
-#content div.category ul.experiments li:nth-child(even) { background:#FBF9F1; }
-#content div.category ul.experiments li:not(:first-child) { border-top:1px solid #E8DDC8; }
+#content div.category ul.experiments li.even { background:#FBF9F1; }
+#content div.category ul.experiments li.border { border-top:1px solid #E8DDC8; }
+#content div.category ul.experiments li.last { border-bottom:1px solid #E8DDC8; }
 #content div.category ul.experiments div { display:inline-block; margin-right:10px; line-height:22px; }
 #content div.category ul.experiments div.project { float:right; line-height:26px; vertical-align:bottom; font-size:13px;
     margin-left:10px; }
