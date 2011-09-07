@@ -27,3 +27,6 @@ Provided you have set <code>DEBUG = True</code> in your <code>config.py</code> f
 1. Run <code>./start_server.sh</code>. This will launch <code>cherryd</code> with settings coming from <code>cherrypy.conf</code> that uses an 'in-between' script <code>create_flask_app.py</code> to attach the Flask Object to the server
 2. A file, <code>cherrypy.pid</code> will be created that has the id of the process running
 3. Calling <code>./stop_server.sh</code> will read the .pid file and kill the process waiting for child threads to terminate
+
+### Update from GitHub
+Run <code>./github_update.sh</code> to stop the running server, run a git pull and start the server again.
