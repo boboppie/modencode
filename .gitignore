@@ -3,4 +3,4 @@
 *.pid
 .idea
 config.py
-static/html/
+/static/html/*
