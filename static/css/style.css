@@ -211,17 +211,16 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 /* modmine projects -> switchers */
 #content div.category ul.switcher { height:29px; margin-top:12px; }
 #content div.category ul.switcher li { display:inline-block; padding:7px 10px; cursor:pointer; margin-right:10px;
-    border-bottom:1px solid #FFF; background:url('../img/organism-tab-bg.png') repeat-x top left; color:#565148;
-    font-size:15px; float:left; }
-#content div.category ul.switcher li.active { color:#FFF; border-bottom-color:#155463; background:rgb(22,123,147);
-    background:-moz-linear-gradient(top, rgba(22,123,147,1) 0%, rgba(21,84,99,1) 100%);
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(22,123,147,1)),
-        color-stop(100%,rgba(21,84,99,1)));
-    background:-webkit-linear-gradient(top, rgba(22,123,147,1) 0%,rgba(21,84,99,1) 100%);
-    background:-o-linear-gradient(top, rgba(22,123,147,1) 0%,rgba(21,84,99,1) 100%);
-    background:-ms-linear-gradient(top, rgba(22,123,147,1) 0%,rgba(21,84,99,1) 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#167b93', endColorstr='#155463',GradientType=0 );
-    background:linear-gradient(top, rgba(22,123,147,1) 0%,rgba(21,84,99,1) 100%);
+    border-bottom:1px solid #FFF; color:#565148; font-size:15px; float:left; background:rgb(209,199,186);
+    background:-moz-linear-gradient(top, rgba(209,199,186,1) 0%, rgba(196,181,158,1) 100%);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(209,199,186,1)),
+        color-stop(100%,rgba(196,181,158,1)));
+    background:-webkit-linear-gradient(top, rgba(209,199,186,1) 0%,rgba(196,181,158,1) 100%);
+    background:-o-linear-gradient(top, rgba(209,199,186,1) 0%,rgba(196,181,158,1) 100%);
+    background:-ms-linear-gradient(top, rgba(209,199,186,1) 0%,rgba(196,181,158,1) 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1c7ba', endColorstr='#c4b59e',GradientType=0 );
+    background:linear-gradient(top, rgba(209,199,186,1) 0%,rgba(196,181,158,1) 100%); }
+#content div.category ul.switcher li.active { background:#5EA2B9; border-bottom-color:#5EA2B9; color:#FFFFFF;
     -moz-box-shadow:1px 1px 2px #888; -webkit-box-shadow: 1px 1px 2px #888; box-shadow: 1px 1px 2px #888; }
 #content div.category ul.switcher li span { background-position:top left; background-repeat:no-repeat; padding-left:20px;
     line-height:21px; height:21px; display:inline-block; }
@@ -230,16 +229,16 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
 #content div.category ul.switcher li.d-melanogaster.active span { background-image:url('../img/drosophila-white.png'); }
 #content div.category ul.switcher li.c-elegans span { background-image:url('../img/elegans-brown.png'); }
 #content div.category ul.switcher li.c-elegans.active span { background-image:url('../img/elegans-white.png'); }
-#content div.category div.separator { height:5px; display:block; width:100%; background:#155463; margin-top:7px;
+#content div.category div.separator { height:5px; display:block; width:100%; background:#5EA2B9; margin-top:7px;
     position:relative; }
 
 /* modmine projects -> pi filter */
 #content div.category div.filter { margin-top:20px; font-size:13px; }
 #content div.category div.filter span { color:#70706D; font-size:13px; margin-right:10px; float:left; line-height:18px; }
 #content div.category div.filter ul { display:inline; }
-#content div.category div.filter ul li { display:inline-block; margin-right:10px; padding:2px 4px; border:1px solid #155463;
-    cursor:pointer; color:#155463; float:left; }
-#content div.category div.filter ul li.selected { background:#155463; color:#FFF; }
+#content div.category div.filter ul li { display:inline-block; margin-right:10px; padding:2px 4px; border:1px solid #5EA2B9;
+    cursor:pointer; color:#5EA2B9; float:left; }
+#content div.category div.filter ul li.selected { background:#5EA2B9; color:#FFF; }
 
 /* modmine projects -> experiments */
 #content div.category ul.experiments { margin-top:20px; font-size:14px; }
@@ -256,7 +255,7 @@ aside ul li.active { background:url('../img/sidebar-option-active.png') no-repea
     margin-left:10px; }
 #content div.category ul.experiments div.labs, #content div.category ul.experiments div.factors { clear:both; }
 
-#content ul.experiments a { color:#155463; }
+#content ul.experiments a { color:#167C94; }
 
 /* gallery section */
 section#gallery div.wrap { border:0; position:relative; }
