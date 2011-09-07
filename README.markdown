@@ -1,18 +1,19 @@
-This is Fengyuan's fork from Radek's original project @ git://github.com/radekstepan/modencode.git
-
 A Flask app serving the homepage of the modENCODE project
 
 ## Requirements:
 - Flask
-- CherryPy
+- Flask-Mail (for sending mail from the contact form)
+- CherryPy (for production)
 
 ## Installation:
-- Make sure Flask is installed, <code>easy_install flask</code>, to install the bleeding edge version, refer to http://flask.pocoo.org/docs/installation/#living-on-the-edge
-- Make sure CherryPy is installed, <code>easy_install cherrypy</code>
-- Run the install script <code>python install.py</code> and input the port the app will run at
-- Run the app, <code>python server.py</code>
+- Make sure Flask <code>easy_install flask</code>, Flask-Mail <code>easy_install flask-mail</code> and CherryPy <code>easy_install cherrypy</code> are installed
+- Run the install script <code>python install.py</code> and choose the port the app will run at
+- Run the app, <code>python server.py</code>, or <code>python app.py</code> if you want to use the Werkzeug debugger and are on development
 
-## Usage:
+## Setup
 
-- Visit <code>/update</code> to force an update to html cache
-- Change modMine webservice base url in install.py (DATASOURCE_ROOT field), and install the script again; or change directly in the generated config.py, and refresh the page 
+- Configure SMTP and other settings in <code>config.py</code>, the docs are here [http://packages.python.org/Flask-Mail/#configuring-flask-mail](http://packages.python.org/Flask-Mail/#configuring-flask-mail)
+- Modify site constants as needed in <code>models/constants.py</code>
+
+## usage
+- Visit <code>/update/</code> to fetch the latest data from modMine and update the homepage

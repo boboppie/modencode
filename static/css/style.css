@@ -319,14 +319,15 @@ div.form input,
 div.form textarea { display:block; }
 div.form label { color:#154E5B; }
 div.form input,
-div.form textarea { margin:6px 1px 16px 1px; }
+div.form textarea { margin:6px 1px 16px 1px; font-size:14px; }
 div.form input[type="text"],
 div.form input[type="email"],
 div.form textarea { width:300px; padding:4px; border:1px solid #167C94; -moz-border-radius:3px;
     -webkit-border-radius:3px; -o-border-radius:3px; border-radius:3px; }
-div.form textarea { width:500px; height:100px; }
+div.form textarea { width:500px; height:100px; font-family:"Sans",sans-serif; }
 div.form input:focus,
 div.form textarea:focus { margin:5px 0 15px; border-width:2px; outline:none; }
+div.form form .fail { -moz-box-shadow:0 0 1.5px 1px red; -webkit-box-shadow:0 0 1.5px 1px red; box-shadow:0 0 1.5px 1px red; }
 div.form div.button { -moz-border-radius:3px; -webkit-border-radius:3px; -o-border-radius:3px; border-radius:3px;
     padding:0 !important; margin:0; -moz-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.25);
     -webkit-box-shadow:1px 1px 2px rgba(0, 0, 0, 0.25); box-shadow:1px 1px 2px rgba(0, 0, 0, 0.25); display:inline-block; }
@@ -344,3 +345,7 @@ div.form div.button input { text-decoration:none; color:#fff !important; font-we
     -moz-box-shadow:inset 0 0 5px rgba(244, 105, 141, 0.75); -webkit-box-shadow:inset 0 0 5px rgba(244, 105, 141, 0.75);
     box-shadow:inset 0 0 5px rgba(244, 105, 141, 0.75);
 }
+div.form p.message { margin-bottom:20px; font-size:14px; }
+div.form p.message.fail { color:red; }
+div.form p.message.fail a { color:red; }
+div.form p.message.success { color:green; }

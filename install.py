@@ -8,7 +8,11 @@ cfg = {
     'FLASK_PORT' : 5000,
     'DEBUG' : False,
     'SECRET_KEY' : '',
-    'ALLOWED_IP' : ['127.0', '192.168', '131.111.60']
+    'ALLOWED_IP' : ['127.0', '192.168', '131.111.60'],
+    'MAIL_SERVER' : '',
+    'MAIL_PORT' : '',
+    'MAIL_RECIPIENTS' : ['help@modencode.org'],
+    'MAIL_FAIL_SILENTLY' : False
 }
 
 # flask app port
