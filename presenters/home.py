@@ -51,7 +51,7 @@ def index(update=False):
 
     return t.read()
 
-@home.route('/update')
+@home.route('/update/')
 @match_ip
 def update():
     """
