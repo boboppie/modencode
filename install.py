@@ -8,7 +8,7 @@ cfg = {
     'FLASK_PORT' : 5000,
     'DEBUG' : False,
     'SECRET_KEY' : '',
-    'ALLOWED_IP' : ['127.0', '192.168']
+    'ALLOWED_IP' : ['127.0', '192.168', '131.111.60']
 }
 
 # flask app port
