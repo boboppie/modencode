@@ -29,6 +29,7 @@ while True:
 
 cfg['SECRET_KEY'] = ''.join([random.choice('./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') for i in range(30)])
 
+# write config.py
 python_code = []
 for key, value in cfg.items():
     if isinstance(value, str):
@@ -38,4 +39,17 @@ for key, value in cfg.items():
 with open(os.getcwd() + '/config.py', 'w') as f:
     f.write('\n'.join(python_code))
 
-print('\nConfiguration file written successfully.\n')
+# write cherrypy.conf
+conf =\
+'''
+[global]
+server.socket_host = '0.0.0.0'
+server.socket_port = %i
+server.environment = "production"
+tree.mount = {'/' : create_flask_app.application}
+''' % cfg['FLASK_PORT']
+
+with open(os.getcwd() + '/cherrypy.conf', 'w') as f:
+    f.write(conf)
+
+print('\nConfiguration files written successfully.\n')

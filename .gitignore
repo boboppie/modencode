@@ -1,4 +1,5 @@
 *.pyc
+*.conf
 .idea
 config.py
 static/html/
