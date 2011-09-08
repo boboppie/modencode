@@ -19,3 +19,11 @@ def page(name):
     	return render_template('static/%s.html' % name, **globals())
     except jinja2.exceptions.TemplateNotFound:
     	return redirect(url_for('app.code_404'))
+
+@static.route('/publications/integrative_fly_2010/')
+def fly_page():
+	return redirect(url_for('static.page', name='fly_2010pubs'))
+
+@static.route('/publications/integrative_worm_2010/')
+def worm_page():
+	return redirect(url_for('static.page', name='worm_2010pubs'))

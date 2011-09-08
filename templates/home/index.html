@@ -24,7 +24,7 @@
     </div>
     <div class="box amazon">
         <header>
-            <div class="button"><a class="amaranth" target="new" href="{{ DATASET_SEARCH_URL +  CLOUD_PAGE }}">Cloud instance</a></div>
+            <div class="button"><a class="amaranth" target="new" href="{{ DATASET_SEARCH_URL + '/' + CLOUD_PAGE }}">Cloud instance</a></div>
             <h3>amazon</h3>
         </header>
         <div>
@@ -110,7 +110,7 @@
                     target: 'new',
                     href: function() {
                         // link to Dataset Search
-                        return '{{ DATASET_SEARCH_URL }}?Organism=' + $(that).text();
+                        return '{{ DATASET_SEARCH_URL }}/?Organism=' + $(that).text();
                     }(),
                     'class': 'blumine',
                     html: '<span>Search for</span> Datasets'
