@@ -20,10 +20,6 @@ def create_app():
     app.config.from_object(config)
     app.secret_key = config.SECRET_KEY
     app.debug = config.DEBUG
-    
-    # setup mail
-    from libs.mail import init_mail
-    init_mail(app)
 
     # presenters
     from presenters.home import home

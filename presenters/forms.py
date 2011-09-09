@@ -7,8 +7,7 @@ import config
 from flask import Blueprint, render_template, request, redirect, url_for
 
 # email
-from flaskext.mail import Message
-from libs.mail import mail
+import libs.mail
 
 # models
 from models.constants import *
@@ -28,12 +27,15 @@ def contact():
         if not 'message' in request.form or len(request.form['message']) < 1: fail['message'] = 'Please fill in this field'
         if not fail:
             # form msg
-            msg = Message("modENCODE Contact Form", sender=request.form['email'], recipients=config.MAIL_RECIPIENTS)
-            msg.body = "From %s%s:\n\n%s" %\
+            message_body = "From %s%s:\n\n%s" %\
                 (request.form['email'], " (%s)" % request.form['name'] if len(request.form['name']) > 0 else '', request.form['message'])
             
+            # send
             try:
-                mail.send(msg)
+                result = libs.mail.send(request.form['email'], message_body)
+                if result:
+                    raise Exception()
+                
                 message = { 'class':'success', 'text':'Your message has been <strong>sent</strong>.' }
             except:
                 message = { 'class':'fail', 'text':'There was a problem sending your message, try to email us directly'\

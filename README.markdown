@@ -2,20 +2,18 @@ A Flask app serving the homepage of the modENCODE project
 
 ## Requirements:
 - Flask
-- Flask-Mail (for sending mail from the contact form)
 - CherryPy WSGI Server (for production)
 
 ## Installation:
 Make sure these are installed:
 
 - Flask <code>easy_install flask</code>
-- Flask-Mail <code>easy_install flask-mail</code>
 - CherryPy <code>easy_install cherrypy</code>
 
 ## Setup
 
 - Run the install script <code>python install.py</code> and choose the **port** the app will run at
-- Configure **SMTP** and other settings in <code>config.py</code>, the relevant docs are here [http://packages.python.org/Flask-Mail/#configuring-flask-mail](http://packages.python.org/Flask-Mail/#configuring-flask-mail)
+- Configure **SMTP** and other settings in <code>config.py</code>
 - Modify site constants as needed in <code>models/constants.py</code>
 
 ## Running
