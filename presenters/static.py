@@ -21,9 +21,18 @@ def page(name):
     	return redirect(url_for('app.code_404'))
 
 @static.route('/publications/integrative_fly_2010/')
+@static.route('/publications/integrative_fly_2010/index.shtml')
 def fly_page():
 	return redirect(url_for('static.page', name='fly_2010pubs'))
 
 @static.route('/publications/integrative_worm_2010/')
+@static.route('/publications/integrative_worm_2010/index.shtml')
 def worm_page():
 	return redirect(url_for('static.page', name='worm_2010pubs'))
+
+@static.route('/publications/files/<first>')
+@static.route('/publications/files/<first>/<second>')
+def file(first, second=None):
+	if second:
+		return redirect('%s/%s/%s' % (FILES_URL, first, second))
+	return redirect('%s/%s' % (FILES_URL, first))
