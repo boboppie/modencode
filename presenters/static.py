@@ -11,6 +11,8 @@ from models.constants import *
 static = Blueprint('static', __name__)
     
 @static.route('/<name>/')
+@static.route('/publications/<name>/')
+@static.route('/publications/<name>/index.shtml')
 def page(name):
     '''
     serve a 'static' page
