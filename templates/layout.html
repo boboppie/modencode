@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+	<title>modENCODE</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.6.2.min.js') }}"></script>
+    <!--[if lt IE 9]>
+    <script src="{{ url_for('static', filename='js/ie-html5.js') }}"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <div id="top">
+            <div class="wrap">
+                <hgroup>
+                    <a href="{{ url_for('home.index') }}">
+                        <div id="title">
+                            <p>modENCODE</p>
+                        </div>
+                    </a>
+                    <p class="sub">The National Human Genome Research Institute MODel organism ENCyclopedia Of DNA Elements</p>
+                </hgroup>
+
+                <div class="div"></div>
+
+                <div id="search">
+                    <form method="get" action="http://intermine.modencode.org/query/keywordSearchResults.do">
+                        <input type="text" class="text" name="searchTerm">
+                        <div class="button"><input type="submit" class="button" value="Search"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('static.page', name='about') }}">About modENCODE</a></li>
+                <li><a href="mailto:help@modencode.org">Contact Us</a></li>
+                <li><a href="{{ url_for('static.page', name='dcc') }}">Data Coordination Centre</a></li>
+                <li><a target="new" href="http://blog.modencode.org/">Latest News</a></li>
+            </ul>
+        </nav>
+
+        <p class="blurb"><span>&ldquo;</span> The <a href="http://genome.gov">National Human Genome Research Institute</a> (NHGRI)
+        model organism ENCyclopedia Of DNA Elements (modENCODE) Project will try to identify all of the sequence-based functional
+        elements in the <i>Caenorhabditis elegans</i> and <i>Drosophila melanogaster</i> genomes.<span>&rdquo;</span>
+        </p>
+    </header>
+
+    <section id="main">
+        <div class="wrap">
+            {% block body %}{% endblock %}
+        </div>
+    </section>
+
+    {% block gallery %}{% endblock %}
+
+    <section id="bottom">
+        <div class="wrap">
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('static.page', name='about') }}">About modENCODE</a></li>
+                    <li><a href="{{ url_for('static.page', name='dcc') }}">Data Coordination Centre</a></li>
+                    <li><a target="new" href="{{ GBROWSE_URL }}">GBrowse</a></li>
+                    <li><a target="new" href="{{ DATASET_SEARCH_URL + '/' + CLOUD_PAGE }}">Amazon EC2 Cloud</a></li>
+                    <li><a target="new" href="{{ DATASET_SEARCH_URL }}">Dataset Search</a></li>
+                    <li><a target="new" href="{{ FTP_URL }}">FTP Download</a></li>
+                    <li><a target="new" href="http://blog.modencode.org/">Latest News</a></li>
+                    <li><a href="mailto:help@modencode.org">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    {% if time %}<footer>Last updated: {{ time }}</footer>{% endif %}
+</body>
+</html>

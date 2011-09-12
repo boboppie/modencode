@@ -1,4 +1,6 @@
 *.pyc
+*.conf
+*.pid
 .idea
 config.py
-flask/static/html/*.*
+/static/html/*

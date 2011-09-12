@@ -1,18 +1,30 @@
-This is Fengyuan's fork from Radek's original project @ git://github.com/radekstepan/modencode.git
-
 A Flask app serving the homepage of the modENCODE project
 
 ## Requirements:
 - Flask
-- CherryPy
+- CherryPy WSGI Server (for production)
 
 ## Installation:
-- Make sure Flask is installed, <code>easy_install flask</code>, to install the bleeding edge version, refer to http://flask.pocoo.org/docs/installation/#living-on-the-edge
-- Make sure CherryPy is installed, <code>easy_install cherrypy</code>
-- Run the install script <code>python install.py</code> and input the port the app will run at
-- Run the app, <code>python server.py</code>
+Make sure these are installed:
 
-## Usage:
+- Flask <code>easy_install flask</code>
+- CherryPy <code>easy_install cherrypy</code>
 
-- Visit <code>/update</code> to force an update to html cache
-- Change modMine webservice base url in install.py (DATASOURCE_ROOT field), and install the script again; or change directly in the generated config.py, and refresh the page 
+## Setup
+
+- Run the install script <code>python install.py</code> and choose the **port** the app will run at
+- Configure **SMTP** and other settings in <code>config.py</code>
+- Modify site constants as needed in <code>models/constants.py</code>
+
+## Running
+### Flask/Werkzeug Server (for development)
+The app can be run through the Werkzeug WSGI server that comes with Flask. To run it, execute <code>python flask_app.py</code>.
+Provided you have set <code>DEBUG = True</code> in your <code>config.py</code> file, this option will give you an interactive debugger and your app will be reloaded if changes to source files are detected.
+
+### CherryPy WSGI Server (for production)
+1. Run <code>./start_server.sh</code>. This will launch <code>cherryd</code> with settings coming from <code>cherrypy.conf</code> that uses an 'in-between' script <code>create_flask_app.py</code> to attach the Flask Object to the server
+2. A file, <code>cherrypy.pid</code> will be created that has the id of the process running
+3. Calling <code>./stop_server.sh</code> will read the .pid file and kill the process waiting for child threads to terminate
+
+### Update from GitHub
+Run <code>./github_update.sh</code> to stop the running server, run a git pull and start the server again.
