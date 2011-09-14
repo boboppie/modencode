@@ -14,9 +14,9 @@ from models.constants import *
 
 forms = Blueprint('forms', __name__)
 
-@forms.route('/contact/', methods=['GET', 'POST'])
-@forms.route('/contacts/', methods=['GET', 'POST'])
-@forms.route('/contact-us/', methods=['GET', 'POST'])
+#@forms.route('/contact/', methods=['GET', 'POST'])
+#@forms.route('/contacts/', methods=['GET', 'POST'])
+#@forms.route('/contact-us/', methods=['GET', 'POST'])
 def contact():
     """
     contact form, duh
