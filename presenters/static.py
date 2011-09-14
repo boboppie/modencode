@@ -38,3 +38,7 @@ def file(first, second=None):
 	if second:
 		return redirect('%s/%s/%s' % (FILES_URL, first, second))
 	return redirect('%s/%s' % (FILES_URL, first))
+    
+@static.route('/software/ranger/')
+def ranger():
+    return redirect('http://ranger.sourceforge.net/')
