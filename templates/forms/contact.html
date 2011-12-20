@@ -12,15 +12,15 @@
     <form method="POST">
         <label for="name">Your name:</label>
         <input type="text" id="name" name="name" value="{{ request.form['name'] }}">
-        
+
         <label for="email">Your e-mail</label>
         <input type="email" id="email" name="email" required="required" {% if fail.email %}class="fail" value="{{ fail.email -}}
         "{% else %}value="{{ request.form['email'] }}"{% endif %}>
-        
+
         <label for="message">Your message:</label>
         <textarea id="message" name="message" required="required" {% if fail.email -%}
             class="fail">{{ fail.message }}{% else %}>{{ request.form['message'] }}{% endif %}</textarea>
-        
+
         <div class="button">
             <input type="submit" value="Send">
         </div>
